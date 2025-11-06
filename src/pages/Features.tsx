@@ -59,6 +59,11 @@ export default function Features() {
           icon: Users,
           title: "Waiter & Drop-Off Intelligence",
           description: "OptiBay understands appointment urgency — protecting end-of-day cutoffs and optimizing waiting customers first."
+        },
+        {
+          icon: TrendingUp,
+          title: "Smart Rollover Scheduling",
+          description: "Automatically carries unfinished work into the next day — preserving time logs, bay assignments, and technician context so nothing slips through cracks."
         }
       ]
     },
@@ -75,6 +80,11 @@ export default function Features() {
           icon: Lock,
           title: "Role-Based Access & Quiet-Hour Communication",
           description: "Secure, role-based permissions for Managers, Writers, and Techs — with notifications that respect shop hours and time zones."
+        },
+        {
+          icon: Zap,
+          title: "Real-Time Sync & Echo-Guard",
+          description: "Stay perfectly aligned across devices and users — OptiBay's live synchronization prevents duplicate actions and keeps every board instantly up to date."
         }
       ]
     }
