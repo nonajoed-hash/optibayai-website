@@ -23,32 +23,13 @@ export default function Pricing() {
       name: "Dispatch",
       description: "For growing multi-bay operations",
       price: "Coming Soon",
-      popular: true,
-      features: [
-        "Up to 20 service bays",
-        "Everything in Core, plus:",
-        "Advanced analytics",
-        "Technician time tracking",
-        "Parts inventory tracking",
-        "SMS notifications",
-        "Priority support",
-        "API access"
-      ]
+      features: []
     },
     {
       name: "Enterprise",
       description: "For large shops and chains",
       price: "Custom",
-      features: [
-        "Unlimited bays & locations",
-        "Everything in Dispatch, plus:",
-        "Custom integrations",
-        "Dedicated account manager",
-        "Custom training",
-        "SLA guarantees",
-        "Advanced security",
-        "White-label options"
-      ]
+      features: []
     }
   ];
 
@@ -69,15 +50,8 @@ export default function Pricing() {
             {plans.map((plan, index) => (
               <Card 
                 key={index} 
-                className={`relative ${plan.popular ? 'border-primary border-2 shadow-lg' : 'border-2'}`}
+                className="relative border-2"
               >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
                 <CardHeader>
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
@@ -97,11 +71,13 @@ export default function Pricing() {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full" variant={plan.popular ? "default" : "outline"}>
-                    <Link to="/beta">Join Beta</Link>
-                  </Button>
-                </CardFooter>
+                {plan.name === "Core" && (
+                  <CardFooter>
+                    <Button asChild className="w-full" variant="outline">
+                      <Link to="/beta">Join Beta</Link>
+                    </Button>
+                  </CardFooter>
+                )}
               </Card>
             ))}
           </div>
