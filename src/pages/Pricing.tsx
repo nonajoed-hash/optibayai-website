@@ -8,7 +8,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Core",
-      description: "Perfect for single-location shops",
+      description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
       price: "Coming Soon",
       features: [
         "Up to 5 service bays",
@@ -21,13 +21,13 @@ export default function Pricing() {
     },
     {
       name: "Dispatch",
-      description: "For growing multi-bay operations",
+      description: "Advanced coordination and optimization across bays, teams, and workloads.",
       price: "Coming Soon",
       features: []
     },
     {
       name: "Enterprise",
-      description: "For large shops and chains",
+      description: "Built for MSOs, large chains, and corporate operations needing full integration.",
       price: "Custom",
       features: []
     }
