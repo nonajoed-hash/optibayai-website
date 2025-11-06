@@ -11,12 +11,16 @@ export default function Pricing() {
       description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
       price: "Coming Soon",
       features: [
-        "Up to 5 service bays",
-        "Smart scheduling & calendar",
-        "Customer portal",
-        "Basic reporting",
-        "Email support",
-        "Mobile access"
+        "AI-Driven Smart Scheduling",
+        "Dynamic Dispatch Optimization",
+        "Waiter & Drop-Off Intelligence",
+        "OptiLearn Engine",
+        "Drag-and-Drop Dayboard",
+        "Birdseye View Dashboard",
+        "Multi-Bay & Rollover Support",
+        "Live ETA & Job Timers",
+        "CSV Import & Integration Ready",
+        "Role-Based Access"
       ]
     },
     {
@@ -72,9 +76,12 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 {plan.name === "Core" && (
-                  <CardFooter>
+                  <CardFooter className="flex-col gap-2">
                     <Button asChild className="w-full" variant="outline">
                       <Link to="/beta">Join Beta</Link>
+                    </Button>
+                    <Button asChild className="w-full" variant="ghost">
+                      <Link to="/features">Learn More</Link>
                     </Button>
                   </CardFooter>
                 )}
