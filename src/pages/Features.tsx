@@ -1,68 +1,82 @@
 import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bell, Shield, Smartphone, Cloud } from "lucide-react";
+import { Brain, Zap, Users, Layout as LayoutIcon, Clock, TrendingUp, Database, Lock } from "lucide-react";
 
 export default function Features() {
-  const features = [
+  const featureSections = [
     {
-      icon: Calendar,
-      title: "Smart Scheduling",
-      description: "Intelligent calendar system with drag-and-drop interface, automated conflict detection, and optimal bay allocation.",
-      benefits: ["Visual bay timeline", "Automated reminders", "Recurring appointments", "Waitlist management"]
+      title: "AI Intelligence & Automation",
+      subtitle: "Where OptiBay does the thinking for you.",
+      features: [
+        {
+          icon: Brain,
+          title: "AI-Driven Smart Scheduling",
+          description: "Automatically assigns jobs to the best-fit technician using skill profiles, bay access, and current availability. Adjusts dynamically when priorities change."
+        },
+        {
+          icon: Zap,
+          title: "Dynamic Dispatch Optimization",
+          description: "Continuously balances workloads, reshuffles jobs to prevent conflicts, and ensures techs stay productive throughout the day."
+        },
+        {
+          icon: TrendingUp,
+          title: "BaySense AI Learning Engine",
+          description: "OptiBay learns from every completed job, adapting to your shop's rhythms and performance to predict smarter job times over time."
+        }
+      ]
     },
     {
-      icon: Users,
-      title: "Customer Portal",
-      description: "Self-service portal for customers to book appointments, view service history, and track repair status in real-time.",
-      benefits: ["Online booking 24/7", "Service history access", "Real-time updates", "Digital invoices"]
+      title: "Technician & Shop Operations",
+      subtitle: "Give your team clarity, not chaos.",
+      features: [
+        {
+          icon: Users,
+          title: "Technician Profiles & Availability",
+          description: "Define each tech's skills, shift hours, and bays — OptiBay automatically routes jobs where they'll succeed fastest."
+        },
+        {
+          icon: LayoutIcon,
+          title: "Multi-Bay & Rollover Scheduling",
+          description: "Handle multiple bays per technician, manage flat and lift assignments, and carry unfinished work to the next day."
+        },
+        {
+          icon: LayoutIcon,
+          title: "Birdseye View Dashboard",
+          description: "Monitor every active job, technician, and vehicle in real time — see the entire shop at a glance."
+        }
+      ]
     },
     {
-      icon: Wrench,
-      title: "Technician Workspace",
-      description: "Streamlined interface for technicians to manage jobs, update status, and communicate with service advisors.",
-      benefits: ["Mobile-friendly interface", "Job checklists", "Parts tracking", "Photo documentation"]
+      title: "Time, Tracking & Flow",
+      subtitle: "Stay on time, every time.",
+      features: [
+        {
+          icon: Clock,
+          title: "Live ETA & Job Timers",
+          description: "Track start, pause, and finish events for every job — ETAs update automatically as progress changes."
+        },
+        {
+          icon: Users,
+          title: "Waiter & Drop-Off Intelligence",
+          description: "OptiBay understands appointment urgency — protecting end-of-day cutoffs and optimizing waiting customers first."
+        }
+      ]
     },
     {
-      icon: BarChart3,
-      title: "Analytics Dashboard",
-      description: "Comprehensive reporting and analytics to track shop performance, identify trends, and make data-driven decisions.",
-      benefits: ["Revenue tracking", "Technician efficiency", "Customer insights", "Custom reports"]
-    },
-    {
-      icon: Clock,
-      title: "Time Tracking",
-      description: "Accurate time tracking for labor billing, job costing, and improving future estimates.",
-      benefits: ["Automated timers", "Labor cost analysis", "Estimate accuracy", "Billing integration"]
-    },
-    {
-      icon: Zap,
-      title: "Integrations",
-      description: "Connect OptiBay with your existing tools including accounting software, parts suppliers, and payment processors.",
-      benefits: ["QuickBooks sync", "Parts catalogs", "Payment gateways", "Email/SMS"]
-    },
-    {
-      icon: Bell,
-      title: "Notifications",
-      description: "Automated notifications keep everyone informed with email and SMS alerts for appointments, updates, and reminders.",
-      benefits: ["Appointment reminders", "Status updates", "Team alerts", "Custom triggers"]
-    },
-    {
-      icon: Shield,
-      title: "Security & Compliance",
-      description: "Enterprise-grade security with data encryption, role-based access control, and compliance with industry standards.",
-      benefits: ["Data encryption", "User permissions", "Audit logs", "Backup & recovery"]
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Access",
-      description: "Responsive design works perfectly on any device, allowing you to manage your shop from anywhere.",
-      benefits: ["iOS & Android", "Offline mode", "Push notifications", "Camera integration"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud-Based",
-      description: "No servers to maintain. Access your data from anywhere with automatic backups and updates.",
-      benefits: ["Always up-to-date", "Automatic backups", "99.9% uptime", "Scalable infrastructure"]
+      title: "Control & Connectivity",
+      subtitle: "Keep everything connected and secure.",
+      features: [
+        {
+          icon: Database,
+          title: "CSV Import & Integration Ready",
+          description: "Feed jobs directly from spreadsheets or management systems — import, validate, and stage with one click."
+        },
+        {
+          icon: Lock,
+          title: "Role-Based Access & Quiet-Hour Communication",
+          description: "Secure, role-based permissions for Managers, Writers, and Techs — with notifications that respect shop hours and time zones."
+        }
+      ]
     }
   ];
 
@@ -72,36 +86,36 @@ export default function Features() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-              Powerful Features for Modern Auto Shops
+              OptiBay Core Features
             </h1>
             <p className="text-lg text-muted-foreground">
-              Everything you need to streamline operations, delight customers, and grow your business
+              AI-powered scheduling and workflow intelligence for modern repair shops
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-2 hover:border-primary/50 transition-all duration-300">
-                <CardHeader>
-                  <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 w-fit">
-                    <feature.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{feature.description}</p>
-                  <ul className="space-y-2">
-                    {feature.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-start">
-                        <svg className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-sm">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+          <div className="max-w-6xl mx-auto space-y-16">
+            {featureSections.map((section, sectionIndex) => (
+              <div key={sectionIndex}>
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold mb-2">{section.title}</h2>
+                  <p className="text-muted-foreground text-lg">{section.subtitle}</p>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {section.features.map((feature, featureIndex) => (
+                    <Card key={featureIndex} className="border-2 hover:border-primary/50 transition-all duration-300">
+                      <CardHeader>
+                        <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 w-fit">
+                          <feature.icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <CardTitle className="text-xl">{feature.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{feature.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
