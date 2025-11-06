@@ -77,11 +77,11 @@ export default function Pricing() {
                 </CardContent>
                 {plan.name === "Core" && (
                   <CardFooter className="flex-col gap-2">
-                    <Button asChild className="w-full" variant="outline">
-                      <Link to="/beta">Join Beta</Link>
-                    </Button>
                     <Button asChild className="w-full" variant="ghost">
                       <Link to="/features">Learn More</Link>
+                    </Button>
+                    <Button asChild className="w-full" variant="outline">
+                      <Link to="/beta">Join Beta</Link>
                     </Button>
                   </CardFooter>
                 )}
