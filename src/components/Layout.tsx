@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -13,10 +14,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-[hsl(186,77%,42%)] flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">OB</span>
-                </div>
-                <span className="font-bold text-xl">OptiBay</span>
+                <img src={optibayLogo} alt="OptiBay AI" className="h-10 w-auto" />
               </Link>
               
               <nav className="hidden md:flex gap-6">
@@ -72,10 +70,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-[hsl(186,77%,42%)] flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">OB</span>
-                </div>
-                <span className="font-bold text-lg">OptiBay</span>
+                <img src={optibayLogo} alt="OptiBay AI" className="h-10 w-auto" />
               </div>
               <p className="text-sm text-muted-foreground">
                 Modern scheduling platform for auto repair shops
