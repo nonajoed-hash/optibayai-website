@@ -34,18 +34,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 >
                   Pricing
                 </Link>
-                <a
-                  href="#"
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Docs
-                </a>
-                <a
-                  href="#"
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Blog
-                </a>
               </nav>
             </div>
             
