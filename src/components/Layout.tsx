@@ -17,7 +17,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <img 
                   src={optibayLogo} 
                   alt="OptiBay AI" 
-                  className="h-12 w-auto brightness-0 dark:brightness-100 invert-0 dark:invert" 
+                  className="h-12 w-auto" 
                 />
               </Link>
               
@@ -65,7 +65,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <img 
                   src={optibayLogo} 
                   alt="OptiBay AI" 
-                  className="h-12 w-auto brightness-0 dark:brightness-100 invert-0 dark:invert" 
+                  className="h-12 w-auto" 
                 />
               </div>
               <p className="text-sm text-muted-foreground">
