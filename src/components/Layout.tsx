@@ -14,7 +14,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
               <Link to="/" className="flex items-center space-x-2">
-                <img src={optibayLogo} alt="OptiBay AI" className="h-10 w-auto" />
+                <img 
+                  src={optibayLogo} 
+                  alt="OptiBay AI" 
+                  className="h-12 w-auto brightness-0 dark:brightness-100 invert-0 dark:invert" 
+                />
               </Link>
               
               <nav className="hidden md:flex gap-6">
@@ -58,7 +62,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <img src={optibayLogo} alt="OptiBay AI" className="h-10 w-auto" />
+                <img 
+                  src={optibayLogo} 
+                  alt="OptiBay AI" 
+                  className="h-12 w-auto brightness-0 dark:brightness-100 invert-0 dark:invert" 
+                />
               </div>
               <p className="text-sm text-muted-foreground">
                 Modern scheduling platform for auto repair shops
