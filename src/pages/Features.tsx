@@ -92,11 +92,14 @@ export default function Features() {
 
   return (
     <Layout>
-      <div className="py-20 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
+      <div className="relative py-20 sm:py-28 bg-hologram-grid bg-grid">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16 animate-fade-in">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-              OptiBay Core Features
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                OptiBay Core Features
+              </span>
             </h1>
             <p className="text-lg text-muted-foreground">
               AI-powered scheduling and workflow intelligence for modern repair shops
@@ -105,25 +108,32 @@ export default function Features() {
 
           <div className="max-w-6xl mx-auto space-y-16">
             {featureSections.map((section, sectionIndex) => (
-              <div key={sectionIndex}>
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold mb-2">{section.title}</h2>
-                  <p className="text-muted-foreground text-lg">{section.subtitle}</p>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {section.features.map((feature, featureIndex) => (
-                    <Card key={featureIndex} className="border-2 hover:border-primary/50 transition-all duration-300">
-                      <CardHeader>
-                        <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 w-fit">
-                          <feature.icon className="h-8 w-8 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{feature.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">{feature.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
+              <div key={sectionIndex} className="relative">
+                {/* Section background panel */}
+                <div className="absolute inset-0 bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl -z-10"></div>
+                <div className="p-8">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl font-bold mb-2 text-foreground">{section.title}</h2>
+                    <p className="text-muted-foreground text-lg">{section.subtitle}</p>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {section.features.map((feature, featureIndex) => (
+                      <Card 
+                        key={featureIndex} 
+                        className="hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300"
+                      >
+                        <CardHeader>
+                          <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
+                            <feature.icon className="h-8 w-8 text-primary" />
+                          </div>
+                          <CardTitle className="text-xl text-foreground">{feature.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
