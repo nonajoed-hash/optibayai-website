@@ -8,8 +8,30 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   
   const isActive = (path: string) => location.pathname === path;
   
+  // Generate particle positions
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 8}s`,
+    duration: `${8 + Math.random() * 4}s`,
+  }));
+  
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Particle field */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="particle"
+          style={{
+            left: particle.left,
+            top: particle.top,
+            animation: `particle-float ${particle.duration} ease-in-out infinite`,
+            animationDelay: particle.delay,
+          }}
+        />
+      ))}
       {/* Beta Banner */}
       <div className="w-full bg-primary/10 border-b border-primary/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
