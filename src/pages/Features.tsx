@@ -62,6 +62,11 @@ export default function Features() {
         },
         {
           icon: TrendingUp,
+          title: "OptiBay Load Index (OBLI)",
+          description: "0–100 daily score that blends tech availability, bay constraints, waiters, and specialty work so you instantly see whether a day is light, normal, or overloaded."
+        },
+        {
+          icon: TrendingUp,
           title: "Smart Rollover Scheduling",
           description: "Automatically carries unfinished work into the next day — preserving time logs, bay assignments, and technician context so nothing slips through cracks."
         }
