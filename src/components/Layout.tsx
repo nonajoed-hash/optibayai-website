@@ -62,14 +62,20 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             top: logo.top,
             width: `${400 * logo.scale}px`,
             height: `${400 * logo.scale}px`,
-            animation: logo.animation
+            animation: logo.animation,
+            backgroundColor: 'transparent',
+            background: 'transparent'
           }}
         >
           <img 
             src={optibayLogo} 
             alt="" 
             className="w-full h-full object-contain"
-            style={{ opacity: 0.6 }}
+            style={{ 
+              opacity: 0.6,
+              backgroundColor: 'transparent',
+              background: 'transparent'
+            }}
           />
         </div>
       ))}
