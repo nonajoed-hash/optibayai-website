@@ -18,7 +18,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   }));
   
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative z-10">
       {/* Particle field */}
       {particles.map((particle) => (
         <div
