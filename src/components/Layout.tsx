@@ -28,8 +28,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
     size: `${Math.random() * 1 + 1}px`,
-    delay: `${Math.random() * 8}s`,
-    duration: `${8 + Math.random() * 4}s`,
+    delay: `${Math.random() * 6}s`,
+    duration: `${4 + Math.random() * 3}s`,
   }));
   
   // Background logos with varied positions and scales
