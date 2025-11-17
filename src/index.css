@@ -163,6 +163,7 @@ All colors MUST be HSL.
   pointer-events: none;
   z-index: 1;
   box-shadow: 0 0 4px hsl(180 80% 55% / 0.6);
+  will-change: transform, opacity;
 }
 
 /* Background logos with parallax */
