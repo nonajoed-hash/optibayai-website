@@ -24,7 +24,7 @@ export default function Pricing() {
       ]
     },
     {
-      name: "Dispatch",
+      name: "Catalyst",
       description: "Advanced coordination and optimization across bays, teams, and workloads.",
       price: "Coming Soon",
       features: []

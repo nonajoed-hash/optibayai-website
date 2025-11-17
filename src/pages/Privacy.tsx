@@ -55,7 +55,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">6. Contact Us</h2>
               <p>
-                If you have questions about this Privacy Policy, please contact us at privacy@optibayai.com
+                If you have questions about this Privacy Policy, please contact us at joe@optibayai.com
               </p>
             </section>
 
