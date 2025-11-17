@@ -1,12 +1,26 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
 import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
   const isActive = (path: string) => location.pathname === path;
+  
+  // Track mouse movement for parallax
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      setMousePos({ x, y });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
   
   // Generate particle positions
   const particles = Array.from({ length: 150 }, (_, i) => ({
@@ -18,21 +32,78 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     duration: `${8 + Math.random() * 4}s`,
   }));
   
+  // Background logos with varied positions and scales
+  const bgLogos = [
+    { 
+      id: 1, 
+      left: '15%', 
+      top: '25%', 
+      scale: 0.85, 
+      parallaxStrength: 4,
+      animation: 'logo-drift-1 30s ease-in-out infinite'
+    },
+    { 
+      id: 2, 
+      left: '70%', 
+      top: '55%', 
+      scale: 1.1, 
+      parallaxStrength: 6,
+      animation: 'logo-drift-2 40s ease-in-out infinite'
+    },
+    { 
+      id: 3, 
+      left: '40%', 
+      top: '75%', 
+      scale: 0.9, 
+      parallaxStrength: 3,
+      animation: 'logo-drift-3 35s ease-in-out infinite'
+    },
+  ];
+  
   return (
     <div className="min-h-screen flex flex-col relative z-10">
+      {/* Tech grid pattern */}
+      <div className="tech-grid" />
+      
+      {/* Vertical light sweep */}
+      <div className="light-sweep" />
+      
+      {/* Background logos with 3D parallax */}
+      {bgLogos.map((logo) => (
+        <div
+          key={logo.id}
+          className="bg-logo"
+          style={{
+            left: logo.left,
+            top: logo.top,
+            width: `${400 * logo.scale}px`,
+            height: `${400 * logo.scale}px`,
+            animation: logo.animation,
+            transform: `translate(${mousePos.x * logo.parallaxStrength}px, ${mousePos.y * logo.parallaxStrength}px)`
+          }}
+        >
+          <img 
+            src={optibayLogo} 
+            alt="" 
+            className="w-full h-full object-contain"
+            style={{ opacity: 0.4 }}
+          />
+        </div>
+      ))}
+      
       {/* Particle field */}
       {particles.map((particle) => (
         <div
           key={particle.id}
           className="particle"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              width: particle.size,
-              height: particle.size,
-              animation: `particle-float ${particle.duration} ease-in-out infinite`,
-              animationDelay: particle.delay,
-            }}
+          style={{
+            left: particle.left,
+            top: particle.top,
+            width: particle.size,
+            height: particle.size,
+            animation: `particle-float ${particle.duration} ease-in-out infinite`,
+            animationDelay: particle.delay,
+          }}
         />
       ))}
       {/* Beta Banner */}
