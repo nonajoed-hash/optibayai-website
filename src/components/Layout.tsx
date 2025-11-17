@@ -38,7 +38,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     { 
       id: 3, 
       left: '32%', 
-      top: '64%', 
+      top: '50%', 
       scale: 0.9,
       animation: 'logo-drift-3 35s ease-in-out infinite, logo-pulse 9s ease-in-out infinite 4s'
     },
