@@ -53,22 +53,26 @@ export default function Features() {
         {
           icon: Clock,
           title: "Live ETA & Job Timers",
-          description: "Track start, pause, and finish events for every job — ETAs update automatically as progress changes."
+          description: "Track start, pause, and finish events for every job — ETAs update automatically as progress changes.",
+          fullWidth: false
         },
         {
           icon: Users,
           title: "Waiter & Drop-Off Intelligence",
-          description: "OptiBay understands appointment urgency — protecting end-of-day cutoffs and optimizing waiting customers first."
-        },
-        {
-          icon: TrendingUp,
-          title: "OptiBay Load Index (OBLI)",
-          description: "0–100 daily score that blends tech availability, bay constraints, waiters, and specialty work so you instantly see whether a day is light, normal, or overloaded."
+          description: "OptiBay understands appointment urgency — protecting end-of-day cutoffs and optimizing waiting customers first.",
+          fullWidth: false
         },
         {
           icon: TrendingUp,
           title: "Smart Rollover Scheduling",
-          description: "Automatically carries unfinished work into the next day — preserving time logs, bay assignments, and technician context so nothing slips through cracks."
+          description: "Automatically carries unfinished work into the next day — preserving time logs, bay assignments, and technician context so nothing slips through cracks.",
+          fullWidth: false
+        },
+        {
+          icon: TrendingUp,
+          title: "OptiBay Load Index (OBLI)",
+          description: "OBLI gives every day a 0–100 load score by blending technician availability, bay capacity, waiters, and specialty work. Instead of guessing how \"busy\" a day feels, you see it instantly — green for light days, yellow for normal, red for overloaded. OBLI helps writers choose the best days for new work, protect your techs from burnout, and keep your calendar balanced instead of slammed.",
+          fullWidth: true
         }
       ]
     },
@@ -124,7 +128,7 @@ export default function Features() {
                     {section.features.map((feature, featureIndex) => (
                       <Card 
                         key={featureIndex} 
-                        className="hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300"
+                        className={`hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 ${feature.fullWidth ? 'md:col-span-2 lg:col-span-3' : ''}`}
                       >
                         <CardHeader>
                           <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
