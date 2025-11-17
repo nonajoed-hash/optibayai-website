@@ -168,10 +168,10 @@ All colors MUST be HSL.
 /* Background logos with parallax */
 .bg-logo {
   position: fixed;
-  opacity: 0.12;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 1;
-  filter: blur(1px);
+  filter: blur(0.5px);
   will-change: transform;
   transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
