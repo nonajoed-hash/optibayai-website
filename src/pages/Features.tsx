@@ -130,15 +130,31 @@ export default function Features() {
                         key={featureIndex} 
                         className={`hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 ${feature.fullWidth ? 'md:col-span-2 lg:col-span-3' : ''}`}
                       >
-                        <CardHeader>
-                          <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
-                            <feature.icon className="h-8 w-8 text-primary" />
-                          </div>
-                          <CardTitle className="text-xl text-foreground">{feature.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                        </CardContent>
+                        {feature.fullWidth ? (
+                          <>
+                            <CardHeader className="flex flex-row items-center justify-center gap-4 pb-3">
+                              <div className="inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20">
+                                <feature.icon className="h-8 w-8 text-primary" />
+                              </div>
+                              <CardTitle className="text-xl text-foreground mb-0">{feature.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-muted-foreground leading-relaxed text-center">{feature.description}</p>
+                            </CardContent>
+                          </>
+                        ) : (
+                          <>
+                            <CardHeader>
+                              <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 w-fit">
+                                <feature.icon className="h-8 w-8 text-primary" />
+                              </div>
+                              <CardTitle className="text-xl text-foreground">{feature.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                            </CardContent>
+                          </>
+                        )}
                       </Card>
                     ))}
                   </div>
