@@ -9,7 +9,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isActive = (path: string) => location.pathname === path;
   
   // Generate particle positions
-  const particles = Array.from({ length: 15 }, (_, i) => ({
+  const particles = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
@@ -125,8 +125,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       <main className="flex-1">{children}</main>
       
-      <footer className="relative border-t border-primary/20 bg-card/50 backdrop-blur-sm">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      <footer className="relative bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
