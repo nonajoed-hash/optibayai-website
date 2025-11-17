@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-hologram-grid bg-grid opacity-30 animate-grid-move"></div>
+        
         <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background/80 to-card/50"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
