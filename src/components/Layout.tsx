@@ -72,7 +72,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             alt="" 
             className="w-full h-full object-contain"
             style={{ 
-              opacity: 0.15,
+              opacity: 0.85,
               backgroundColor: 'transparent',
               background: 'transparent'
             }}
