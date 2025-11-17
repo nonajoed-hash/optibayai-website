@@ -39,7 +39,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       left: '15%', 
       top: '25%', 
       scale: 0.85, 
-      parallaxStrength: 4,
+      parallaxStrength: 0.5,
       animation: 'logo-drift-1 30s ease-in-out infinite'
     },
     { 
@@ -47,7 +47,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       left: '70%', 
       top: '55%', 
       scale: 1.1, 
-      parallaxStrength: 6,
+      parallaxStrength: 0.8,
       animation: 'logo-drift-2 40s ease-in-out infinite'
     },
     { 
@@ -55,7 +55,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       left: '40%', 
       top: '75%', 
       scale: 0.9, 
-      parallaxStrength: 3,
+      parallaxStrength: 0.3,
       animation: 'logo-drift-3 35s ease-in-out infinite'
     },
   ];
@@ -86,7 +86,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             src={optibayLogo} 
             alt="" 
             className="w-full h-full object-contain"
-            style={{ opacity: 0.4 }}
+            style={{ opacity: 0.12 }}
           />
         </div>
       ))}
