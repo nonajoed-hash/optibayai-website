@@ -161,28 +161,19 @@ All colors MUST be HSL.
   background: hsl(180 80% 55% / 0.8);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 0 0 4px hsl(180 80% 55% / 0.6);
   will-change: transform, opacity;
 }
 
-/* Background logos with parallax */
+/* Background logos with slow drift */
 .bg-logo {
   position: fixed;
-  opacity: 0.18;
+  opacity: 0.15;
   pointer-events: none;
-  z-index: 1;
-  filter: blur(0.5px);
-  will-change: transform;
-  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.bg-logo::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, hsl(180 80% 55% / 0.15) 0%, transparent 70%);
-  filter: blur(20px);
+  z-index: 0;
+  filter: blur(0.3px);
+  will-change: transform, opacity;
 }
 
 /* Vertical light sweep */
@@ -215,7 +206,7 @@ All colors MUST be HSL.
     transparent 100%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   animation: light-sweep 35s ease-in-out infinite;
   mix-blend-mode: soft-light;
 }
@@ -229,7 +220,7 @@ All colors MUST be HSL.
     linear-gradient(90deg, hsl(180 80% 55% / 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   opacity: 0.5;
 }
 
@@ -264,5 +255,17 @@ All colors MUST be HSL.
   }
   80% {
     transform: translate(-3px, 1px) rotate(-0.2deg);
+  }
+}
+
+/* Logo pulse animation - subtle glow heartbeat */
+@keyframes logo-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    filter: blur(0.3px) drop-shadow(0 0 0px hsl(180 80% 55% / 0));
+  }
+  50% {
+    opacity: 0.22;
+    filter: blur(0.3px) drop-shadow(0 0 30px hsl(180 80% 55% / 0.3));
   }
 }
