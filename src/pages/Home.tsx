@@ -15,38 +15,46 @@ export default function Home() {
             {/* Left side - Text & CTAs */}
             <div className="text-left animate-fade-in">
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="block text-foreground">End the chaos.</span>
                 <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                  Optimize every bay.
+                  End the chaos.
                 </span>
+                <span className="block text-foreground">Optimize every bay.</span>
               </h1>
-              <p className="mb-8 text-lg text-muted-foreground sm:text-xl max-w-xl">
+              
+              <p className="mb-4 text-lg text-muted-foreground sm:text-xl max-w-xl">
                 AI-powered scheduling and dispatch for high-velocity auto shops.
               </p>
               
+              <p className="mb-8 text-sm sm:text-base text-accent max-w-xl">
+                We're inviting a small group of forward-thinking shops to shape OptiBay before public launch.
+              </p>
+              
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button asChild size="lg" className="text-lg px-8">
-                  <Link to="/beta">Start Free Trial</Link>
+                <Button asChild size="lg" className="text-lg px-8 group">
+                  <Link to="/beta" className="flex items-center gap-2">
+                    Apply for Beta Access
+                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-lg px-8">
                   <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
-                    See Live Demo
+                    Watch Beta Demo
                   </a>
                 </Button>
               </div>
 
               {/* Feature chips */}
               <div className="flex flex-wrap gap-3">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm">
-                  <Bot className="h-4 w-4 text-primary" />
+                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <Bot className="h-4 w-4 text-primary animate-glow-pulse" />
                   <span className="text-foreground">OptiAssign AI</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm">
-                  <Grid3x3 className="h-4 w-4 text-primary" />
+                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <Grid3x3 className="h-4 w-4 text-accent" />
                   <span className="text-foreground">Multi-Bay Logic</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm">
-                  <RefreshCw className="h-4 w-4 text-primary" />
+                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <RefreshCw className="h-4 w-4 text-accent" />
                   <span className="text-foreground">Real-Time Sync</span>
                 </div>
               </div>
@@ -84,10 +92,10 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
+            <Card className="group hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 animate-fade-in">
               <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20">
-                  <Calendar className="h-6 w-6 text-primary" />
+                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                  <Calendar className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-foreground">Smart Scheduling</h3>
                 <p className="text-muted-foreground">
@@ -96,10 +104,10 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
+            <Card className="group hover:border-accent/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
               <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20">
-                  <Users className="h-6 w-6 text-accent" />
+                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                  <Users className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-foreground">Customer Portal</h3>
                 <p className="text-muted-foreground">
@@ -167,22 +175,30 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-hologram-grid bg-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-hologram-grid bg-grid opacity-30 animate-grid-move"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background/80 to-card/50"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center animate-fade-in">
             <div className="relative inline-block mb-6">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
-                Ready to optimize your shop?
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                  Join the Private Beta
+                </span>
               </h2>
               <div className="absolute -inset-4 bg-primary/10 blur-2xl -z-10 rounded-full"></div>
             </div>
-            <p className="mb-8 text-lg text-muted-foreground">
-              Join the beta program and get early access to the future of auto repair scheduling.
+            <p className="mb-4 text-lg text-muted-foreground">
+              Be among the first shops to experience OptiBay. Get early access, founding pricing, and direct input on features.
             </p>
-            <Button asChild size="lg" className="text-lg px-12">
-              <Link to="/beta">Start Free Trial</Link>
+            <p className="mb-8 text-sm text-accent">
+              Limited spots available for our private beta program.
+            </p>
+            <Button asChild size="lg" className="text-lg px-12 group">
+              <Link to="/beta" className="flex items-center gap-2">
+                Apply for Beta Access
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </Link>
             </Button>
           </div>
         </div>
