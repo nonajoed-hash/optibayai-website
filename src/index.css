@@ -178,10 +178,10 @@ All colors MUST be HSL.
   background: transparent !important;
 }
 
-/* Soft pulse glow on logo images only */
+/* Pulsing glow on logo images */
 .bg-logo img {
   display: block;
-  animation: logo-pulse-soft 10s ease-in-out infinite;
+  animation: logo-pulse-glow 3s ease-in-out infinite;
   will-change: transform, filter;
   background-color: transparent !important;
   background: transparent !important;
@@ -269,15 +269,16 @@ All colors MUST be HSL.
   }
 }
 
-/* Logo pulse animation - subtle glow heartbeat */
-@keyframes logo-pulse {
+/* Logo pulsing glow animation - cyan and orange brand colors */
+@keyframes logo-pulse-glow {
   0%, 100% {
-    opacity: 0.15;
-    filter: blur(0.3px) drop-shadow(0 0 0px hsl(180 80% 55% / 0));
+    filter: drop-shadow(0 0 20px hsl(180 80% 55% / 0.4)) 
+            drop-shadow(0 0 40px hsl(180 80% 55% / 0.2));
   }
   50% {
-    opacity: 0.22;
-    filter: blur(0.3px) drop-shadow(0 0 30px hsl(180 80% 55% / 0.3));
+    filter: drop-shadow(0 0 30px hsl(180 80% 55% / 0.6)) 
+            drop-shadow(0 0 60px hsl(180 80% 55% / 0.3))
+            drop-shadow(0 0 80px hsl(38 90% 55% / 0.2));
   }
 }
 
