@@ -64,7 +64,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">7. Contact Information</h2>
               <p>
-                Questions about the Terms of Service should be sent to us at legal@optibayai.com
+                Questions about the Terms of Service should be sent to us at joe@optibayai.com
               </p>
             </section>
 
