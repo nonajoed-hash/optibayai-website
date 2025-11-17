@@ -11,8 +11,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-hologram-grid bg-grid animate-grid-move py-20 sm:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+      <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text & CTAs */}
@@ -98,7 +97,7 @@ export default function Home() {
       <LiveTelemetry />
 
       {/* Features Grid */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-background to-card/30">
+      <section className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-foreground">
@@ -196,8 +195,6 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background/80 to-card/50"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center animate-fade-in">

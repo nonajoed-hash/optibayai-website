@@ -4,8 +4,7 @@ import { BetaSignupForm } from "@/components/BetaSignupForm";
 export default function Beta() {
   return (
     <Layout>
-      <div className="relative py-20 sm:py-28 bg-hologram-grid bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+      <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">

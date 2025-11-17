@@ -161,6 +161,107 @@ All colors MUST be HSL.
   background: hsl(180 80% 55% / 0.8);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   box-shadow: 0 0 4px hsl(180 80% 55% / 0.6);
+}
+
+/* Background logos with parallax */
+.bg-logo {
+  position: fixed;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(1px);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-logo::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, hsl(180 80% 55% / 0.15) 0%, transparent 70%);
+  filter: blur(20px);
+}
+
+/* Vertical light sweep */
+@keyframes light-sweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.03;
+  }
+  100% {
+    transform: translateY(200vh);
+    opacity: 0;
+  }
+}
+
+.light-sweep {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    hsl(217 91% 60% / 0.08) 45%,
+    hsl(180 80% 55% / 0.1) 50%,
+    hsl(217 91% 60% / 0.08) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: light-sweep 35s ease-in-out infinite;
+  mix-blend-mode: soft-light;
+}
+
+/* Faint tech grid pattern */
+.tech-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(180 80% 55% / 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(180 80% 55% / 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Logo drift animation */
+@keyframes logo-drift-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(3px, -4px) rotate(0.5deg);
+  }
+  66% {
+    transform: translate(-2px, 2px) rotate(-0.3deg);
+  }
+}
+
+@keyframes logo-drift-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-3px, 3px) rotate(-0.4deg);
+  }
+}
+
+@keyframes logo-drift-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  40% {
+    transform: translate(2px, -3px) rotate(0.3deg);
+  }
+  80% {
+    transform: translate(-3px, 1px) rotate(-0.2deg);
+  }
 }
