@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bot, Grid3x3, RefreshCw } from "lucide-react";
+import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bot, Grid3x3, RefreshCw, TrendingUp } from "lucide-react";
 import bayGridHero from "@/assets/bay-grid-hero.png";
 import HowItWorks from "@/components/HowItWorks";
 import LiveTelemetry from "@/components/LiveTelemetry";
@@ -124,11 +124,11 @@ export default function Home() {
             <Card className="group hover:border-accent/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
               <CardContent className="pt-6">
                 <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                  <Users className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  <TrendingUp className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Customer Portal</h3>
+                <h3 className="text-xl font-semibold mb-2 text-foreground">OptiBay Load Index (OBLI)</h3>
                 <p className="text-muted-foreground">
-                  Let customers book appointments, track progress, and communicate seamlessly
+                  0–100 daily load score so you see how heavy the day really is at a glance
                 </p>
               </CardContent>
             </Card>
