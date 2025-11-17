@@ -172,8 +172,15 @@ All colors MUST be HSL.
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
-  filter: blur(0.3px);
   will-change: transform, opacity;
+  overflow: visible;
+}
+
+/* Soft pulse glow on logo images only */
+.bg-logo img {
+  display: block;
+  animation: logo-pulse-soft 10s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 /* Vertical light sweep */
@@ -267,5 +274,17 @@ All colors MUST be HSL.
   50% {
     opacity: 0.22;
     filter: blur(0.3px) drop-shadow(0 0 30px hsl(180 80% 55% / 0.3));
+  }
+}
+
+/* Soft pulse for logo images - no blur, just glow */
+@keyframes logo-pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px hsl(180 80% 55% / 0.12));
+  }
+  50% {
+    transform: scale(1.01);
+    filter: drop-shadow(0 0 28px hsl(180 80% 55% / 0.22));
   }
 }

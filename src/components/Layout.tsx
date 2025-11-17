@@ -26,21 +26,21 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       left: '10%', 
       top: '15%', 
       scale: 0.9,
-      animation: 'logo-drift-1 30s ease-in-out infinite, logo-pulse 8s ease-in-out infinite'
+      animation: 'logo-drift-1 30s ease-in-out infinite'
     },
     { 
       id: 2, 
       left: '75%', 
       top: '20%', 
       scale: 0.85,
-      animation: 'logo-drift-2 40s ease-in-out infinite, logo-pulse 10s ease-in-out infinite 2s'
+      animation: 'logo-drift-2 40s ease-in-out infinite'
     },
     { 
       id: 3, 
       left: '32%', 
       top: '50%', 
       scale: 0.9,
-      animation: 'logo-drift-3 35s ease-in-out infinite, logo-pulse 9s ease-in-out infinite 4s'
+      animation: 'logo-drift-3 35s ease-in-out infinite'
     },
   ];
   
