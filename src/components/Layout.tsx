@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MobileMenu } from "@/components/MobileMenu";
 import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -24,27 +25,46 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            <div className="flex items-center gap-8">
-              <Link to="/" className="group flex items-center gap-3 relative">
-                {/* Logo glow effect */}
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="flex items-center justify-between h-16">
+            {/* Logo with enhanced presence and hologram glow */}
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 group relative">
+              <div className="relative">
+                {/* Hologram glow effect behind logo */}
+                <div className="absolute -inset-2 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img 
                   src={optibayLogo} 
-                  alt="OptiBay AI" 
-                  className="h-14 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105" 
+                  alt="OptiBay Logo" 
+                  className="relative h-8 sm:h-10 w-8 sm:w-10 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="hidden sm:flex flex-col relative z-10">
-                  <span className="text-lg font-bold text-foreground leading-tight">OptiBay AI</span>
-                  <span className="text-xs text-muted-foreground leading-tight">AI Bay & Technician Scheduling</span>
-                </div>
-              </Link>
-              
-              <nav className="hidden md:flex gap-6">
+              </div>
+              {/* Brand lockup */}
+              <div className="flex flex-col">
+                <span className="font-bold text-base sm:text-lg leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  OptiBay AI
+                </span>
+                <span className="hidden sm:block text-xs text-muted-foreground leading-tight">
+                  AI Bay & Technician Scheduling
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              <div className="flex items-center gap-6">
+                <Link
+                  to="/"
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    location.pathname === "/" 
+                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  Home
+                </Link>
                 <Link
                   to="/features"
                   className={`text-sm font-medium transition-all duration-300 ${
-                    isActive("/features") 
+                    location.pathname === "/features" 
                       ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
                       : "text-muted-foreground hover:text-primary"
                   }`}
@@ -54,29 +74,29 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Link
                   to="/pricing"
                   className={`text-sm font-medium transition-all duration-300 ${
-                    isActive("/pricing") 
+                    location.pathname === "/pricing" 
                       ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
                       : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   Pricing
                 </Link>
-              </nav>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <Button asChild variant="pill" size="sm" className="hidden sm:inline-flex">
-                <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
-                  See Beta Demo
-                </a>
-              </Button>
-              <Button asChild size="sm" className="group">
-                <Link to="/beta" className="flex items-center gap-1">
-                  Apply for Beta
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </Button>
-            </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Button asChild variant="outline" size="sm">
+                  <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
+                    See Beta Demo
+                  </a>
+                </Button>
+                <Button asChild size="sm">
+                  <Link to="/beta">Apply for Beta</Link>
+                </Button>
+              </div>
+            </nav>
+
+            {/* Mobile Menu */}
+            <MobileMenu />
           </div>
         </div>
       </header>

@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bot, Grid3x3, RefreshCw } from "lucide-react";
 import bayGridHero from "@/assets/bay-grid-hero.png";
+import HowItWorks from "@/components/HowItWorks";
+import LiveTelemetry from "@/components/LiveTelemetry";
+import BetaRoadmap from "@/components/BetaRoadmap";
 
 export default function Home() {
   return (
@@ -45,16 +48,25 @@ export default function Home() {
 
               {/* Feature chips */}
               <div className="flex flex-wrap gap-3">
-                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <Bot className="h-4 w-4 text-primary animate-glow-pulse" />
+                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary/30 rounded-full blur-md animate-glow-pulse"></div>
+                    <Bot className="relative h-4 w-4 text-primary" />
+                  </div>
                   <span className="text-foreground">OptiAssign AI</span>
                 </div>
-                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <Grid3x3 className="h-4 w-4 text-accent" />
+                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-accent/30 rounded-full blur-md"></div>
+                    <Grid3x3 className="relative h-4 w-4 text-accent" />
+                  </div>
                   <span className="text-foreground">Multi-Bay Logic</span>
                 </div>
-                <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <RefreshCw className="h-4 w-4 text-accent" />
+                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-accent/30 rounded-full blur-md"></div>
+                    <RefreshCw className="relative h-4 w-4 text-accent" />
+                  </div>
                   <span className="text-foreground">Real-Time Sync</span>
                 </div>
               </div>
@@ -78,6 +90,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* How It Works */}
+      <HowItWorks />
+
+      {/* Live Telemetry */}
+      <LiveTelemetry />
 
       {/* Features Grid */}
       <section className="py-20 sm:py-28 bg-gradient-to-b from-background to-card/30">
@@ -172,6 +190,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Beta Roadmap */}
+      <BetaRoadmap />
 
       {/* CTA Section */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
