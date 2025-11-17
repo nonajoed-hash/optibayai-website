@@ -6,21 +6,8 @@ import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
   const isActive = (path: string) => location.pathname === path;
-  
-  // Track mouse movement for parallax
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      setMousePos({ x, y });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
   
   // Generate particle positions
   const particles = Array.from({ length: 150 }, (_, i) => ({
@@ -36,39 +23,36 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const bgLogos = [
     { 
       id: 1, 
-      left: '15%', 
-      top: '25%', 
-      scale: 0.85, 
-      parallaxStrength: 0.5,
-      animation: 'logo-drift-1 30s ease-in-out infinite'
+      left: '10%', 
+      top: '15%', 
+      scale: 0.9,
+      animation: 'logo-drift-1 30s ease-in-out infinite, logo-pulse 8s ease-in-out infinite'
     },
     { 
       id: 2, 
-      left: '70%', 
-      top: '55%', 
-      scale: 1.1, 
-      parallaxStrength: 0.8,
-      animation: 'logo-drift-2 40s ease-in-out infinite'
+      left: '75%', 
+      top: '20%', 
+      scale: 0.85,
+      animation: 'logo-drift-2 40s ease-in-out infinite, logo-pulse 10s ease-in-out infinite 2s'
     },
     { 
       id: 3, 
-      left: '40%', 
-      top: '75%', 
-      scale: 0.9, 
-      parallaxStrength: 0.3,
-      animation: 'logo-drift-3 35s ease-in-out infinite'
+      left: '60%', 
+      top: '70%', 
+      scale: 1.0,
+      animation: 'logo-drift-3 35s ease-in-out infinite, logo-pulse 9s ease-in-out infinite 4s'
     },
   ];
   
   return (
-    <div className="min-h-screen flex flex-col relative z-10">
+    <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
       {/* Tech grid pattern */}
       <div className="tech-grid" />
       
       {/* Vertical light sweep */}
       <div className="light-sweep" />
       
-      {/* Background logos with 3D parallax */}
+      {/* Background logos with slow drift and pulse */}
       {bgLogos.map((logo) => (
         <div
           key={logo.id}
@@ -78,8 +62,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             top: logo.top,
             width: `${400 * logo.scale}px`,
             height: `${400 * logo.scale}px`,
-            animation: logo.animation,
-            transform: `translate(${mousePos.x * logo.parallaxStrength}px, ${mousePos.y * logo.parallaxStrength}px)`
+            animation: logo.animation
           }}
         >
           <img 

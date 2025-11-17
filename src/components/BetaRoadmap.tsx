@@ -7,7 +7,7 @@ export default function BetaRoadmap() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-card/20 to-background">
+    <section className="py-20 relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
