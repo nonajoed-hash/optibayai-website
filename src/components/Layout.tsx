@@ -9,10 +9,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isActive = (path: string) => location.pathname === path;
   
   // Generate particle positions
-  const particles = Array.from({ length: 50 }, (_, i) => ({
+  const particles = Array.from({ length: 150 }, (_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
+    size: `${Math.random() * 1 + 1}px`,
     delay: `${Math.random() * 8}s`,
     duration: `${8 + Math.random() * 4}s`,
   }));
@@ -24,12 +25,14 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <div
           key={particle.id}
           className="particle"
-          style={{
-            left: particle.left,
-            top: particle.top,
-            animation: `particle-float ${particle.duration} ease-in-out infinite`,
-            animationDelay: particle.delay,
-          }}
+            style={{
+              left: particle.left,
+              top: particle.top,
+              width: particle.size,
+              height: particle.size,
+              animation: `particle-float ${particle.duration} ease-in-out infinite`,
+              animationDelay: particle.delay,
+            }}
         />
       ))}
       {/* Beta Banner */}

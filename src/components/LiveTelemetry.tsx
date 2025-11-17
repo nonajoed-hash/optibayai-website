@@ -4,10 +4,6 @@ import { Activity, Clock, Grid3x3 } from "lucide-react";
 export default function LiveTelemetry() {
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Scanning line effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 animate-pulse"></div>
-      </div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
