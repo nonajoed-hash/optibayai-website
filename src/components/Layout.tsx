@@ -86,7 +86,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             src={optibayLogo} 
             alt="" 
             className="w-full h-full object-contain"
-            style={{ opacity: 0.12 }}
+            style={{ opacity: 0.6 }}
           />
         </div>
       ))}
