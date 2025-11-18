@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -50,30 +51,26 @@ export const BetaSignupForm = () => {
       // Detect timezone
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
-      const response = await fetch(
-        "https://gjujerdrkdxoeurzroog.supabase.co/functions/v1/submit-beta-signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...data,
-            timezone,
-          }),
+      const response = await supabase.functions.invoke('submit-beta-signup', {
+        body: {
+          ...data,
+          timezone,
         }
-      );
+      });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
+      if (response.error) {
+        throw response.error;
       }
 
       setIsSuccess(true);
       toast.success("Thanks for signing up! Check your email for next steps.");
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Beta signup error:", error);
-      toast.error("Something went wrong. Please try again later.");
+      const errorMessage = error?.message?.includes('Too many attempts') 
+        ? 'Too many attempts. Please try again later.'
+        : 'Something went wrong. Please try again later.';
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
