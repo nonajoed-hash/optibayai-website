@@ -260,7 +260,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/optibay.ai/?next=%2F" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.instagram.com/optibay.ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     Instagram
                   </a>
                 </li>
