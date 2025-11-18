@@ -9,7 +9,7 @@ export default function Pricing() {
     {
       name: "Core",
       description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
-      price: "$149",
+      price: "$149/month",
       features: [
         "AI-Driven Smart Scheduling",
         "Dynamic Dispatch Optimization",
