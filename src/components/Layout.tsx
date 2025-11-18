@@ -265,7 +265,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://facebook.com/OptiBayAI" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.facebook.com/OptiBayAI" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     Facebook
                   </a>
                 </li>
