@@ -250,18 +250,28 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <h3 className="font-semibold mb-4 text-foreground">Connect</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    Twitter
+                  <a href="https://www.tiktok.com/@optibay_ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    TikTok
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    LinkedIn
+                  <a href="https://x.com/OptibayAI" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    Twitter/X
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    GitHub
+                  <a href="https://www.instagram.com/optibay.ai/?next=%2F" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://facebook.com/OptiBayAI" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@OptiBayAi" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                    YouTube
                   </a>
                 </li>
               </ul>
