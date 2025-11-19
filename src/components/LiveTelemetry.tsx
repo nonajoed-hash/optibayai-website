@@ -7,7 +7,7 @@ export default function LiveTelemetry() {
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-destructive to-destructive bg-clip-text text-transparent">
             See your day at a glance.
           </h2>
           <p className="text-muted-foreground">Live metrics from your shop floor</p>

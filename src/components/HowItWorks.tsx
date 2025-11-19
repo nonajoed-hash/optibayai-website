@@ -7,7 +7,7 @@ export default function HowItWorks() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Copy */}
           <div className="animate-fade-in">
-            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
               How OptiBay keeps every bay in motion.
             </h2>
             <div className="space-y-6">

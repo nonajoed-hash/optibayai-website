@@ -19,31 +19,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     duration: `${4 + Math.random() * 3}s`,
   }));
   
-  // Background logos with varied positions and scales
-  const bgLogos = [
-    { 
-      id: 1, 
-      left: '10%', 
-      top: '15%', 
-      scale: 0.9,
-      animation: 'logo-drift-1 30s ease-in-out infinite'
-    },
-    { 
-      id: 2, 
-      left: '75%', 
-      top: '20%', 
-      scale: 0.85,
-      animation: 'logo-drift-2 40s ease-in-out infinite'
-    },
-    { 
-      id: 3, 
-      left: '32%', 
-      top: '50%', 
-      scale: 0.9,
-      animation: 'logo-drift-3 35s ease-in-out infinite'
-    },
-  ];
-  
   return (
     <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
       {/* Tech grid pattern */}
@@ -51,34 +26,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       {/* Vertical light sweep */}
       <div className="light-sweep" />
-      
-      {/* Background logos with slow drift and pulse */}
-      {bgLogos.map((logo) => (
-        <div
-          key={logo.id}
-          className="bg-logo"
-          style={{
-            left: logo.left,
-            top: logo.top,
-            width: `${400 * logo.scale}px`,
-            height: `${400 * logo.scale}px`,
-            animation: logo.animation,
-            backgroundColor: 'transparent',
-            background: 'transparent'
-          }}
-        >
-          <img 
-            src={optibayLogo} 
-            alt="" 
-            className="w-full h-full object-contain"
-            style={{ 
-              opacity: 0.85,
-              backgroundColor: 'transparent',
-              background: 'transparent'
-            }}
-          />
-        </div>
-      ))}
       
       {/* Particle field */}
       {particles.map((particle) => (

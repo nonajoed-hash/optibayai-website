@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bot, Grid3x3, RefreshCw, TrendingUp } from "lucide-react";
 import bayGridHero from "@/assets/bay-grid-hero.png";
+import optibayLogo from "@/assets/optibay-logo.png";
 import HowItWorks from "@/components/HowItWorks";
 import LiveTelemetry from "@/components/LiveTelemetry";
 import BetaRoadmap from "@/components/BetaRoadmap";
@@ -12,6 +13,14 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-28">
+        {/* Faint hero logo background */}
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <img 
+            src={optibayLogo}
+            alt=""
+            className="absolute top-[10%] right-[5%] w-[40%] opacity-[0.05]"
+          />
+        </div>
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text & CTAs */}
@@ -100,7 +109,7 @@ export default function Home() {
       <section className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-foreground">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
               Everything you need to run your shop
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -200,7 +209,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center animate-fade-in">
             <div className="relative inline-block mb-6">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
                   Join the Private Beta
                 </span>
               </h2>
