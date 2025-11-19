@@ -14,7 +14,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         {/* Faint hero logo watermark - centered between text and graphic */}
-        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
           <img 
             src={optibayLogo}
             alt=""
