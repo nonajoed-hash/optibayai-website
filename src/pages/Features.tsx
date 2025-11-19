@@ -103,8 +103,8 @@ export default function Features() {
     <Layout>
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+          <div className="mx-auto max-w-5xl text-center mb-16 animate-fade-in">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl mb-4">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 OptiBay Core Features
               </span>
