@@ -21,6 +21,14 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   
   return (
     <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
+      {/* Fixed background logo watermark */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <img 
+          src={optibayLogo}
+          alt=""
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] opacity-[0.06]"
+        />
+      </div>
       {/* Tech grid pattern */}
       <div className="tech-grid" />
       
