@@ -13,12 +13,12 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-28">
-        {/* Faint hero logo background */}
+        {/* Faint hero logo watermark - centered between text and graphic */}
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
           <img 
             src={optibayLogo}
             alt=""
-            className="absolute top-[10%] right-[5%] w-[40%] opacity-[0.05]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] opacity-[0.06]"
           />
         </div>
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">

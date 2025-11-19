@@ -105,7 +105,7 @@ export default function Pricing() {
           <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-8 max-w-4xl mx-auto shadow-[var(--shadow-panel)]">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg"></div>
             <div className="relative">
-              <h2 className="text-2xl font-bold mb-4 text-center text-foreground">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-destructive to-destructive bg-clip-text text-transparent">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
                   <h3 className="font-semibold mb-2 text-foreground">When will pricing be available?</h3>

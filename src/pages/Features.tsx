@@ -120,10 +120,16 @@ export default function Features() {
                 {/* Section background panel */}
                 <div className="absolute inset-0 bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl -z-10"></div>
                 <div className="p-8">
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold mb-2 text-foreground">{section.title}</h2>
-                    <p className="text-muted-foreground text-lg">{section.subtitle}</p>
-                  </div>
+                <div className="text-center mb-8">
+                  <h2 className={`text-3xl font-bold mb-2 bg-gradient-to-r ${
+                    sectionIndex % 2 === 0 
+                      ? 'from-primary to-primary' 
+                      : 'from-destructive to-destructive'
+                  } bg-clip-text text-transparent`}>
+                    {section.title}
+                  </h2>
+                  <p className="text-muted-foreground text-lg">{section.subtitle}</p>
+                </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {section.features.map((feature, featureIndex) => (
                       <Card 
