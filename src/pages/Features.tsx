@@ -104,12 +104,12 @@ export default function Features() {
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl text-center mb-16 animate-fade-in">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl mb-4">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 OptiBay Core Features
               </span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               AI-powered scheduling and workflow intelligence for modern repair shops
             </p>
           </div>
@@ -121,10 +121,10 @@ export default function Features() {
                 <div className="absolute inset-0 bg-card/30 backdrop-blur-sm border border-primary/10 rounded-2xl -z-10"></div>
                 <div className="p-8">
                 <div className="text-center mb-8">
-                  <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-soft-orange to-soft-orange bg-clip-text text-transparent">
+                  <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-soft-orange to-soft-orange bg-clip-text text-transparent">
                     {section.title}
                   </h2>
-                  <p className="text-muted-foreground text-lg">{section.subtitle}</p>
+                  <p className="text-muted-foreground text-base">{section.subtitle}</p>
                 </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {section.features.map((feature, featureIndex) => (
