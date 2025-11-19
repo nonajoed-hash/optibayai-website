@@ -37,6 +37,10 @@ All colors MUST be HSL.
     --destructive: 15 90% 60%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Soft Orange for section headers */
+    --soft-orange: 25 85% 65%;
+    --soft-orange-foreground: 0 0% 100%;
+
     --border: 220 40% 18%;
     --input: 220 40% 18%;
     --ring: 217 91% 60%;
@@ -83,6 +87,9 @@ All colors MUST be HSL.
 
     --destructive: 15 90% 60%;
     --destructive-foreground: 0 0% 100%;
+
+    --soft-orange: 25 85% 65%;
+    --soft-orange-foreground: 0 0% 100%;
 
     --border: 220 40% 18%;
     --input: 220 40% 18%;

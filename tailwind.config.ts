@@ -31,6 +31,10 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        "soft-orange": {
+          DEFAULT: "hsl(var(--soft-orange))",
+          foreground: "hsl(var(--soft-orange-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
