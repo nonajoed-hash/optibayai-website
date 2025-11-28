@@ -38,7 +38,7 @@ async function sendNotificationEmail(signupData: BetaSignupData) {
   const resend = new Resend(resendApiKey);
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'OptiBay Beta <no-reply@optibayai.com>',
       to: [notifyEmail],
       subject: 'New OptiBay beta signup',
@@ -55,7 +55,13 @@ Timezone: ${signupData.timezone}
 
 Notes: ${signupData.notes || 'None'}`,
     });
-    console.log('Notification email sent successfully to:', notifyEmail);
+
+    if (error) {
+      console.error('Resend API error:', JSON.stringify(error));
+      return;
+    }
+    
+    console.log('Notification email sent successfully to:', notifyEmail, 'Email ID:', data?.id);
   } catch (error) {
     console.error('Failed to send notification email:', error);
   }
