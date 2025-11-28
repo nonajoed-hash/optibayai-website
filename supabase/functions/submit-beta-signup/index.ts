@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
+import { Resend } from "https://esm.sh/resend@4.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -23,6 +24,42 @@ interface BetaSignupData {
 // Rate limiting configuration
 const RATE_LIMIT_MAX_ATTEMPTS = 3;
 const RATE_LIMIT_WINDOW_HOURS = 1;
+
+// Email notification function
+async function sendNotificationEmail(signupData: BetaSignupData) {
+  const resendApiKey = Deno.env.get('RESEND_API_KEY');
+  const notifyEmail = Deno.env.get('BETA_SIGNUP_NOTIFY_EMAIL');
+  
+  if (!resendApiKey || !notifyEmail) {
+    console.warn('Email notification skipped: RESEND_API_KEY or BETA_SIGNUP_NOTIFY_EMAIL not configured');
+    return;
+  }
+
+  const resend = new Resend(resendApiKey);
+
+  try {
+    await resend.emails.send({
+      from: 'OptiBay Beta <no-reply@optibayai.com>',
+      to: [notifyEmail],
+      subject: 'New OptiBay beta signup',
+      text: `New beta signup received:
+
+Name: ${signupData.name}
+Email: ${signupData.email}
+Shop: ${signupData.shop_name}
+Phone: ${signupData.phone || 'Not provided'}
+Role: ${signupData.role}
+Shop size: ${signupData.shop_size}
+Country: ${signupData.country}
+Timezone: ${signupData.timezone}
+
+Notes: ${signupData.notes || 'None'}`,
+    });
+    console.log('Notification email sent successfully to:', notifyEmail);
+  } catch (error) {
+    console.error('Failed to send notification email:', error);
+  }
+}
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -172,7 +209,7 @@ serve(async (req) => {
       return new Response(
         JSON.stringify({ 
           success: true,
-          message: 'Thank you for your interest! We\'ll be in touch soon.'
+          message: 'Thank you for your interest in the OptiBay experience. If selected for beta, you\'ll receive an email within 24 hours.'
         }),
         { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
@@ -205,10 +242,13 @@ serve(async (req) => {
 
     console.log('Beta signup successful:', signup.id, data.email);
 
+    // Send notification email to admin
+    await sendNotificationEmail(data);
+
     return new Response(
       JSON.stringify({ 
         success: true,
-        message: 'Thank you for your interest! We\'ll be in touch soon.'
+        message: 'Thank you for your interest in the OptiBay experience. If selected for beta, you\'ll receive an email within 24 hours.'
       }),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
