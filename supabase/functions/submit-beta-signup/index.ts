@@ -39,7 +39,7 @@ async function sendNotificationEmail(signupData: BetaSignupData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'OptiBay Beta <no-reply@optibayai.com>',
+      from: 'OptiBay Beta <no-reply@mail.optibayai.com>',
       to: [notifyEmail],
       subject: 'New OptiBay beta signup',
       text: `New beta signup received:
