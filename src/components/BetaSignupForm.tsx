@@ -63,7 +63,7 @@ export const BetaSignupForm = () => {
       }
 
       setIsSuccess(true);
-      toast.success("Thanks for signing up! Check your email for next steps.");
+      toast.success("Thank you for your interest in the OptiBay experience. If selected for beta, you'll receive an email within 24 hours.");
       form.reset();
     } catch (error: any) {
       console.error("Beta signup error:", error);
@@ -85,9 +85,9 @@ export const BetaSignupForm = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-3xl font-bold mb-2">You're all set!</h2>
+          <h2 className="text-3xl font-bold mb-2">Thank you for your interest in the OptiBay experience.</h2>
           <p className="text-lg text-muted-foreground">
-            Thanks for signing up! Check your email for next steps.
+            Due to high demand, beta seats are limited. If you are selected as one of our beta testers, you will receive an email with the next steps within 24 hours.
           </p>
         </div>
         <Button onClick={() => setIsSuccess(false)} variant="outline">
