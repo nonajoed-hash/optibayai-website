@@ -40,7 +40,7 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                  <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
                     Watch Beta Demo
                   </a>
                 </Button>
