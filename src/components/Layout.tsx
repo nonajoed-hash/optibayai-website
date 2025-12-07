@@ -125,7 +125,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               
               <div className="flex items-center gap-3">
                 <Button asChild variant="outline" size="sm">
-                  <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
                     See Beta Demo
                   </a>
                 </Button>

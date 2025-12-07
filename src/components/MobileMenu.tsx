@@ -62,7 +62,7 @@ export function MobileMenu() {
                     className="w-full"
                     onClick={() => setIsOpen(false)}
                   >
-                    <a href="https://app.optibayai.com/auth" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
                       See Beta Demo
                     </a>
                   </Button>
