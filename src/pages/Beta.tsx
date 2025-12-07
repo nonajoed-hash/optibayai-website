@@ -79,6 +79,35 @@ export default function Beta() {
             </div>
           </div>
 
+            {/* Beta Benefits */}
+            <div className="mb-12 max-w-3xl mx-auto">
+              <h2 className="text-2xl font-semibold mb-3 text-foreground">
+                Exclusive Beta Tester Benefits
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                If your shop is accepted into the private beta, you'll receive:
+              </p>
+
+              <div className="grid gap-6 md:grid-cols-2 text-sm text-muted-foreground text-left">
+                <ul className="space-y-2">
+                  <li>• First 2 months free and the next 10 months at 50% off.</li>
+                  <li>• Your rate is locked in for life and will never increase.</li>
+                  <li>• Complete done-for-you setup of bays, technicians, hours, job types, and skill levels.</li>
+                  <li>• Hands-on help getting your board fully operational before Day One.</li>
+                </ul>
+                <ul className="space-y-2">
+                  <li>• Direct access to the founder for feedback and support.</li>
+                  <li>• Best time to reach me: after 5pm CST Monday–Friday (very open on weekends).</li>
+                  <li>• Early access to Core improvements throughout beta.</li>
+                  <li>• Priority access to Catalyst and Enterprise tiers if your shop chooses to upgrade later.</li>
+                </ul>
+              </div>
+
+              <p className="mt-4 text-xs text-muted-foreground/80">
+                Beta spots are limited. Every application is manually reviewed to ensure a good mutual fit.
+              </p>
+            </div>
+
           <BetaSignupForm />
         </div>
       </div>
