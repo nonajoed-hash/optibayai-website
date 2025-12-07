@@ -92,12 +92,11 @@ export default function Beta() {
                 <ul className="space-y-2">
                   <li>• First 2 months free and the next 10 months at 50% off.</li>
                   <li>• Your rate is locked in for life and will never increase.</li>
-                  <li>• Complete done-for-you setup of bays, technicians, hours, job types, and skill levels.</li>
+                  <li>• Complete done-for-you setup of bays, technicians, hours, job types, and skill levels, if you so choose.</li>
                   <li>• Hands-on help getting your board fully operational before Day One.</li>
                 </ul>
                 <ul className="space-y-2">
                   <li>• Direct access to the founder for feedback and support.</li>
-                  <li>• Best time to reach me: after 5pm CST Monday–Friday (very open on weekends).</li>
                   <li>• Early access to Core improvements throughout beta.</li>
                   <li>• Priority access to Catalyst and Enterprise tiers if your shop chooses to upgrade later.</li>
                 </ul>
