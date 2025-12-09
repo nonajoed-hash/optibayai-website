@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 
 const values = [
@@ -39,6 +40,12 @@ const values = [
 const Mission = () => {
   return (
     <Layout>
+      <SEO
+        title="Our Mission - OptiBay AI Company Values"
+        description="OptiBay AI empowers auto shops with clarity, protects technician time, and transforms operations through intelligent AI that supports human judgment."
+        path="/mission"
+        keywords="optibay mission, auto shop AI philosophy, people-first technology, technician-first software"
+      />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

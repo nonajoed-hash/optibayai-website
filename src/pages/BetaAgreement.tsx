@@ -1,8 +1,14 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 
 export default function BetaAgreement() {
   return (
     <Layout>
+      <SEO
+        title="Beta Tester Agreement - OptiBay AI"
+        description="Review the OptiBay AI beta tester agreement. Understand the terms for participating in our private beta program."
+        path="/legal/beta-agreement"
+      />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-4xl font-bold mb-8">Beta Tester Agreement</h1>

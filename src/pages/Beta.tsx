@@ -1,9 +1,16 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 import { BetaSignupForm } from "@/components/BetaSignupForm";
 
 export default function Beta() {
   return (
     <Layout>
+      <SEO
+        title="Join the Beta Program - OptiBay AI Early Access"
+        description="Apply for OptiBay AI's private beta program. Get early access, founding pricing, hands-on setup support, and shape the future of auto shop scheduling."
+        path="/beta"
+        keywords="optibay beta, auto shop software beta, early access scheduling software, founding member pricing"
+      />
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12 animate-fade-in">

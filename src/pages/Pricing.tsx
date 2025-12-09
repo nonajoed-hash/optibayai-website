@@ -1,8 +1,15 @@
 import { Layout } from "@/components/Layout";
+import { SEO, FAQSchema } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const pricingFaqs = [
+  { question: "When will pricing be available?", answer: "We're currently in beta and finalizing our pricing structure. Beta participants will receive special early-adopter pricing when we launch." },
+  { question: "Is there a free trial?", answer: "Yes! All plans will include a 14-day free trial with no credit card required." },
+  { question: "Can I change plans later?", answer: "Absolutely. You can upgrade or downgrade your plan at any time to match your shop's needs." }
+];
 
 export default function Pricing() {
   const plans = [
@@ -39,6 +46,13 @@ export default function Pricing() {
 
   return (
     <Layout>
+      <SEO
+        title="Pricing Plans - OptiBay AI Auto Shop Software"
+        description="Simple, transparent pricing for OptiBay AI. Core plan at $149/month includes AI scheduling, dispatch optimization, multi-bay support, and more. 14-day free trial."
+        path="/pricing"
+        keywords="auto shop software pricing, repair shop management cost, bay scheduling software price"
+      />
+      <FAQSchema faqs={pricingFaqs} />
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16 animate-fade-in">
