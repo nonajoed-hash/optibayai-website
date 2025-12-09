@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Zap, Users, Layout as LayoutIcon, Clock, TrendingUp, Database, Lock } from "lucide-react";
 
@@ -101,6 +102,12 @@ export default function Features() {
 
   return (
     <Layout>
+      <SEO
+        title="Features - OptiBay AI Auto Shop Management"
+        description="Discover OptiBay AI's powerful features: AI-driven scheduling, dynamic dispatch, multi-bay management, live ETAs, and technician skill matching for auto repair shops."
+        path="/features"
+        keywords="auto shop features, bay management software, technician scheduling features, AI dispatch, shop workflow automation"
+      />
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl text-center mb-16 animate-fade-in">

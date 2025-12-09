@@ -1,3 +1,6 @@
+# OptiBay AI Robots.txt
+# https://optibayai.com
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://optibayai.com/sitemap.xml

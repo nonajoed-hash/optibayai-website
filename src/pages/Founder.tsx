@@ -1,8 +1,15 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 
 const Founder = () => {
   return (
     <Layout>
+      <SEO
+        title="Meet the Founder - Joe DeFreitas | OptiBay AI"
+        description="Joe DeFreitas brings 24 years of automotive industry experience to OptiBay AI. Learn the story behind the mission to transform auto shop operations."
+        path="/about/founder"
+        keywords="joe defreitas, optibay founder, automotive industry expert, shop scheduling inventor"
+      />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

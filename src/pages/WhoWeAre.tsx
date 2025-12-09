@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 
 const audiences = [
@@ -32,6 +33,12 @@ const capabilities = [
 const WhoWeAre = () => {
   return (
     <Layout>
+      <SEO
+        title="About Us - OptiBay AI Company Overview"
+        description="OptiBay AI is a shop-first, technician-first intelligence platform built to restore clarity, balance, and confidence to automotive repair operations."
+        path="/about/company"
+        keywords="about optibay, auto shop technology company, automotive AI company, shop management startup"
+      />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

@@ -1,8 +1,14 @@
 import { Layout } from "@/components/Layout";
+import { SEO } from "@/components/SEO";
 
 export default function Terms() {
   return (
     <Layout>
+      <SEO
+        title="Terms of Service - OptiBay AI"
+        description="Read OptiBay AI's terms of service. Understand your rights and responsibilities when using our auto shop scheduling platform."
+        path="/legal/terms"
+      />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
