@@ -12,6 +12,9 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import BetaAgreement from "./pages/BetaAgreement";
 import NotFound from "./pages/NotFound";
+import Mission from "./pages/Mission";
+import Founder from "./pages/Founder";
+import WhoWeAre from "./pages/WhoWeAre";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,9 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/beta" element={<Beta />} />
+          <Route path="/mission" element={<Mission />} />
+          <Route path="/about/founder" element={<Founder />} />
+          <Route path="/about/company" element={<WhoWeAre />} />
           <Route path="/legal/privacy" element={<Privacy />} />
           <Route path="/legal/terms" element={<Terms />} />
           <Route path="/legal/beta-agreement" element={<BetaAgreement />} />

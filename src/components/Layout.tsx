@@ -121,6 +121,55 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 >
                   Pricing
                 </Link>
+                <Link
+                  to="/mission"
+                  className={`text-sm font-medium transition-all duration-300 ${
+                    location.pathname === "/mission" 
+                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  Mission
+                </Link>
+                {/* About Dropdown */}
+                <div className="relative group">
+                  <button
+                    className={`text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
+                      location.pathname.startsWith("/about") 
+                        ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    About
+                    <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="bg-card/95 backdrop-blur-lg border border-border/40 rounded-lg shadow-xl py-2 min-w-[140px]">
+                      <Link
+                        to="/about/founder"
+                        className={`block px-4 py-2 text-sm transition-colors ${
+                          location.pathname === "/about/founder"
+                            ? "text-primary bg-primary/10"
+                            : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                        }`}
+                      >
+                        Founder
+                      </Link>
+                      <Link
+                        to="/about/company"
+                        className={`block px-4 py-2 text-sm transition-colors ${
+                          location.pathname === "/about/company"
+                            ? "text-primary bg-primary/10"
+                            : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                        }`}
+                      >
+                        Who We Are
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
               
               <div className="flex items-center gap-3">
@@ -145,7 +194,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       <footer className="relative bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <img 
@@ -175,6 +224,27 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <li>
                   <Link to="/beta" className="text-muted-foreground hover:text-primary transition-colors">
                     Beta Program
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4 text-foreground">Company</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link to="/mission" className="text-muted-foreground hover:text-primary transition-colors">
+                    Mission
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about/founder" className="text-muted-foreground hover:text-primary transition-colors">
+                    Founder
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about/company" className="text-muted-foreground hover:text-primary transition-colors">
+                    Who We Are
                   </Link>
                 </li>
               </ul>
