@@ -60,7 +60,7 @@ const WhoWeAre = () => {
 
               {/* What We Stand For */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   What We Stand For
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -90,7 +90,7 @@ const WhoWeAre = () => {
 
               {/* Who We Serve */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                   Who We Serve
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -110,7 +110,7 @@ const WhoWeAre = () => {
 
               {/* Why We Exist */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   Why We Exist
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -174,7 +174,7 @@ const WhoWeAre = () => {
 
               {/* How We Do It */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                   How We Do It
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -198,7 +198,7 @@ const WhoWeAre = () => {
 
               {/* Our Commitment */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   Our Commitment
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">

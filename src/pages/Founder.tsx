@@ -43,7 +43,7 @@ const Founder = () => {
 
               {/* What I Saw */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   What I Saw
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -90,7 +90,7 @@ const Founder = () => {
 
               {/* Where OptiBay AI Came From */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                   Where OptiBay AI Came From
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -109,7 +109,7 @@ const Founder = () => {
 
               {/* The Belief */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   The Belief
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -127,7 +127,7 @@ const Founder = () => {
 
               {/* What OptiBay AI Exists To Do */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                   What OptiBay AI Exists To Do
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -163,7 +163,7 @@ const Founder = () => {
 
               {/* Who This Is Built For */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                   Who This Is Built For
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -194,7 +194,7 @@ const Founder = () => {
 
               {/* Core Values */}
               <section>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                   What Drives Every Decision
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
