@@ -70,7 +70,7 @@ const Mission = () => {
 
             {/* Full Mission Narrative */}
             <div className="mb-16 animate-fade-in">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                 Full Mission Narrative
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
@@ -97,7 +97,7 @@ const Mission = () => {
 
             {/* Values List */}
             <div className="mb-16 animate-fade-in">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
                 What OptiBay AI Believes
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -114,7 +114,7 @@ const Mission = () => {
 
             {/* Why We Exist */}
             <div className="animate-fade-in">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-8 bg-gradient-to-r from-soft-orange to-destructive bg-clip-text text-transparent text-center">
                 Why We Exist
               </h2>
               <p className="text-muted-foreground leading-relaxed">
