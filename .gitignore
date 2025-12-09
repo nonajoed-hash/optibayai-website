@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Prevent environment files from ever being committed
+.env
+.env.*
+*.env
+
+# Prevent Supabase local config or secrets
+supabase/.env
+supabase/*.secret
