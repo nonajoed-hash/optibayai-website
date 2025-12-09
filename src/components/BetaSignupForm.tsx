@@ -9,7 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -48,6 +47,9 @@ export const BetaSignupForm = () => {
     setIsSubmitting(true);
     
     try {
+      // Dynamically import supabase client only when needed
+      const { supabase } = await import("@/integrations/supabase/client");
+      
       // Detect timezone
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
