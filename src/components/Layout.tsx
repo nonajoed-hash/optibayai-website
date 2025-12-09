@@ -9,24 +9,33 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   
   const isActive = (path: string) => location.pathname === path;
   
-  // Generate particle positions
-  const particles = Array.from({ length: 150 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    size: `${Math.random() * 1 + 1}px`,
-    delay: `${Math.random() * 6}s`,
-    duration: `${4 + Math.random() * 3}s`,
-  }));
-  
   return (
     <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
+      {/* Holographic rays layer */}
+      <div className="holo-rays"></div>
+      
+      {/* Particle field with twinkle + drift */}
+      <div className="particle-field">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="particle"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${15 + Math.random() * 15}s`,
+            }}
+          />
+        ))}
+      </div>
+      
       {/* Fixed background logo watermark with glow pulse */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none flex items-center justify-center">
         <img 
           src={optibayLogo}
           alt=""
-          className="w-[40%] max-w-[500px] opacity-85"
+          className="w-[40%] max-w-[500px] opacity-20"
           style={{
             filter: 'drop-shadow(0 0 30px hsl(180 80% 55% / 0.4)) drop-shadow(0 0 60px hsl(180 80% 55% / 0.2))',
             animation: 'logo-pulse-glow 3s ease-in-out infinite'
@@ -38,22 +47,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       {/* Vertical light sweep */}
       <div className="light-sweep" />
-      
-      {/* Particle field */}
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className="particle"
-          style={{
-            left: particle.left,
-            top: particle.top,
-            width: particle.size,
-            height: particle.size,
-            animation: `particle-float ${particle.duration} ease-in-out infinite`,
-            animationDelay: particle.delay,
-          }}
-        />
-      ))}
       {/* Beta Banner */}
       <div className="w-full bg-primary/10 border-b border-primary/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
