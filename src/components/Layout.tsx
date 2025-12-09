@@ -21,12 +21,16 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   
   return (
     <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
-      {/* Fixed background logo watermark */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* Fixed background logo watermark with glow pulse */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none flex items-center justify-center">
         <img 
           src={optibayLogo}
           alt=""
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35%] opacity-[0.06]"
+          className="w-[40%] max-w-[500px] opacity-85"
+          style={{
+            filter: 'drop-shadow(0 0 30px hsl(180 80% 55% / 0.4)) drop-shadow(0 0 60px hsl(180 80% 55% / 0.2))',
+            animation: 'logo-pulse-glow 3s ease-in-out infinite'
+          }}
         />
       </div>
       {/* Tech grid pattern */}
