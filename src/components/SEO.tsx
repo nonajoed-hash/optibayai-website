@@ -100,7 +100,7 @@ export function OrganizationSchema() {
       "@type": "Organization",
       name: "OptiBay AI",
       url: "https://optibayai.com",
-      logo: "https://optibayai.com/logo.png",
+      logo: "https://optibayai.com/og-image.png",
       description: "OptiBay AI is smart automotive scheduling software for repair shops.",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61572058995307",
