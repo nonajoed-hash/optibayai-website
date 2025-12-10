@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
+import { Link } from "react-router-dom";
 const Founder = () => {
   return (
     <Layout>
@@ -224,6 +225,22 @@ const Founder = () => {
                 </p>
                 <p className="text-lg text-primary font-medium mb-8">
                   And once you experience it, you won't want to go back.
+                </p>
+
+                <p className="mt-8 text-sm text-slate-300/80">
+                  If this journey resonates with your shop, take a closer look at{" "}
+                  <Link to="/features" className="underline underline-offset-2">
+                    how the platform works
+                  </Link>
+                  , see{" "}
+                  <Link to="/pricing" className="underline underline-offset-2">
+                    which plan fits your team
+                  </Link>
+                  , or{" "}
+                  <Link to="/beta" className="underline underline-offset-2">
+                    join the beta and help shape the future of shop scheduling
+                  </Link>
+                  .
                 </p>
 
                 <SeoPillarSection variant="mini" />

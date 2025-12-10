@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Zap, Users, Layout as LayoutIcon, Clock, TrendingUp, Database, Lock } from "lucide-react";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
+import { Link } from "react-router-dom";
 export default function Features() {
   const featureSections = [
     {
@@ -171,6 +172,22 @@ export default function Features() {
               </div>
             ))}
           </div>
+
+          <p className="mt-8 text-sm text-slate-300/80">
+            Ready to put these tools to work in your shop? Check out{" "}
+            <Link to="/pricing" className="underline underline-offset-2">
+              pricing and plans
+            </Link>
+            , read more about{" "}
+            <Link to="/mission" className="underline underline-offset-2">
+              the mission behind OptiBay AI
+            </Link>
+            , or{" "}
+            <Link to="/beta" className="underline underline-offset-2">
+              apply for beta access
+            </Link>
+            .
+          </p>
 
           <SeoPillarSection variant="mini" />
         </div>

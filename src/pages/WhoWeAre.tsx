@@ -2,6 +2,7 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
+import { Link } from "react-router-dom";
 const audiences = [
   {
     title: "Technicians",
@@ -254,6 +255,22 @@ const WhoWeAre = () => {
                 <p className="text-lg text-muted-foreground mb-8">
                   This is scheduling…<br />
                   <span className="text-foreground font-semibold">the OptiBay way.</span>
+                </p>
+
+                <p className="mt-8 text-sm text-slate-300/80">
+                  To see how this story turns into real tooling, explore{" "}
+                  <Link to="/features" className="underline underline-offset-2">
+                    what OptiBay AI can do
+                  </Link>
+                  , review{" "}
+                  <Link to="/pricing" className="underline underline-offset-2">
+                    plans for different shop types
+                  </Link>
+                  , or learn more in the{" "}
+                  <Link to="/founder" className="underline underline-offset-2">
+                    founder story
+                  </Link>
+                  .
                 </p>
 
                 <SeoPillarSection variant="mini" />
