@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 const Founder = () => {
   return (
     <Layout>
@@ -222,9 +222,11 @@ const Founder = () => {
                   This is scheduling…<br />
                   <span className="text-foreground font-semibold">the OptiBay way.</span>
                 </p>
-                <p className="text-lg text-primary font-medium">
+                <p className="text-lg text-primary font-medium mb-8">
                   And once you experience it, you won't want to go back.
                 </p>
+
+                <SeoPillarSection variant="mini" />
               </section>
             </div>
           </div>

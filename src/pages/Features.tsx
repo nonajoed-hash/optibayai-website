@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Zap, Users, Layout as LayoutIcon, Clock, TrendingUp, Database, Lock } from "lucide-react";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 export default function Features() {
   const featureSections = [
     {
@@ -171,6 +171,8 @@ export default function Features() {
               </div>
             ))}
           </div>
+
+          <SeoPillarSection variant="mini" />
         </div>
       </div>
     </Layout>

@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 const audiences = [
   {
     title: "Technicians",
@@ -251,10 +251,12 @@ const WhoWeAre = () => {
                   People first.<br />
                   Chaos last.
                 </p>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-muted-foreground mb-8">
                   This is scheduling…<br />
                   <span className="text-foreground font-semibold">the OptiBay way.</span>
                 </p>
+
+                <SeoPillarSection variant="mini" />
               </section>
             </div>
           </div>

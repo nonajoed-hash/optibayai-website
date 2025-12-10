@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 const values = [
   {
     label: "People First",
@@ -128,6 +128,8 @@ const Mission = () => {
                 OptiBay AI exists because automotive shops deserve tools that match the speed, complexity, and reality of the work they perform. For decades, technicians and service writers have been asked to operate in chaos with systems that weren't built for the way modern shops actually function. We're here to fix that — with intelligence that adapts to your workflow, respects your expertise, and supports your team every minute of the day.
               </p>
             </div>
+
+            <SeoPillarSection variant="mini" />
           </div>
         </div>
       </div>

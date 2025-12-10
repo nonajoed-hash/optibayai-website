@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 const pricingFaqs = [
   { question: "When will pricing be available?", answer: "We're currently in beta and finalizing our pricing structure. Beta participants will receive special early-adopter pricing when we launch." },
   { question: "Is there a free trial?", answer: "Yes! All plans will include a 14-day free trial with no credit card required." },
@@ -142,6 +142,8 @@ export default function Pricing() {
               </div>
             </div>
           </div>
+
+          <SeoPillarSection variant="mini" />
         </div>
       </div>
     </Layout>
