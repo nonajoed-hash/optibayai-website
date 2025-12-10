@@ -99,8 +99,8 @@ export function OrganizationSchema() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "OptiBay AI",
-      url: "https://www.optibay.ai",
-      logo: "https://www.optibay.ai/logo.png",
+      url: "https://optibayai.com",
+      logo: "https://optibayai.com/logo.png",
       description: "OptiBay AI is smart automotive scheduling software for repair shops.",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61572058995307",
@@ -123,7 +123,7 @@ export function SoftwareApplicationSchema() {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       name: "OptiBay AI",
-      url: "https://www.optibay.ai",
+      url: "https://optibayai.com",
       applicationCategory: "Automotive Repair, Scheduling, SaaS",
       operatingSystem: "Web",
       description: "OptiBay AI is smart automotive scheduling and auto shop scheduling software that helps repair shops manage technicians, bays, waiters, workflows, and real-time load balancing.",
@@ -146,10 +146,10 @@ export function WebSiteSchema() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "OptiBay AI",
-      url: "https://www.optibay.ai",
+      url: "https://optibayai.com",
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://www.optibay.ai/?s={search_term_string}",
+        target: "https://optibayai.com/?s={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     };
