@@ -41,8 +41,8 @@ const Mission = () => {
   return (
     <Layout>
       <SEO
-        title="Our Mission - OptiBay AI Company Values"
-        description="OptiBay AI empowers auto shops with clarity, protects technician time, and transforms operations through intelligent AI that supports human judgment."
+        title="Our Mission | Why OptiBay AI Is Redefining Auto Shop Scheduling"
+        description="Learn how OptiBay AI brings clarity, balance, and efficiency to repair shops through smart automotive scheduling and technician-first design principles."
         path="/mission"
         keywords="optibay mission, auto shop AI philosophy, people-first technology, technician-first software"
       />

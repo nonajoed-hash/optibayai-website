@@ -47,8 +47,8 @@ export default function Pricing() {
   return (
     <Layout>
       <SEO
-        title="Pricing Plans - OptiBay AI Auto Shop Software"
-        description="Simple, transparent pricing for OptiBay AI. Core plan at $149/month includes AI scheduling, dispatch optimization, multi-bay support, and more. 14-day free trial."
+        title="OptiBay AI Pricing | Auto Shop Scheduling Software Plans"
+        description="Choose from simple, scalable plans for auto shop scheduling software. Perfect for general repair, euro, diesel, performance, and specialty shops."
         path="/pricing"
         keywords="auto shop software pricing, repair shop management cost, bay scheduling software price"
       />

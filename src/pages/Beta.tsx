@@ -6,8 +6,8 @@ export default function Beta() {
   return (
     <Layout>
       <SEO
-        title="Join the Beta Program - OptiBay AI Early Access"
-        description="Apply for OptiBay AI's private beta program. Get early access, founding pricing, hands-on setup support, and shape the future of auto shop scheduling."
+        title="OptiBay AI Beta | Early Access Auto Shop Scheduling Software"
+        description="Apply for early access to OptiBay AI, the smart automotive scheduling platform transforming technician scheduling, bay management, and shop workflow."
         path="/beta"
         keywords="optibay beta, auto shop software beta, early access scheduling software, founding member pricing"
       />

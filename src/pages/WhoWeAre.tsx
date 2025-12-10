@@ -34,8 +34,8 @@ const WhoWeAre = () => {
   return (
     <Layout>
       <SEO
-        title="About Us - OptiBay AI Company Overview"
-        description="OptiBay AI is a shop-first, technician-first intelligence platform built to restore clarity, balance, and confidence to automotive repair operations."
+        title="About OptiBay AI | The Future of Smart Automotive Scheduling"
+        description="Discover how OptiBay AI was created by a career technician to solve real-world auto shop scheduling challenges through intelligent, adaptive software."
         path="/about/company"
         keywords="about optibay, auto shop technology company, automotive AI company, shop management startup"
       />
