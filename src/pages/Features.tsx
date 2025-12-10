@@ -103,8 +103,8 @@ export default function Features() {
   return (
     <Layout>
       <SEO
-        title="Features - OptiBay AI Auto Shop Management"
-        description="Discover OptiBay AI's powerful features: AI-driven scheduling, dynamic dispatch, multi-bay management, live ETAs, and technician skill matching for auto repair shops."
+        title="OptiBay AI Features | Smart Scheduling for Auto Repair Shops"
+        description="Explore AI-powered features for technician scheduling, bay optimization, load balancing, workflow visibility, and smart automotive scheduling built for repair shops."
         path="/features"
         keywords="auto shop features, bay management software, technician scheduling features, AI dispatch, shop workflow automation"
       />

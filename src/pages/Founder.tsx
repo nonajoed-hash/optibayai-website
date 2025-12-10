@@ -5,8 +5,8 @@ const Founder = () => {
   return (
     <Layout>
       <SEO
-        title="Meet the Founder - Joe DeFreitas | OptiBay AI"
-        description="Joe DeFreitas brings 24 years of automotive industry experience to OptiBay AI. Learn the story behind the mission to transform auto shop operations."
+        title="Founder Story | Built by a Technician, Designed for the Industry"
+        description="Read the story behind OptiBay AI — a scheduling platform born from decades on the shop floor to fix the chaos of technician, bay, and workflow management."
         path="/about/founder"
         keywords="joe defreitas, optibay founder, automotive industry expert, shop scheduling inventor"
       />
