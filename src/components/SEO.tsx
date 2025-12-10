@@ -99,26 +99,16 @@ export function OrganizationSchema() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "OptiBay AI",
-      url: "https://optibayai.com",
-      logo: "https://optibayai.com/og-image.png",
-      description: "AI-powered auto shop scheduling and management platform",
-      foundingDate: "2024",
-      founder: {
-        "@type": "Person",
-        name: "Joe DeFreitas"
-      },
+      url: "https://www.optibay.ai",
+      logo: "https://www.optibay.ai/logo.png",
+      description: "OptiBay AI is smart automotive scheduling software for repair shops.",
       sameAs: [
+        "https://www.facebook.com/profile.php?id=61572058995307",
+        "https://www.instagram.com/optibay_ai",
         "https://www.tiktok.com/@optibay_ai",
-        "https://x.com/OptibayAI",
-        "https://www.instagram.com/optibay.ai/",
-        "https://www.facebook.com/OptiBayAI",
-        "https://www.youtube.com/@OptiBayAi"
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        email: "joe@optibayai.com",
-        contactType: "customer service"
-      }
+        "https://x.com/OptiBay_AI",
+        "https://www.youtube.com/@OptiBayAI"
+      ]
     };
     
     injectSchema("org-schema", schema);
@@ -133,23 +123,38 @@ export function SoftwareApplicationSchema() {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       name: "OptiBay AI",
-      applicationCategory: "BusinessApplication",
+      url: "https://www.optibay.ai",
+      applicationCategory: "Automotive Repair, Scheduling, SaaS",
       operatingSystem: "Web",
-      description: "Intelligent auto shop scheduling software that optimizes bay assignments, technician workloads, and customer appointments using AI.",
+      description: "OptiBay AI is smart automotive scheduling and auto shop scheduling software that helps repair shops manage technicians, bays, waiters, workflows, and real-time load balancing.",
       offers: {
         "@type": "Offer",
-        price: "149.00",
-        priceCurrency: "USD",
-        priceValidUntil: "2025-12-31"
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "5",
-        ratingCount: "1"
+        price: "149",
+        priceCurrency: "USD"
       }
     };
     
     injectSchema("software-schema", schema);
+  }, []);
+
+  return null;
+}
+
+export function WebSiteSchema() {
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "OptiBay AI",
+      url: "https://www.optibay.ai",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://www.optibay.ai/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    };
+    
+    injectSchema("website-schema", schema);
   }, []);
 
   return null;

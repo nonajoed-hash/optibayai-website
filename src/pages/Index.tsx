@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { SEO, OrganizationSchema, SoftwareApplicationSchema } from "@/components/SEO";
+import { SEO, OrganizationSchema, SoftwareApplicationSchema, WebSiteSchema } from "@/components/SEO";
 import Home from "./Home";
 
 const Index = () => {
@@ -13,6 +13,7 @@ const Index = () => {
       />
       <OrganizationSchema />
       <SoftwareApplicationSchema />
+      <WebSiteSchema />
       <Home />
     </Layout>
   );
