@@ -16,9 +16,6 @@ export function SeoPillarSection({ variant = "full" }: SeoPillarSectionProps) {
     >
       <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-1">
-            SEO Pillar
-          </p>
           <h2 id="seo-pillar-heading" className="text-lg font-semibold text-foreground/90">
             Smart Automotive Scheduling & Auto Shop Scheduling Software
           </h2>
