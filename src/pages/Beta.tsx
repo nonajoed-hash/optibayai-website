@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { BetaSignupForm } from "@/components/BetaSignupForm";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 export default function Beta() {
   return (
     <Layout>
@@ -115,6 +115,8 @@ export default function Beta() {
             </div>
 
           <BetaSignupForm />
+
+          <SeoPillarSection variant="mini" />
         </div>
       </div>
     </Layout>

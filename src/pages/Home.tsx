@@ -7,7 +7,7 @@ import optibayLogo from "@/assets/optibay-logo.png";
 import HowItWorks from "@/components/HowItWorks";
 import LiveTelemetry from "@/components/LiveTelemetry";
 import BetaRoadmap from "@/components/BetaRoadmap";
-
+import { SeoPillarSection } from "@/components/SeoPillarSection";
 export default function Home() {
   return (
     <div>
@@ -224,47 +224,7 @@ export default function Home() {
       </section>
 
       {/* SEO Pillar Content */}
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="mx-auto max-w-4xl space-y-12">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground/80 mb-3">
-                Smart Automotive Scheduling for Modern Repair Shops
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground/70">
-                OptiBay AI is the industry's most intelligent automotive scheduling system, designed to help repair shops run smoother, faster, and more profitably. With real-time technician availability, bay management, and AI-powered job allocation, shops gain total clarity into their day—from the first ticket to the last job closed.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground/80 mb-3">
-                Auto Shop Scheduling Software That Reduces Chaos
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground/70">
-                Unlike traditional auto repair shop software, OptiBay uses real operational data to prevent bottlenecks, overbooking, and unbalanced workloads. The platform automatically adjusts for job duration, technician skill level, bay type, and workflow interruptions to keep your shop running at peak efficiency.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground/80 mb-3">
-                Built for High-Volume, General Repair, Euro, Diesel, and Specialty Shops
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground/70">
-                Whether you're managing a general repair shop, dealer-level volume, or a specialty performance shop, OptiBay adapts to your unique workflow. With smart scheduling, technician workload insights, and automated time calculations, shops can increase billable hours, reduce wait times, and eliminate daily scheduling guesswork.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground/80 mb-3">
-                The Future of Shop Scheduling Software
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground/70">
-                OptiBay brings clarity, control, and consistency to an industry that relies on precision. By combining intelligent scheduling, technician management, and bay optimization, OptiBay AI helps automotive repair shops unlock their full operational potential while delivering a better customer experience.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
+      <SeoPillarSection variant="full" />
     </div>
   );
 }
