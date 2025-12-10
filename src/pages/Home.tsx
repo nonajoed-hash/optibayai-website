@@ -223,6 +223,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Internal Links */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <p className="mt-8 text-sm text-slate-300/80">
+          Want to see more? Explore our{" "}
+          <Link to="/features" className="underline underline-offset-2">
+            key features
+          </Link>
+          , review{" "}
+          <Link to="/pricing" className="underline underline-offset-2">
+            pricing for different shop types
+          </Link>
+          , or learn about{" "}
+          <Link to="/mission" className="underline underline-offset-2">
+            why OptiBay AI was built
+          </Link>
+          .
+        </p>
+      </div>
+
       {/* SEO Pillar Content */}
       <SeoPillarSection variant="full" />
     </div>

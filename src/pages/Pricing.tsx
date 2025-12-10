@@ -143,6 +143,22 @@ export default function Pricing() {
             </div>
           </div>
 
+          <p className="mt-8 text-sm text-slate-300/80">
+            Not sure which plan fits your shop? Explore{" "}
+            <Link to="/features" className="underline underline-offset-2">
+              the full feature set
+            </Link>
+            , learn{" "}
+            <Link to="/mission" className="underline underline-offset-2">
+              why we built OptiBay AI
+            </Link>
+            , or{" "}
+            <Link to="/beta" className="underline underline-offset-2">
+              join the beta and help shape what comes next
+            </Link>
+            .
+          </p>
+
           <SeoPillarSection variant="mini" />
         </div>
       </div>

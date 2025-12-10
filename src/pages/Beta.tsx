@@ -2,6 +2,7 @@ import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
 import { BetaSignupForm } from "@/components/BetaSignupForm";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
+import { Link } from "react-router-dom";
 export default function Beta() {
   return (
     <Layout>
@@ -115,6 +116,22 @@ export default function Beta() {
             </div>
 
           <BetaSignupForm />
+
+          <p className="mt-8 text-sm text-slate-300/80">
+            Want more context before you apply? Learn about{" "}
+            <Link to="/features" className="underline underline-offset-2">
+              the core feature set
+            </Link>
+            , review{" "}
+            <Link to="/pricing" className="underline underline-offset-2">
+              pricing and plans
+            </Link>
+            , or read{" "}
+            <Link to="/mission" className="underline underline-offset-2">
+              why OptiBay AI exists in the first place
+            </Link>
+            .
+          </p>
 
           <SeoPillarSection variant="mini" />
         </div>
