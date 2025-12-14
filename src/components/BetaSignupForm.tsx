@@ -1,4 +1,3 @@
-// Beta signup form with Supabase integration
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,6 +24,9 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
+// Hardcoded endpoint - no env vars needed
+const BETA_SIGNUP_ENDPOINT = 'https://vblduvifvaxawmutnhbn.supabase.co/functions/v1/submit-beta-signup';
+
 export const BetaSignupForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -48,21 +50,33 @@ export const BetaSignupForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Dynamically import supabase client only when needed
-      const { supabase } = await import("@/integrations/supabase/client");
-      
-      // Detect timezone
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
-      const response = await supabase.functions.invoke('submit-beta-signup', {
-        body: {
+      // Direct fetch - no Supabase client, no env vars required
+      const response = await fetch(BETA_SIGNUP_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           ...data,
           timezone,
-        }
+        }),
       });
 
-      if (response.error) {
-        throw response.error;
+      const result = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error('Request not allowed from this origin.');
+        }
+        if (response.status === 429) {
+          throw new Error(result.error || 'Too many attempts. Please try again later.');
+        }
+        if (response.status === 400) {
+          throw new Error(result.error || 'Please check your input and try again.');
+        }
+        throw new Error(result.error || 'Something went wrong. Please try again.');
       }
 
       setIsSuccess(true);
@@ -70,10 +84,7 @@ export const BetaSignupForm = () => {
       form.reset();
     } catch (error: any) {
       console.error("Beta signup error:", error);
-      const errorMessage = error?.message?.includes('Too many attempts') 
-        ? 'Too many attempts. Please try again later.'
-        : 'Something went wrong. Please try again later.';
-      toast.error(errorMessage);
+      toast.error(error.message || 'Something went wrong. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
