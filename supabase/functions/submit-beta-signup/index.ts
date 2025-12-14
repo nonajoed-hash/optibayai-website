@@ -2,10 +2,27 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 import { Resend } from "https://esm.sh/resend@4.0.0";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-};
+// Strict CORS - only these origins are allowed
+const ALLOWED_ORIGINS = [
+  'https://optibayai.com',
+  'https://www.optibayai.com',
+  'http://localhost:5173',
+  'http://localhost:8080',
+];
+
+function isOriginAllowed(origin: string | null): boolean {
+  if (!origin) return false;
+  // Allow exact matches or any .lovable.app subdomain
+  return ALLOWED_ORIGINS.includes(origin) || origin.endsWith('.lovable.app');
+}
+
+function getCorsHeaders(origin: string) {
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  };
+}
 
 // Validation schema matching client-side
 interface BetaSignupData {
@@ -68,6 +85,19 @@ Notes: ${signupData.notes || 'None'}`,
 }
 
 serve(async (req) => {
+  // Check origin FIRST - reject disallowed origins with 403
+  const origin = req.headers.get('origin');
+  
+  if (!isOriginAllowed(origin)) {
+    console.log(`Rejected request from disallowed origin: ${origin}`);
+    return new Response(
+      JSON.stringify({ error: 'Forbidden' }),
+      { status: 403, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  const corsHeaders = getCorsHeaders(origin!);
+
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -86,7 +116,7 @@ serve(async (req) => {
 
     const data: BetaSignupData = await req.json();
 
-    console.log('Beta signup request received from IP:', clientIP);
+    console.log('Beta signup request received from IP:', clientIP, 'Origin:', origin);
 
     // 1. HONEYPOT VALIDATION - reject if honeypot is filled
     if (data.honeypot && data.honeypot.trim() !== '') {
@@ -263,7 +293,7 @@ serve(async (req) => {
     console.error('Error in submit-beta-signup:', error);
     return new Response(
       JSON.stringify({ error: 'An unexpected error occurred' }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      { status: 500, headers: { ...getCorsHeaders(origin!), 'Content-Type': 'application/json' } }
     );
   }
 });
