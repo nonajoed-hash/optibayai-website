@@ -13,7 +13,9 @@ const ALLOWED_ORIGINS = [
 
 function isOriginAllowed(origin: string | null): boolean {
   if (!origin) return false;
-  return ALLOWED_ORIGINS.includes(origin) || origin.endsWith('.lovable.app');
+  return ALLOWED_ORIGINS.includes(origin) || 
+         origin.endsWith('.lovable.app') || 
+         origin.endsWith('.lovableproject.com');
 }
 
 function getCorsHeaders(origin: string) {
