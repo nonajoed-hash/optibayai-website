@@ -57,8 +57,16 @@ export const BetaSignupForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...data,
+          name: data.name,
+          email: data.email,
+          shopName: data.shop_name,
+          phone: data.phone || undefined,
+          role: data.role,
+          shopSize: data.shop_size.toString(),
+          country: data.country,
           timezone,
+          notes: data.notes || undefined,
+          source: 'website',
         }),
       });
 
