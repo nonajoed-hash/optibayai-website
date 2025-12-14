@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { BACKEND_CONFIG } from "@/config/backend";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -23,9 +24,6 @@ const formSchema = z.object({
 });
 
 type FormData = z.infer<typeof formSchema>;
-
-// Hardcoded endpoint - no env vars needed
-const BETA_SIGNUP_ENDPOINT = 'https://vblduvifvaxawmutnhbn.supabase.co/functions/v1/submit-beta-signup';
 
 export const BetaSignupForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,7 +51,7 @@ export const BetaSignupForm = () => {
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
       // Direct fetch - no Supabase client, no env vars required
-      const response = await fetch(BETA_SIGNUP_ENDPOINT, {
+      const response = await fetch(BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
