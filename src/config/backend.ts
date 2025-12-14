@@ -1,21 +1,18 @@
 /**
  * Backend Wiring Configuration
  * 
- * All Supabase/backend-specific values should be defined here.
- * This makes it easy to find and update backend references.
+ * All backend-specific values are read from environment variables.
+ * This allows the same codebase to target different backends (dev vs prod).
  * 
- * Search for TODO_BACKEND_WIRING to find any temporary hardcoded values elsewhere.
+ * Required env vars:
+ * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
  */
 
 export const BACKEND_CONFIG = {
-  // Supabase project identifiers
-  SUPABASE_PROJECT_REF: 'vblduvifvaxawmutnhbn',
-  SUPABASE_URL: 'https://vblduvifvaxawmutnhbn.supabase.co',
+  // Edge function endpoints (from env)
+  BETA_SIGNUP_ENDPOINT: import.meta.env.VITE_BETA_SIGNUP_ENDPOINT as string,
   
-  // Edge function endpoints
-  BETA_SIGNUP_ENDPOINT: 'https://vblduvifvaxawmutnhbn.supabase.co/functions/v1/submit-beta-signup',
-  
-  // Production domains (for CORS reference)
+  // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
     'https://optibayai.com',
     'https://www.optibayai.com',
