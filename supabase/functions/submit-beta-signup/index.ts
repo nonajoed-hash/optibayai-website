@@ -175,66 +175,79 @@ serve(async (req) => {
       );
     }
 
-    // 3. RATE LIMITING - Check attempts
-    const { data: existingLimit, error: rateLimitCheckError } = await supabase
-      .from('beta_signup_rate_limit')
-      .select('*')
-      .eq('ip_address', clientIP)
-      .eq('email', data.email.toLowerCase())
-      .single();
+    // 3. RATE LIMITING - Check attempts (fail gracefully if table doesn't exist)
+    let rateLimitExceeded = false;
+    try {
+      const { data: existingLimit, error: rateLimitCheckError } = await supabase
+        .from('beta_signup_rate_limit')
+        .select('*')
+        .eq('ip_address', clientIP)
+        .eq('email', data.email.toLowerCase())
+        .single();
 
-    if (rateLimitCheckError && rateLimitCheckError.code !== 'PGRST116') {
-      console.error('Rate limit check error:', rateLimitCheckError);
+      if (rateLimitCheckError && rateLimitCheckError.code !== 'PGRST116') {
+        // PGRST116 = no rows found (expected for new users)
+        // PGRST205 = table not found - will be caught by outer catch
+        if (rateLimitCheckError.code === 'PGRST205' || rateLimitCheckError.message?.includes('not found')) {
+          throw rateLimitCheckError; // Let outer catch handle missing table
+        }
+        console.error('Rate limit check error:', rateLimitCheckError);
+      }
+
+      if (existingLimit) {
+        const hoursSinceFirst = (new Date().getTime() - new Date(existingLimit.first_attempt_at).getTime()) / (1000 * 60 * 60);
+        
+        if (hoursSinceFirst < RATE_LIMIT_WINDOW_HOURS && existingLimit.attempt_count >= RATE_LIMIT_MAX_ATTEMPTS) {
+          console.warn('Rate limit exceeded:', clientIP, data.email);
+          rateLimitExceeded = true;
+        } else if (hoursSinceFirst < RATE_LIMIT_WINDOW_HOURS) {
+          // Update rate limit counter
+          await supabase
+            .from('beta_signup_rate_limit')
+            .update({
+              attempt_count: existingLimit.attempt_count + 1,
+              last_attempt_at: new Date().toISOString()
+            })
+            .eq('id', existingLimit.id);
+        } else {
+          // Reset if outside window
+          await supabase
+            .from('beta_signup_rate_limit')
+            .update({
+              attempt_count: 1,
+              first_attempt_at: new Date().toISOString(),
+              last_attempt_at: new Date().toISOString()
+            })
+            .eq('id', existingLimit.id);
+        }
+      } else {
+        // Create new rate limit entry
+        await supabase
+          .from('beta_signup_rate_limit')
+          .insert({
+            ip_address: clientIP,
+            email: data.email.toLowerCase(),
+            attempt_count: 1
+          });
+      }
+    } catch (rateLimitError) {
+      console.warn('Rate limit check failed, continuing without rate limiting:', rateLimitError);
+      // Continue with signup even if rate limiting fails
     }
 
-    if (existingLimit) {
-      const hoursSinceFirst = (new Date().getTime() - new Date(existingLimit.first_attempt_at).getTime()) / (1000 * 60 * 60);
-      
-      if (hoursSinceFirst < RATE_LIMIT_WINDOW_HOURS && existingLimit.attempt_count >= RATE_LIMIT_MAX_ATTEMPTS) {
-        console.warn('Rate limit exceeded:', clientIP, data.email);
-        return new Response(
-          JSON.stringify({ 
-            error: 'Too many attempts. Please try again later.',
-            retryAfter: Math.ceil(RATE_LIMIT_WINDOW_HOURS - hoursSinceFirst)
-          }),
-          { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      // Update rate limit counter
-      if (hoursSinceFirst < RATE_LIMIT_WINDOW_HOURS) {
-        await supabase
-          .from('beta_signup_rate_limit')
-          .update({
-            attempt_count: existingLimit.attempt_count + 1,
-            last_attempt_at: new Date().toISOString()
-          })
-          .eq('id', existingLimit.id);
-      } else {
-        // Reset if outside window
-        await supabase
-          .from('beta_signup_rate_limit')
-          .update({
-            attempt_count: 1,
-            first_attempt_at: new Date().toISOString(),
-            last_attempt_at: new Date().toISOString()
-          })
-          .eq('id', existingLimit.id);
-      }
-    } else {
-      // Create new rate limit entry
-      await supabase
-        .from('beta_signup_rate_limit')
-        .insert({
-          ip_address: clientIP,
-          email: data.email.toLowerCase(),
-          attempt_count: 1
-        });
+    if (rateLimitExceeded) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'Too many attempts. Please try again later.',
+          retryAfter: RATE_LIMIT_WINDOW_HOURS
+        }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
     // 4. CHECK FOR DUPLICATE EMAIL
     const { data: existingSignup } = await supabase
-      .from('beta_signups')
+      .from('beta_leads')
       .select('email')
       .eq('email', data.email.toLowerCase())
       .single();
@@ -253,7 +266,7 @@ serve(async (req) => {
 
     // 5. INSERT BETA SIGNUP
     const { data: signup, error: insertError } = await supabase
-      .from('beta_signups')
+      .from('beta_leads')
       .insert({
         name: data.name.trim(),
         email: data.email.toLowerCase().trim(),
