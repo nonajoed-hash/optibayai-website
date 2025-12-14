@@ -9,8 +9,9 @@
  */
 
 export const BACKEND_CONFIG = {
-  // Edge function endpoints (from env)
-  BETA_SIGNUP_ENDPOINT: import.meta.env.VITE_BETA_SIGNUP_ENDPOINT as string,
+  // Edge function endpoint - hardcoded to the OptiBay App's edge function
+  // This submits to the other project's beta_leads table
+  BETA_SIGNUP_ENDPOINT: 'https://gjujerdrkdxoeurzroog.supabase.co/functions/v1/submit-beta-signup',
   
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
