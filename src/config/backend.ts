@@ -8,7 +8,7 @@
  * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
  * 
  * Note: VITE_* variables are injected at build time by Vite
- * Last rebuild trigger: 2025-12-15
+ * Last rebuild trigger: 2025-12-15T03
  */
 
 // Get project ref from environment variable only
