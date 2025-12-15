@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-// Target edge function in the OTHER project (OptiBay App)
-const TARGET_ENDPOINT = 'https://gjujerdrkdxoeurzroog.supabase.co/functions/v1/submit-beta-signup';
+// Target edge function in the OTHER project (OptiBay App) - read from secret
+const TARGET_ENDPOINT = Deno.env.get('TARGET_BETA_SIGNUP_ENDPOINT') || '';
 
 // Strict CORS - only these origins are allowed
 const ALLOWED_ORIGINS = [
