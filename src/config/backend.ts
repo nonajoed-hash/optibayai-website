@@ -11,10 +11,23 @@
  * Last rebuild trigger: 2025-12-15
  */
 
+// Construct Supabase URL from available env vars with fallback
+const getSupabaseUrl = (): string => {
+  // Primary: Use direct URL if available
+  if (import.meta.env.VITE_SUPABASE_URL) {
+    return import.meta.env.VITE_SUPABASE_URL;
+  }
+  // Fallback: Construct from project ID
+  if (import.meta.env.VITE_SUPABASE_PROJECT_ID) {
+    return `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co`;
+  }
+  console.error('No Supabase URL or Project ID available');
+  return '';
+};
+
 export const BACKEND_CONFIG = {
-  // Edge function endpoint - constructed from VITE_SUPABASE_URL (which is auto-injected by Lovable Cloud)
-  // This project's edge function acts as a proxy to the OptiBay App's edge function
-  BETA_SIGNUP_ENDPOINT: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-beta-signup`,
+  // Edge function endpoint - constructed dynamically from available env vars
+  BETA_SIGNUP_ENDPOINT: `${getSupabaseUrl()}/functions/v1/submit-beta-signup`,
   
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
