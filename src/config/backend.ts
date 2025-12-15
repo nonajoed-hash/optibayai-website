@@ -11,24 +11,14 @@
  * Last rebuild trigger: 2025-12-15
  */
 
-// Construct Supabase URL from available env vars with fallback
-const getSupabaseUrl = (): string => {
-  // Primary: Use direct URL if available
-  if (import.meta.env.VITE_SUPABASE_URL) {
-    return import.meta.env.VITE_SUPABASE_URL;
-  }
-  // Fallback: Construct from project ID
-  if (import.meta.env.VITE_SUPABASE_PROJECT_ID) {
-    return `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co`;
-  }
-  console.error('No Supabase URL or Project ID available');
-  return '';
-};
+// Static Supabase project reference for this website backend proxy
+// TODO_BACKEND_WIRING: Update if the backend project ID changes
+const SUPABASE_PROJECT_REF = "vblduvifvaxawmutnhbn";
 
 export const BACKEND_CONFIG = {
-  // Edge function endpoint - constructed dynamically from available env vars
-  BETA_SIGNUP_ENDPOINT: `${getSupabaseUrl()}/functions/v1/submit-beta-signup`,
-  
+  // Edge function endpoint - uses this project's fixed Supabase URL
+  // This edge function acts as a proxy to the main App's beta-signup handler
+  BETA_SIGNUP_ENDPOINT: `https://${SUPABASE_PROJECT_REF}.supabase.co/functions/v1/submit-beta-signup`,
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
     'https://optibayai.com',
