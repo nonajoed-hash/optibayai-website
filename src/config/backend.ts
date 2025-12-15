@@ -11,9 +11,8 @@
  * Last rebuild trigger: 2025-12-15
  */
 
-// Static Supabase project reference for this website backend proxy
-// TODO_BACKEND_WIRING: Update if the backend project ID changes
-const SUPABASE_PROJECT_REF = "vblduvifvaxawmutnhbn";
+// Get project ref from environment variable only
+const SUPABASE_PROJECT_REF = import.meta.env.VITE_SUPABASE_PROJECT_ID;
 
 export const BACKEND_CONFIG = {
   // Edge function endpoint - uses this project's fixed Supabase URL
