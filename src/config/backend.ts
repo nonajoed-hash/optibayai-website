@@ -12,9 +12,9 @@
  */
 
 export const BACKEND_CONFIG = {
-  // Edge function endpoint - uses THIS project's edge function as a proxy
-  // The proxy forwards requests server-to-server to the OptiBay App's edge function
-  BETA_SIGNUP_ENDPOINT: import.meta.env.VITE_BETA_SIGNUP_ENDPOINT || '',
+  // Edge function endpoint - constructed from VITE_SUPABASE_URL (which is auto-injected by Lovable Cloud)
+  // This project's edge function acts as a proxy to the OptiBay App's edge function
+  BETA_SIGNUP_ENDPOINT: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-beta-signup`,
   
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
