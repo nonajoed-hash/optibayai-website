@@ -6,6 +6,8 @@
  * 
  * Required env vars:
  * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
+ * 
+ * Note: VITE_* variables are injected at build time by Vite
  */
 
 export const BACKEND_CONFIG = {
