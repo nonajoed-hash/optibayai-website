@@ -45,6 +45,12 @@ export const BetaSignupForm = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+    // DEBUG: Log the endpoint to verify env var injection
+    console.log('=== BETA SIGNUP DEBUG ===');
+    console.log('BETA_SIGNUP_ENDPOINT:', BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT);
+    console.log('Endpoint is empty:', !BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT);
+    console.log('=========================');
+    
     setIsSubmitting(true);
     
     try {

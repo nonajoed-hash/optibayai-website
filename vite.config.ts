@@ -16,8 +16,12 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom"],
   },
-  // Force clear cache on rebuild
+  // Force clear cache on rebuild - timestamp: 2025-12-15T02
   optimizeDeps: {
     force: true,
+  },
+  // Define env vars explicitly for debugging
+  define: {
+    '__BUILD_TIME__': JSON.stringify(new Date().toISOString()),
   },
 }));
