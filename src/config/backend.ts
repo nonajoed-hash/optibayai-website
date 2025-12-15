@@ -1,32 +1,27 @@
 /**
  * Backend Wiring Configuration
  * 
- * Derives project ref from the Supabase client's internal URL at runtime.
- * This bypasses environment variable injection issues in preview builds.
+ * All backend-specific values are read from environment variables.
+ * This allows the same codebase to target different backends (dev vs prod).
+ * 
+ * Required env vars:
+ * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
+ * 
+ * Note: VITE_* variables are injected at build time by Vite
  */
 
-import { supabase } from "@/integrations/supabase/client";
+const BETA_SIGNUP_ENDPOINT = import.meta.env.VITE_BETA_SIGNUP_ENDPOINT;
 
-// Extract project ref from the supabase client's URL
-const extractProjectRef = (): string => {
-  // @ts-ignore - accessing internal supabase client property
-  const url = supabase.supabaseUrl as string | undefined;
-  
-  if (!url) {
-    console.error('Supabase URL is not available from client');
-    return 'undefined';
-  }
-  
-  const match = url.match(/https:\/\/([^.]+)\.supabase\.co/);
-  return match?.[1] ?? 'undefined';
-};
-
-const SUPABASE_PROJECT_REF = extractProjectRef();
+if (!BETA_SIGNUP_ENDPOINT) {
+  console.error(
+    'VITE_BETA_SIGNUP_ENDPOINT is not set; beta signup form will not function.'
+  );
+}
 
 export const BACKEND_CONFIG = {
-  // Edge function endpoint - uses this project's fixed Supabase URL
+  // Edge function endpoint - configured via environment variable
   // This edge function acts as a proxy to the main App's beta-signup handler
-  BETA_SIGNUP_ENDPOINT: `https://${SUPABASE_PROJECT_REF}.supabase.co/functions/v1/submit-beta-signup`,
+  BETA_SIGNUP_ENDPOINT: BETA_SIGNUP_ENDPOINT as string,
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
     'https://optibayai.com',
