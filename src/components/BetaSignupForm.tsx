@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { BACKEND_CONFIG } from "@/config/backend";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -45,24 +45,13 @@ export const BetaSignupForm = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    // DEBUG: Log the endpoint to verify env var injection
-    console.log('=== BETA SIGNUP DEBUG ===');
-    console.log('BETA_SIGNUP_ENDPOINT:', BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT);
-    console.log('Endpoint is empty:', !BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT);
-    console.log('=========================');
-    
     setIsSubmitting(true);
     
     try {
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       
-      // Direct fetch - no Supabase client, no env vars required
-      const response = await fetch(BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const { data: result, error } = await supabase.functions.invoke('submit-beta-signup', {
+        body: {
           name: data.name,
           email: data.email,
           shopName: data.shop_name,
@@ -73,22 +62,15 @@ export const BetaSignupForm = () => {
           timezone,
           notes: data.notes || undefined,
           source: 'website',
-        }),
+        },
       });
 
-      const result = await response.json();
+      if (error) {
+        throw new Error(error.message || 'Something went wrong. Please try again.');
+      }
 
-      if (!response.ok) {
-        if (response.status === 403) {
-          throw new Error('Request not allowed from this origin.');
-        }
-        if (response.status === 429) {
-          throw new Error(result.error || 'Too many attempts. Please try again later.');
-        }
-        if (response.status === 400) {
-          throw new Error(result.error || 'Please check your input and try again.');
-        }
-        throw new Error(result.error || 'Something went wrong. Please try again.');
+      if (result?.error) {
+        throw new Error(result.error);
       }
 
       setIsSuccess(true);
