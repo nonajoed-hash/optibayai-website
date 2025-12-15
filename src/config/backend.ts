@@ -1,22 +1,27 @@
 /**
  * Backend Wiring Configuration
  * 
- * Derives project ref from VITE_SUPABASE_URL (which IS injected by Lovable Cloud)
- * 
- * Note: VITE_* variables are injected at build time by Vite
+ * Derives project ref from the Supabase client's internal URL at runtime.
+ * This bypasses environment variable injection issues in preview builds.
  */
 
-// Extract project ref from VITE_SUPABASE_URL (format: https://PROJECT_REF.supabase.co)
-const extractProjectRef = (url: string | undefined): string => {
+import { supabase } from "@/integrations/supabase/client";
+
+// Extract project ref from the supabase client's URL
+const extractProjectRef = (): string => {
+  // @ts-ignore - accessing internal supabase client property
+  const url = supabase.supabaseUrl as string | undefined;
+  
   if (!url) {
-    console.error('VITE_SUPABASE_URL is not set');
+    console.error('Supabase URL is not available from client');
     return 'undefined';
   }
+  
   const match = url.match(/https:\/\/([^.]+)\.supabase\.co/);
   return match?.[1] ?? 'undefined';
 };
 
-const SUPABASE_PROJECT_REF = extractProjectRef(import.meta.env.VITE_SUPABASE_URL);
+const SUPABASE_PROJECT_REF = extractProjectRef();
 
 export const BACKEND_CONFIG = {
   // Edge function endpoint - uses this project's fixed Supabase URL
