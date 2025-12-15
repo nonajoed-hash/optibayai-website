@@ -8,6 +8,7 @@
  * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
  * 
  * Note: VITE_* variables are injected at build time by Vite
+ * Last rebuild trigger: 2025-12-15
  */
 
 export const BACKEND_CONFIG = {
