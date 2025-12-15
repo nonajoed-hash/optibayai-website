@@ -1,27 +1,18 @@
 /**
  * Backend Wiring Configuration
  * 
- * All backend-specific values are read from environment variables.
- * This allows the same codebase to target different backends (dev vs prod).
- * 
- * Required env vars:
- * - VITE_BETA_SIGNUP_ENDPOINT: URL for the beta signup edge function
- * 
- * Note: VITE_* variables are injected at build time by Vite
+ * Prefers environment variables but falls back to hardcoded values
+ * when Lovable Cloud doesn't inject custom VITE_* secrets into Vite builds.
  */
 
-const BETA_SIGNUP_ENDPOINT = import.meta.env.VITE_BETA_SIGNUP_ENDPOINT;
+// TODO_BACKEND_WIRING: Remove fallback once Lovable Cloud injects custom VITE_* secrets
+const FALLBACK_BETA_SIGNUP_ENDPOINT = 'https://vblduvifvaxawmutnhbn.supabase.co/functions/v1/submit-beta-signup';
 
-if (!BETA_SIGNUP_ENDPOINT) {
-  console.error(
-    'VITE_BETA_SIGNUP_ENDPOINT is not set; beta signup form will not function.'
-  );
-}
+const BETA_SIGNUP_ENDPOINT = import.meta.env.VITE_BETA_SIGNUP_ENDPOINT || FALLBACK_BETA_SIGNUP_ENDPOINT;
 
 export const BACKEND_CONFIG = {
-  // Edge function endpoint - configured via environment variable
-  // This edge function acts as a proxy to the main App's beta-signup handler
-  BETA_SIGNUP_ENDPOINT: BETA_SIGNUP_ENDPOINT as string,
+  // Edge function endpoint - this project's proxy to the main App's beta-signup handler
+  BETA_SIGNUP_ENDPOINT,
   // Production domains (static - used for CORS reference only)
   PRODUCTION_DOMAINS: [
     'https://optibayai.com',
