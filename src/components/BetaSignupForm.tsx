@@ -236,14 +236,14 @@ export const BetaSignupForm = () => {
           />
         </div>
 
-        <FormField
+                <FormField
           control={form.control}
           name="country"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Country *</FormLabel>
               <FormControl>
-                <Input placeholder="United States" {...field} />
+                <Input placeholder="Enter your country" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
