@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/pricing", "destination": "/" },
+    { "source": "/features", "destination": "/" },
+    { "source": "/mission", "destination": "/" },
+    { "source": "/beta", "destination": "/" },
+    { "source": "/about/(.*)", "destination": "/" },
+    { "source": "/legal/(.*)", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
