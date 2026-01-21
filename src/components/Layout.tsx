@@ -244,6 +244,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     Who We Are
                   </Link>
                 </li>
+                <li>
+                  <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
             

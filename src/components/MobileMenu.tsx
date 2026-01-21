@@ -75,6 +75,13 @@ export function MobileMenu() {
                 >
                   Who We Are
                 </NavLink>
+                <NavLink 
+                  to="/contact" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg py-2 hover:text-primary transition-colors"
+                >
+                  Contact
+                </NavLink>
                 
                 <div className="pt-4 space-y-3 border-t border-primary/20">
                   <Button 
