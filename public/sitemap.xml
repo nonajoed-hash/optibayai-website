@@ -29,6 +29,10 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://optibayai.com/contact</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://optibayai.com/legal/privacy</loc>
     <priority>0.4</priority>
   </url>

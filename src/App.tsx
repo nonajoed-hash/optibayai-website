@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Mission from "./pages/Mission";
 import Founder from "./pages/Founder";
 import WhoWeAre from "./pages/WhoWeAre";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/legal/privacy" element={<Privacy />} />
           <Route path="/legal/terms" element={<Terms />} />
           <Route path="/legal/beta-agreement" element={<BetaAgreement />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
