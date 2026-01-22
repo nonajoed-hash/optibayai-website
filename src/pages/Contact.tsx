@@ -42,7 +42,7 @@ const contactSchema = z.object({
     ],
     { required_error: "Please select a subject" }
   ),
-  message: z.string().trim().min(1, "Message is required").max(2000, "Message too long"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000, "Message too long"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
