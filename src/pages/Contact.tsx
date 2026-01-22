@@ -295,6 +295,13 @@ const Contact = () => {
                   <Mail className="h-4 w-4" />
                   privacy@optibayai.com
                 </a>
+                <a
+                  href="mailto:legal@optibayai.com"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Mail className="h-4 w-4" />
+                  legal@optibayai.com
+                </a>
               </div>
             </div>
           </div>
