@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { BACKEND_CONFIG } from "@/config/backend";
 
 import { Layout } from "@/components/Layout";
 import { SEO } from "@/components/SEO";
@@ -68,19 +69,45 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    // SECURITY NOTE:
-    // - No PII is stored client-side
-    // - TODO_BACKEND_WIRING: When wiring backend, implement:
-    //   - Rate limiting (e.g., 5 submissions per IP per hour)
-    //   - CAPTCHA or WAF rule for bot protection
-    //   - Server-side validation matching client schema
+    try {
+      const response = await fetch(BACKEND_CONFIG.CONTACT_SUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company || undefined,
+          subject: data.subject,
+          message: data.message,
+        }),
+      });
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await response.json();
 
-    setIsSuccess(true);
-    toast.success("Message sent successfully!");
-    setIsSubmitting(false);
-    // Note: No form.reset() - UI swaps to success panel
+      if (!response.ok) {
+        // Handle specific error cases
+        if (response.status === 429) {
+          toast.error("Too many requests. Please try again later.");
+        } else if (response.status === 400) {
+          toast.error(result.error || "Please check your information and try again.");
+        } else if (response.status === 403) {
+          toast.error("Request blocked. Please try again.");
+        } else {
+          toast.error("Something went wrong. Please email us directly at support@optibayai.com");
+        }
+        return;
+      }
+
+      setIsSuccess(true);
+      toast.success("Message sent successfully!");
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
