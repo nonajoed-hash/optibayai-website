@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/sms-consent", "destination": "/sms-consent/index.html" },
+    { "source": "/sms-consent/(.*)", "destination": "/sms-consent/index.html" },
     { "source": "/pricing", "destination": "/" },
     { "source": "/features", "destination": "/" },
     { "source": "/mission", "destination": "/" },

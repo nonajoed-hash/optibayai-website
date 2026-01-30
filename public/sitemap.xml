@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://optibayai.com/</loc>
+    <loc>https://www.optibayai.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/about/founder</loc>
+    <loc>https://www.optibayai.com/about/founder</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/about/company</loc>
+    <loc>https://www.optibayai.com/about/company</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/mission</loc>
+    <loc>https://www.optibayai.com/mission</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/features</loc>
+    <loc>https://www.optibayai.com/features</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/pricing</loc>
+    <loc>https://www.optibayai.com/pricing</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/beta</loc>
+    <loc>https://www.optibayai.com/beta</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/contact</loc>
+    <loc>https://www.optibayai.com/contact</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/legal/privacy</loc>
+    <loc>https://www.optibayai.com/sms-consent</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.optibayai.com/legal/privacy</loc>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://optibayai.com/legal/terms</loc>
+    <loc>https://www.optibayai.com/legal/terms</loc>
     <priority>0.4</priority>
   </url>
 </urlset>
