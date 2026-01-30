@@ -271,9 +271,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/sms-consent" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/sms-consent" className="text-muted-foreground hover:text-primary transition-colors">
                     SMS Consent
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
