@@ -270,6 +270,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     Beta Agreement
                   </Link>
                 </li>
+                <li>
+                  <Link to="/sms-consent" className="text-muted-foreground hover:text-primary transition-colors">
+                    SMS Consent
+                  </Link>
+                </li>
               </ul>
             </div>
             

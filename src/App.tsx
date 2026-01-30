@@ -16,6 +16,7 @@ import Mission from "./pages/Mission";
 import Founder from "./pages/Founder";
 import WhoWeAre from "./pages/WhoWeAre";
 import Contact from "./pages/Contact";
+import SmsConsent from "./pages/SmsConsent";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/legal/terms" element={<Terms />} />
           <Route path="/legal/beta-agreement" element={<BetaAgreement />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sms-consent" element={<SmsConsent />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
