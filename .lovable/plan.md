@@ -1,151 +1,153 @@
 
 
-# SMS Consent Page - Complete Plan (with OptiQueue Proof Checklist)
+# Static SMS Consent Page - Final Implementation
 
 ## Overview
-Create a publicly accessible SMS consent page at `/sms-consent` that documents the checkbox-based opt-in workflow in OptiQueue, plus ensure OptiQueue has the actual implementation to back it up.
+Create a static HTML page at `/sms-consent` that Twilio's crawler can read without JavaScript execution. This fixes Error 30509 by ensuring the disclosure content is in the raw HTML response.
 
 ---
 
-## Part 1: Website Implementation (This Codebase)
+## Current State (What's Missing)
 
-### Files to Create
+| Item | Status |
+|------|--------|
+| `public/sms-consent/index.html` | Does NOT exist |
+| `vercel.json` sms-consent rewrites | Missing |
+| Footer uses React Router `<Link>` | Needs to be `<a>` tag |
+| Hostname consistency | sitemap uses non-www |
 
-#### `src/pages/SmsConsent.tsx`
+---
 
-A legal-style page matching Privacy.tsx and Terms.tsx with these sections:
+## Files to Create
 
+### `public/sms-consent/index.html`
+
+Static HTML page with full disclosure content including:
+
+**Enhanced compliance language (per your feedback):**
+- Under "How to Opt In" section, add:
+  - "The checkbox is unchecked by default and requires an affirmative user action."
+  - "Consent can be revoked at any time by replying STOP."
+
+**Consistent hostname:** All links use `https://www.optibayai.com/...`
+
+**Content sections:**
 | Section | Content |
 |---------|---------|
-| **Program Info** | "OptiBay AI SMS Notifications" by OptiBay AI LLC, joe@optibayai.com |
-| **Message Types** | Appointment confirmations/reminders, repair status, scheduling changes, two-way support. "No marketing unless separately opted in." |
-| **How to Opt-In** | "During booking/intake in OptiBay AI, provide mobile number and check consent checkbox." + exact checkbox language quoted |
-| **Consent Terms** | "Consent is not a condition of purchase." |
-| **Frequency** | "Message frequency varies based on appointment activity." |
-| **Rates** | "Message and data rates may apply." |
-| **STOP/HELP** | "Text STOP to cancel. Text HELP for assistance." |
-| **Data Handling** | Phone used only for stated purposes, no selling data, see Privacy Policy |
-| **Carrier Disclaimer** | "Carriers are not liable for delayed or undelivered messages." |
-| **Related Policies** | Links to `/legal/privacy` and `/legal/terms` |
-
-**Exact checkbox consent language (quoted on page):**
-
-> "I agree to receive SMS messages from OptiBay AI regarding my vehicle service appointments, including appointment confirmations, reminders, and status updates. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase."
-
-**Toll-free number:** Read from `import.meta.env.VITE_PUBLIC_TWILIO_TOLL_FREE_NUMBER` - only display if set.
+| Program Info | OptiBay AI SMS Notifications, OptiBay AI LLC, joe@optibayai.com |
+| Message Types | Confirmations, reminders, status updates, scheduling, two-way support. No marketing unless separately opted in. |
+| How to Opt In | Checkbox during booking/intake + exact consent language + new compliance statements |
+| Consent Terms | "Consent is not a condition of purchase" |
+| Frequency | "Message frequency varies" |
+| Rates | "Message and data rates may apply" |
+| STOP/HELP | Reply STOP to cancel, HELP for help |
+| Privacy/Terms | Links to `https://www.optibayai.com/legal/privacy` and `https://www.optibayai.com/legal/terms` |
+| Data Handling | No selling data, see Privacy Policy |
+| Carrier Disclaimer | Carriers not liable for delayed/undelivered messages |
 
 ---
 
-### Files to Modify
+## Files to Modify
 
-#### `src/App.tsx`
-- Import SmsConsent component
-- Add route: `<Route path="/sms-consent" element={<SmsConsent />} />`
+### `vercel.json`
 
-#### `src/components/Layout.tsx`
-- Add "SMS Consent" link in footer Legal section
+Add `/sms-consent` rewrites at the TOP (before catch-all):
+
+```json
+{
+  "rewrites": [
+    { "source": "/sms-consent", "destination": "/sms-consent/index.html" },
+    { "source": "/sms-consent/(.*)", "destination": "/sms-consent/index.html" },
+    { "source": "/pricing", "destination": "/" },
+    { "source": "/features", "destination": "/" },
+    { "source": "/mission", "destination": "/" },
+    { "source": "/beta", "destination": "/" },
+    { "source": "/about/(.*)", "destination": "/" },
+    { "source": "/legal/(.*)", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+```
+
+### `src/components/Layout.tsx`
+
+Change footer "SMS Consent" link from React Router `<Link>` to regular `<a>` tag:
+
+```tsx
+// Line 274-276: Change from
+<Link to="/sms-consent" className="...">SMS Consent</Link>
+
+// To
+<a href="/sms-consent" className="...">SMS Consent</a>
+```
+
+This ensures users see the same static HTML that Twilio's crawler sees.
+
+### `public/sitemap.xml`
+
+Update to use `www.optibayai.com` consistently and add the sms-consent page:
+
+- Change all existing URLs from `https://optibayai.com/...` to `https://www.optibayai.com/...`
+- Add new entry: `https://www.optibayai.com/sms-consent`
 
 ---
 
-### Files NOT Modified
+## Key Compliance Additions
 
-| File | Reason |
-|------|--------|
-| `vercel.json` | Already has SPA catch-all |
-| `src/config/backend.ts` | Not for public UI config |
+The static page will include these two new statements (per your feedback):
+
+**Under "How to Opt In" section:**
+
+> The checkbox is unchecked by default and requires an affirmative user action to opt in.
+
+> Consent can be revoked at any time by replying STOP to any message.
+
+These strengthen the compliance language and make it harder for Twilio to claim "insufficient workflow."
 
 ---
 
-### File Summary
+## File Summary
 
 | Action | File |
 |--------|------|
-| Create | `src/pages/SmsConsent.tsx` |
-| Modify | `src/App.tsx` (+2 lines) |
-| Modify | `src/components/Layout.tsx` (+4 lines) |
+| Create | `public/sms-consent/index.html` |
+| Modify | `vercel.json` (+2 lines at top) |
+| Modify | `src/components/Layout.tsx` (Link to a tag) |
+| Modify | `public/sitemap.xml` (www + new entry) |
 
 ---
 
-## Part 2: OptiQueue Proof Checklist (Required for Twilio Approval)
+## Acceptance Tests
 
-This checklist is for the OptiQueue product (separate codebase). Complete before Twilio resubmission.
+After deployment, run these to verify:
 
-### UI Requirements
+**PowerShell - Check raw HTML contains disclosure:**
+```powershell
+(Invoke-WebRequest -Uri "https://www.optibayai.com/sms-consent" -UseBasicParsing).Content | Select-String -Pattern "Reply STOP","Message frequency","Message and data rates","Consent is not a condition","unchecked by default"
+```
 
-| Requirement | Status |
-|-------------|--------|
-| Checkbox exists in booking/intake UI | Verify |
-| Checkbox is **unchecked by default** | Verify |
-| User must actively check it (no auto-check) | Verify |
-| Booking works if unchecked (SMS is optional) | Verify |
-| Checkbox uses exact consent language from above | Verify |
+**PowerShell - Check response size (should be >5KB, not ~1-3KB SPA shell):**
+```powershell
+(Invoke-WebRequest -Uri "https://www.optibayai.com/sms-consent" -UseBasicParsing).RawContentLength
+```
 
-### Consent Storage Requirements
-
-Store the following when user opts in:
-
-| Field | Description |
-|-------|-------------|
-| `phone` | Customer mobile number |
-| `opted_in_at` | Timestamp of consent |
-| `source` | `"optiqueue_booking"` or `"optiqueue_intake"` |
-| `consent_text_version` | Version ID or hash of disclosure text |
-| `customer_id` | Link to customer/ticket record (if available) |
-| `ip_address` | Optional but helpful for audit |
-
-### Screenshot Documentation
-
-**Before submitting to Twilio:**
-
-1. Take a screenshot of the OptiQueue consent checkbox UI showing:
-   - The unchecked checkbox
-   - The full consent text visible
-   - The booking/intake form context
-
-2. Attach this screenshot in Twilio Toll-Free Verification as supporting documentation
-
-3. Optionally include a second screenshot showing a successful consent record in the database
-
-This visual proof significantly reduces denial risk.
+**PowerShell - Check title is correct (NOT the SPA title):**
+```powershell
+(Invoke-WebRequest -Uri "https://www.optibayai.com/sms-consent" -UseBasicParsing).Content | Select-String -Pattern "SMS Consent - OptiBay AI"
+```
 
 ---
 
 ## Production URL
 
-After publishing: `https://optibayai.com/sms-consent`
+Submit to Twilio: `https://www.optibayai.com/sms-consent`
 
 ---
 
-## Twilio Submission Checklist
+## Why This Works
 
-Before submitting to Twilio, verify:
+1. Static HTML in `/public` folder is served directly by Vercel
+2. Rewrite rules ensure `/sms-consent` hits the static file before the SPA catch-all
+3. Full disclosure content is in the raw HTML response (no JS execution needed)
+4. Twilio's crawler will see the complete compliance text
 
-**Website (this plan):**
-- [ ] `/sms-consent` page loads publicly (no auth, no 404)
-- [ ] Describes checkbox opt-in during booking
-- [ ] Exact consent language is quoted
-- [ ] STOP/HELP instructions present
-- [ ] Frequency and rates disclosed
-- [ ] "Consent not a condition of purchase" stated
-- [ ] Privacy link works (`/legal/privacy`)
-- [ ] Terms link works (`/legal/terms`)
-- [ ] Carrier disclaimer included
-
-**OptiQueue (Part 2 checklist):**
-- [ ] Checkbox exists and is unchecked by default
-- [ ] Consent language matches website exactly
-- [ ] Consent stored with timestamp
-- [ ] Screenshot taken for Twilio submission
-
----
-
-## Why This Approach Gets Approved
-
-Twilio reviewers check:
-1. **Public opt-in URL exists** - `/sms-consent` page
-2. **URL describes the mechanism** - "checkbox during booking"
-3. **Mechanism actually exists** - OptiQueue checkbox + consent storage
-4. **Disclosures are complete** - STOP/HELP, rates, frequency, privacy/terms
-5. **Supporting evidence** - Screenshot of checkbox UI
-
-This plan covers all five.
