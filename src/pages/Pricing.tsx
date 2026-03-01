@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
 const pricingFaqs = [
-  { question: "When will pricing be available?", answer: "We're currently in beta and finalizing our pricing structure. Beta participants will receive special early-adopter pricing when we launch." },
+  { question: "What does Core cost?", answer: "Core is $349/month. Founding Beta shops can lock in $249/month for 12 months (first 25 shops)." },
   { question: "Is there a free trial?", answer: "Yes! All plans will include a 14-day free trial with no credit card required." },
   { question: "Can I change plans later?", answer: "Absolutely. You can upgrade or downgrade your plan at any time to match your shop's needs." }
 ];
@@ -16,7 +16,8 @@ export default function Pricing() {
     {
       name: "Core",
       description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
-      price: "$149/month",
+      price: "$349/month",
+      betaNote: "Founding Beta: $249/month (locked 12 months) — first 25 shops",
       features: [
         "AI-Driven Smart Scheduling",
         "Dynamic Dispatch Optimization",
@@ -88,6 +89,11 @@ export default function Pricing() {
                     <span className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                       {plan.price}
                     </span>
+                    {plan.betaNote && (
+                      <div className="mt-2 text-sm text-muted-foreground">
+                        {plan.betaNote}
+                      </div>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -122,9 +128,9 @@ export default function Pricing() {
               <h2 className="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-destructive to-destructive bg-clip-text text-transparent">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
-                  <h3 className="font-semibold mb-2 text-foreground">When will pricing be available?</h3>
+                  <h3 className="font-semibold mb-2 text-foreground">What does Core cost?</h3>
                   <p className="text-muted-foreground">
-                    We're currently in beta and finalizing our pricing structure. Beta participants will receive special early-adopter pricing when we launch.
+                    Core is $349/month. Founding Beta shops can lock in $249/month for 12 months (first 25 shops).
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
