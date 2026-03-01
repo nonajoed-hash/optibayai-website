@@ -191,7 +191,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       <footer className="relative bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <img 
@@ -305,6 +305,24 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   <a href="https://www.youtube.com/@OptiBayAi" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     YouTube
                   </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4 text-foreground">Support</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="mailto:joe@optibayai.com" className="hover:text-primary transition-colors">
+                    joe@optibayai.com
+                  </a>
+                </li>
+                <li>Phone: (replace with your number)</li>
+                <li className="pt-2 text-xs">
+                  OptiBay AI LLC
+                </li>
+                <li className="text-xs">
+                  Address: (replace with your address)
                 </li>
               </ul>
             </div>
