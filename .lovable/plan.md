@@ -1,78 +1,24 @@
 
 
-# Twilio Toll-Free Verification Support Update
+# Update Pricing Page
 
-## Overview
+## Changes (all in `src/pages/Pricing.tsx`)
 
-Update SMS consent pages, legal pages, and footer across 6 files to strengthen Twilio compliance, remove credibility-undermining language, and add business identity.
+### 1. Update Core price and add betaNote field (line 19)
+Change `price: "$149/month"` to `price: "$349/month"` and add `betaNote: "Founding Beta: $249/month (locked 12 months) — first 25 shops"` to the Core plan object.
 
----
+### 2. Render betaNote under the price (lines 87-91)
+Add a conditional render of `plan.betaNote` as a styled `div` below the price `span`. This requires adding a TypeScript type annotation to the plan objects to allow the optional `betaNote` field.
 
-## 1. Update React SMS Consent Page
+### 3. Update FAQ — structured data (line 9)
+Change the first FAQ answer from "We're currently in beta and finalizing..." to:
+`"Core is $349/month. Founding Beta shops can lock in $249/month for 12 months (first 25 shops)."`
 
-**File:** `src/pages/SmsConsent.tsx`
+### 4. Update FAQ — rendered HTML (lines 125-128)
+Update the hardcoded FAQ section to match the new answer text. Also update the question from "When will pricing be available?" to something like "What does Core cost?" since pricing is now available.
 
-- Add explicit line near top after h1: **"Transactional service messages only. No marketing or promotional texts."**
-- Replace `{new Date().toLocaleDateString()}` with fixed string `"March 1, 2026"`
-- Rewrite "How to Opt In" to include two methods:
-  - In-app checkbox (unchecked by default, affirmative action)
-  - Text **START** or **UNSTOP** to the toll-free number
-- Add "Two-Way Messaging" section
-- Add "Supported Keywords" section (STOP/STOPALL/UNSUBSCRIBE/END/QUIT, HELP/INFO, START/UNSTOP)
-- Update toll-free number fallback: show "Available upon request" if env var is missing
-- Update Quick Reference to include START keyword
-
----
-
-## 2. Update Static HTML SMS Consent Page
-
-**File:** `public/sms-consent/index.html`
-
-Mirror all React page changes:
-- Add "Transactional service messages only" line near top
-- Update date to "March 1, 2026"
-- Replace "OptiQueue" references with "OptiBay" / "the OptiBay platform"
-- Add START/UNSTOP opt-in method
-- Add Two-Way Messaging section
-- Add Supported Keywords section
-- Update Quick Reference
-
----
-
-## 3. Remove Placeholder Disclaimers
-
-**File:** `src/pages/Privacy.tsx` -- Remove lines 68-73 (the placeholder note div)
-
-**File:** `src/pages/Terms.tsx` -- Remove lines 77-82 (the placeholder note div)
-
-**File:** `src/pages/BetaAgreement.tsx` -- Remove lines 92-97 (the placeholder note div)
-
----
-
-## 4. Add Support Block to Footer
-
-**File:** `src/components/Layout.tsx`
-
-Add a "Support" column in the footer grid (adjust to 6-col) with:
-- Email: joe@optibayai.com
-- Phone: (replace with your number)
-- OptiBay AI LLC
-- Address: (replace with your address)
-
-Uses plain "(replace)" labels instead of "XXX" formatting to avoid appearing unfinished.
-
----
-
-## File Summary
-
-| Action | File |
-|--------|------|
-| Modify | `src/pages/SmsConsent.tsx` |
-| Modify | `public/sms-consent/index.html` |
-| Modify | `src/pages/Privacy.tsx` |
-| Modify | `src/pages/Terms.tsx` |
-| Modify | `src/pages/BetaAgreement.tsx` |
-| Modify | `src/components/Layout.tsx` |
-
-No new files. No routing changes. No backend changes.
+### Summary
+- 4 surgical edits in one file
+- No routing, layout, or other page changes
+- Founding Beta note only appears on Core card
 
