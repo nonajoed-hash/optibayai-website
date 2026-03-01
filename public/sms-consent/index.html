@@ -42,6 +42,7 @@
         font-style: italic;
       }
       .subtitle { font-size: 0.95rem; color: #94a3b8; margin-bottom: 32px; }
+      .tagline { font-size: 1.1rem; color: #22d3ee; font-weight: 600; margin-bottom: 24px; }
       .highlight { color: #22d3ee; font-weight: 600; }
       .compliance-note {
         background: rgba(34, 211, 238, 0.1);
@@ -51,6 +52,9 @@
         margin: 12px 0;
         font-size: 0.95rem;
       }
+      table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+      th, td { text-align: left; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.1); }
+      th { background: rgba(255,255,255,0.05); color: #f1f5f9; font-weight: 600; }
       .quickref {
         margin-top: 40px;
         background: rgba(34, 211, 238, 0.05);
@@ -84,7 +88,8 @@
   <body>
     <main class="container">
       <h1>SMS Consent &amp; Notifications</h1>
-      <p class="subtitle">Last updated: January 30, 2026</p>
+      <p class="tagline">Transactional service messages only. No marketing or promotional texts.</p>
+      <p class="subtitle">Last updated: March 1, 2026</p>
 
       <section>
         <h2>SMS Program Information</h2>
@@ -102,8 +107,7 @@
         <h2>What Messages You May Receive</h2>
         <p>When you opt in to OptiBay AI SMS notifications, you may receive the following types of messages:</p>
         <ul>
-          <li>Appointment confirmations</li>
-          <li>Appointment reminders</li>
+          <li>Appointment confirmations and reminders</li>
           <li>Vehicle repair and service status updates</li>
           <li>Scheduling changes or notifications</li>
           <li>Two-way customer support messaging (you can reply to messages)</li>
@@ -113,15 +117,27 @@
 
       <section>
         <h2>How to Opt In</h2>
-        <p>
-          Opt-in is collected during the appointment booking or service intake workflow in OptiQueue (the OptiBay AI scheduling platform).
-          Customers opt in by providing their mobile phone number and checking an SMS consent checkbox before submitting the form.
-        </p>
-        
+        <p>You can opt in to receive SMS notifications in two ways:</p>
+
+        <div class="card">
+          <p><strong>Method 1: In-App Consent</strong></p>
+          <p>
+            During the appointment booking or service intake process in the OptiBay platform, you will be asked to
+            provide your mobile phone number and check a consent checkbox to receive SMS notifications.
+          </p>
+        </div>
+
         <div class="compliance-note">
           <strong>Important:</strong> The checkbox is unchecked by default and requires an affirmative user action to opt in.
         </div>
-        
+
+        <div class="card">
+          <p><strong>Method 2: Text to Opt In</strong></p>
+          <p>
+            You can text <strong>START</strong> or <strong>UNSTOP</strong> to our toll-free number to opt in or resubscribe to SMS notifications.
+          </p>
+        </div>
+
         <div class="compliance-note">
           <strong>Revocation:</strong> Consent can be revoked at any time by replying STOP to any message.
         </div>
@@ -132,6 +148,42 @@
             "I agree to receive SMS messages from OptiBay AI regarding my vehicle service appointments, including appointment confirmations, reminders, and status updates. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase."
           </blockquote>
         </div>
+      </section>
+
+      <section>
+        <h2>Two-Way Messaging</h2>
+        <p>
+          OptiBay supports two-way conversational SMS between the shop and the customer.
+          When you receive a message, you may reply directly. Your reply will be delivered
+          to the shop for follow-up. Standard message and data rates apply to any messages you send.
+        </p>
+      </section>
+
+      <section>
+        <h2>Supported Keywords</h2>
+        <p>The following keywords are supported (case-insensitive):</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Keyword(s)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>STOP, STOPALL, UNSUBSCRIBE, END, QUIT</strong></td>
+              <td>Opt out of all SMS notifications</td>
+            </tr>
+            <tr>
+              <td><strong>HELP, INFO</strong></td>
+              <td>Receive help and program information</td>
+            </tr>
+            <tr>
+              <td><strong>START, UNSTOP</strong></td>
+              <td>Opt in / resubscribe to SMS notifications</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section>
@@ -156,12 +208,13 @@
       </section>
 
       <section>
-        <h2>STOP / HELP</h2>
+        <h2>How to Opt Out</h2>
         <ul>
-          <li><strong>Reply STOP</strong> to cancel SMS notifications at any time. You will receive a confirmation message and no further messages will be sent.</li>
-          <li><strong>Reply HELP</strong> for assistance or more information about the SMS program.</li>
+          <li><strong>Reply STOP</strong> (or STOPALL, UNSUBSCRIBE, END, QUIT) to cancel SMS notifications at any time. You will receive a confirmation message and no further messages will be sent.</li>
+          <li><strong>Reply HELP</strong> (or INFO) for assistance or more information about the SMS program.</li>
           <li>You can also contact support directly at <a href="mailto:joe@optibayai.com">joe@optibayai.com</a>.</li>
         </ul>
+        <p>After opting out, you can re-subscribe at any time by texting <strong>START</strong>.</p>
       </section>
 
       <section>
@@ -191,10 +244,10 @@
         <ul>
           <li>Reply <strong>STOP</strong> to cancel</li>
           <li>Reply <strong>HELP</strong> for help</li>
+          <li>Text <strong>START</strong> to resubscribe</li>
           <li>Message frequency varies</li>
           <li>Message and data rates may apply</li>
           <li>Consent is not required for purchase</li>
-          <li>The opt-in checkbox is unchecked by default</li>
         </ul>
       </section>
 

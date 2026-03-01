@@ -74,12 +74,6 @@ export default function Terms() {
               </p>
             </section>
 
-            <div className="mt-8 p-6 bg-muted/50 rounded-lg">
-              <p className="text-sm">
-                <strong>Note:</strong> This is a placeholder Terms of Service. Comprehensive terms should be 
-                drafted with legal counsel to ensure proper protection and compliance.
-              </p>
-            </div>
           </div>
         </div>
       </div>

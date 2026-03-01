@@ -14,21 +14,20 @@ export default function SmsConsent() {
       />
       <div className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="text-4xl font-bold mb-8">SMS Consent & Notifications</h1>
+          <h1 className="text-4xl font-bold mb-4">SMS Consent &amp; Notifications</h1>
+          <p className="text-lg font-semibold text-primary mb-8">
+            Transactional service messages only. No marketing or promotional texts.
+          </p>
           
           <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
             <p className="text-lg">
-              <em>Last updated: {new Date().toLocaleDateString()}</em>
+              <em>Last updated: March 1, 2026</em>
             </p>
 
             <section>
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">SMS Program Information</h2>
-              <p>
-                <strong>Program Name:</strong> OptiBay AI SMS Notifications
-              </p>
-              <p>
-                <strong>Operated By:</strong> OptiBay AI LLC
-              </p>
+              <p><strong>Program Name:</strong> OptiBay AI SMS Notifications</p>
+              <p><strong>Operated By:</strong> OptiBay AI LLC</p>
               <p>
                 <strong>Contact:</strong>{" "}
                 <a href="mailto:joe@optibayai.com" className="text-primary hover:underline">
@@ -39,11 +38,10 @@ export default function SmsConsent() {
                   Contact Page
                 </Link>
               </p>
-              {tollFreeNumber && (
-                <p>
-                  <strong>SMS Number:</strong> {tollFreeNumber}
-                </p>
-              )}
+              <p>
+                <strong>SMS Number:</strong>{" "}
+                {tollFreeNumber ? tollFreeNumber : "Available upon request"}
+              </p>
             </section>
 
             <section>
@@ -65,10 +63,26 @@ export default function SmsConsent() {
 
             <section>
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">How to Opt In</h2>
-              <p>
-                During the appointment booking or service intake process in OptiBay AI, you will be asked to 
-                provide your mobile phone number and check a consent checkbox to receive SMS notifications.
-              </p>
+              <p>You can opt in to receive SMS notifications in two ways:</p>
+
+              <div className="mt-4 p-4 bg-muted/50 rounded-lg border border-border">
+                <p className="font-medium text-foreground mb-2">Method 1: In-App Consent</p>
+                <p>
+                  During the appointment booking or service intake process in the OptiBay platform, you will be asked to 
+                  provide your mobile phone number and check a consent checkbox to receive SMS notifications.
+                  The checkbox is unchecked by default and requires an affirmative user action to opt in.
+                </p>
+              </div>
+
+              <div className="mt-4 p-4 bg-muted/50 rounded-lg border border-border">
+                <p className="font-medium text-foreground mb-2">Method 2: Text to Opt In</p>
+                <p>
+                  You can text <strong>START</strong> or <strong>UNSTOP</strong> to{" "}
+                  {tollFreeNumber ? <strong>{tollFreeNumber}</strong> : "our toll-free number"}{" "}
+                  to opt in or resubscribe to SMS notifications.
+                </p>
+              </div>
+
               <div className="mt-4 p-4 bg-muted/50 rounded-lg border border-border">
                 <p className="text-sm font-medium text-foreground mb-2">Consent Checkbox Language:</p>
                 <blockquote className="italic border-l-4 border-primary pl-4 text-sm">
@@ -77,6 +91,48 @@ export default function SmsConsent() {
                   Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a 
                   condition of purchase."
                 </blockquote>
+              </div>
+
+              <p className="mt-4">
+                Consent can be revoked at any time by replying <strong>STOP</strong> to any message.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Two-Way Messaging</h2>
+              <p>
+                OptiBay supports two-way conversational SMS between the shop and the customer. 
+                When you receive a message, you may reply directly. Your reply will be delivered 
+                to the shop for follow-up. Standard message and data rates apply to any messages you send.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Supported Keywords</h2>
+              <p>The following keywords are supported (case-insensitive):</p>
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full text-sm border border-border rounded-lg">
+                  <thead>
+                    <tr className="bg-muted/50">
+                      <th className="text-left p-3 font-semibold text-foreground border-b border-border">Keyword(s)</th>
+                      <th className="text-left p-3 font-semibold text-foreground border-b border-border">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border">
+                      <td className="p-3"><strong>STOP, STOPALL, UNSUBSCRIBE, END, QUIT</strong></td>
+                      <td className="p-3">Opt out of all SMS notifications</td>
+                    </tr>
+                    <tr className="border-b border-border">
+                      <td className="p-3"><strong>HELP, INFO</strong></td>
+                      <td className="p-3">Receive help and program information</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3"><strong>START, UNSTOP</strong></td>
+                      <td className="p-3">Opt in / resubscribe to SMS notifications</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </section>
 
@@ -107,15 +163,13 @@ export default function SmsConsent() {
 
             <section>
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">How to Opt Out</h2>
-              <p>
-                You can opt out of SMS notifications at any time by:
-              </p>
+              <p>You can opt out of SMS notifications at any time by:</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>
-                  <strong>Text STOP</strong> — Reply STOP to any message to cancel all future SMS notifications
+                  <strong>Text STOP</strong> — Reply STOP (or STOPALL, UNSUBSCRIBE, END, QUIT) to any message to cancel all future SMS notifications
                 </li>
                 <li>
-                  <strong>Text HELP</strong> — Reply HELP to any message for assistance and support information
+                  <strong>Text HELP</strong> — Reply HELP (or INFO) to any message for assistance and support information
                 </li>
                 <li>
                   <strong>Contact Us</strong> — Email{" "}
@@ -130,7 +184,7 @@ export default function SmsConsent() {
               </ul>
               <p className="mt-4">
                 After opting out, you will receive a confirmation message and will no longer receive SMS 
-                notifications from OptiBay AI.
+                notifications from OptiBay AI. You can re-subscribe at any time by texting <strong>START</strong>.
               </p>
             </section>
 
@@ -193,6 +247,7 @@ export default function SmsConsent() {
               <ul className="text-sm mt-2 space-y-1">
                 <li>• Text <strong>STOP</strong> to cancel</li>
                 <li>• Text <strong>HELP</strong> for assistance</li>
+                <li>• Text <strong>START</strong> to resubscribe</li>
                 <li>• Message frequency varies</li>
                 <li>• Message and data rates may apply</li>
                 <li>• Consent is not required for purchase</li>
