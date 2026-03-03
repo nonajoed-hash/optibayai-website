@@ -6,8 +6,8 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SeoPillarSection } from "@/components/SeoPillarSection";
 const pricingFaqs = [
-  { question: "What does Core cost?", answer: "Core is $349/month. Founding Beta shops can lock in $249/month for 12 months (first 25 shops)." },
-  { question: "Is there a free trial?", answer: "Yes! All plans will include a 14-day free trial with no credit card required." },
+  { question: "What does Core cost?", answer: "Core is $349/month after public launch, billed monthly. Pricing subject to change. Closed Beta participants receive free access during beta, 60 days free after launch, and 50% off the public list price in effect at the time of public launch for 12 months." },
+  { question: "What do Closed Beta participants receive?", answer: "Free access during the beta period, 60 days free after public launch, then 50% off the public list price in effect at the time of public launch for 12 months. After that, standard pricing applies." },
   { question: "Can I change plans later?", answer: "Absolutely. You can upgrade or downgrade your plan at any time to match your shop's needs." }
 ];
 
@@ -17,7 +17,6 @@ export default function Pricing() {
       name: "Core",
       description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
       price: "$349/month",
-      betaNote: "Founding Beta: $249/month (locked 12 months) — first 25 shops",
       features: [
         "AI-Driven Smart Scheduling",
         "Dynamic Dispatch Optimization",
@@ -89,11 +88,6 @@ export default function Pricing() {
                     <span className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                       {plan.price}
                     </span>
-                    {plan.betaNote && (
-                      <div className="mt-2 text-sm text-muted-foreground">
-                        {plan.betaNote}
-                      </div>
-                    )}
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -111,7 +105,7 @@ export default function Pricing() {
                 {plan.name === "Core" && (
                   <CardFooter className="flex-col gap-2">
                     <Button asChild className="w-full">
-                      <Link to="/beta">Start Free Trial</Link>
+                      <Link to="/beta">Apply for Closed Beta</Link>
                     </Button>
                     <Button asChild className="w-full" variant="outline">
                       <Link to="/features">Learn More</Link>
@@ -122,6 +116,23 @@ export default function Pricing() {
             ))}
           </div>
 
+          {/* Closed Beta Section */}
+          <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-8 max-w-4xl mx-auto shadow-[var(--shadow-panel)] mb-12">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg"></div>
+            <div className="relative">
+              <h2 className="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Closed Beta – Founding Repair Shops</h2>
+              <p className="text-muted-foreground mb-4">Select repair shops participating in our closed beta program receive:</p>
+              <ul className="space-y-2 text-muted-foreground mb-4">
+                <li>• Free access during the Beta Test Period</li>
+                <li>• 60 days completely free after public launch</li>
+                <li>• 50% off the public list price in effect at the time of public launch for 12 months following the free period</li>
+                <li>• After the 12-month discount period, standard public pricing then in effect will apply</li>
+              </ul>
+              <p className="text-xs text-muted-foreground/80">Closed Beta participation is limited and subject to approval.</p>
+            </div>
+          </div>
+
+          {/* FAQ */}
           <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-8 max-w-4xl mx-auto shadow-[var(--shadow-panel)]">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg"></div>
             <div className="relative">
@@ -130,13 +141,13 @@ export default function Pricing() {
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
                   <h3 className="font-semibold mb-2 text-foreground">What does Core cost?</h3>
                   <p className="text-muted-foreground">
-                    Core is $349/month. Founding Beta shops can lock in $249/month for 12 months (first 25 shops).
+                    Core is $349/month after public launch, billed monthly. Pricing subject to change. Closed Beta participants receive free access during beta, 60 days free after launch, and 50% off the public list price in effect at the time of public launch for 12 months.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
-                  <h3 className="font-semibold mb-2 text-foreground">Is there a free trial?</h3>
+                  <h3 className="font-semibold mb-2 text-foreground">What do Closed Beta participants receive?</h3>
                   <p className="text-muted-foreground">
-                    Yes! All plans will include a 14-day free trial with no credit card required.
+                    Free access during the beta period, 60 days free after public launch, then 50% off the public list price in effect at the time of public launch for 12 months. After that, standard pricing applies.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">

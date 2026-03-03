@@ -10,7 +10,7 @@ export default function Beta() {
         title="OptiBay AI Beta | Early Access Auto Shop Scheduling Software"
         description="Apply for early access to OptiBay AI, the smart automotive scheduling platform transforming technician scheduling, bay management, and shop workflow."
         path="/beta"
-        keywords="optibay beta, auto shop software beta, early access scheduling software, founding member pricing"
+        keywords="optibay beta, auto shop software beta, early access scheduling software, closed beta program"
       />
       <div className="relative py-20 sm:py-28">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,10 +38,10 @@ export default function Beta() {
               </div>
               <div className="group bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-6 hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
                 <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                  Founding Pricing
+                   Beta Benefits
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Lock in exclusive discounts as a founding customer
+                  Free access during beta with exclusive post-launch pricing
                 </p>
               </div>
               <div className="group bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-6 hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300 animate-fade-in" style={{ animationDelay: '200ms' }}>
@@ -98,8 +98,9 @@ export default function Beta() {
 
               <div className="grid gap-6 md:grid-cols-2 text-sm text-muted-foreground text-left">
                 <ul className="space-y-2">
-                  <li>• First 2 months free and the next 10 months at 50% off.</li>
-                  <li>• Your rate is locked in for life and will never increase.</li>
+                  <li>• Free access to OptiBay during the entire Beta Test Period.</li>
+                  <li>• 60 days completely free after public launch.</li>
+                  <li>• 50% off the public list price in effect at the time of public launch for 12 months following the free period.</li>
                   <li>• Complete done-for-you setup of bays, technicians, hours, job types, and skill levels, if you so choose.</li>
                   <li>• Hands-on help getting your board fully operational before Day One.</li>
                 </ul>
