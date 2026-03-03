@@ -75,10 +75,11 @@ export default function BetaAgreement() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">8. Special Pricing</h2>
+              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">8. Post-Beta Pricing</h2>
               <p>
-                Beta participants may be eligible for special pricing when OptiBay launches commercially. 
-                Details of any such pricing will be communicated separately.
+                Closed Beta participants receive free access during the Beta Test Period, 60 days free after 
+                public launch, and 50% off the public list price in effect at the time of public launch for 
+                12 months. After the 12-month discount period, standard public pricing then in effect will apply.
               </p>
             </section>
 
