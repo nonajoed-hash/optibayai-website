@@ -17,6 +17,8 @@ import Founder from "./pages/Founder";
 import WhoWeAre from "./pages/WhoWeAre";
 import Contact from "./pages/Contact";
 import SmsConsent from "./pages/SmsConsent";
+import ShopTerms from "./pages/ShopTerms";
+import PassportTerms from "./pages/PassportTerms";
 
 const queryClient = new QueryClient();
 

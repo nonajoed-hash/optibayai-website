@@ -1,82 +1,57 @@
-import { Layout } from "@/components/Layout";
-import { SEO } from "@/components/SEO";
+import { Link } from "react-router-dom";
+import { LegalPage } from "@/components/LegalPage";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
+
+const termsCards = [
+  {
+    title: "OptiBay for Repair Shops",
+    description: "Terms governing repair shops and businesses using the OptiBay platform.",
+    href: "/legal/terms/shop",
+  },
+  {
+    title: "OptiBay Passport",
+    description: "Terms governing individual technicians and users of the OptiBay Passport platform.",
+    href: "/legal/terms/passport",
+  },
+  {
+    title: "Beta Program",
+    description: "Terms governing participation in the OptiBay Beta Program.",
+    href: "/legal/beta-agreement",
+  },
+];
 
 export default function Terms() {
   return (
-    <Layout>
-      <SEO
-        title="Terms of Service - OptiBay AI"
-        description="Read OptiBay AI's terms of service. Understand your rights and responsibilities when using our auto shop scheduling platform."
-        path="/legal/terms"
-      />
-      <div className="py-20 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
-          
-          <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
-            <p className="text-lg">
-              <em>Last updated: {new Date().toLocaleDateString()}</em>
-            </p>
+    <LegalPage
+      title="Terms of Service"
+      description="Review OptiBay AI's Terms of Service. Select the agreement that applies to your use of the OptiBay platform."
+      path="/legal/terms"
+      keywords="terms of service, OptiBay terms, repair shop agreement, passport terms, beta agreement"
+    >
+      <p>
+        OptiBay provides multiple products and services. The Terms of Service that apply to you depend on the product you are using. Please select the agreement that applies to your use of OptiBay.
+      </p>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">1. Acceptance of Terms</h2>
-              <p>
-                By accessing and using OptiBay's services, you accept and agree to be bound by the terms 
-                and provisions of this agreement.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">2. Use License</h2>
-              <p>
-                OptiBay grants you a limited, non-exclusive, non-transferable license to use the platform 
-                for your business operations in accordance with these Terms of Service.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">3. User Responsibilities</h2>
-              <p>
-                You are responsible for maintaining the confidentiality of your account credentials and for 
-                all activities that occur under your account.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">4. Service Availability</h2>
-              <p>
-                While we strive for high availability, we do not guarantee that the service will be 
-                uninterrupted or error-free. We reserve the right to modify or discontinue services 
-                with reasonable notice.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">5. Limitation of Liability</h2>
-              <p>
-                OptiBay shall not be liable for any indirect, incidental, special, consequential, or 
-                punitive damages resulting from your use of or inability to use the service.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">6. Termination</h2>
-              <p>
-                We reserve the right to terminate or suspend your account and access to the service at 
-                our sole discretion, without notice, for conduct that we believe violates these Terms of Service.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">7. Contact Information</h2>
-              <p>
-                Questions about the Terms of Service should be sent to us at joe@optibayai.com
-              </p>
-            </section>
-
-          </div>
-        </div>
+      <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-3 mt-8 not-prose">
+        {termsCards.map((card) => (
+          <Link key={card.href} to={card.href} className="no-underline">
+            <Card className="h-full hover:border-primary/40 transition-colors cursor-pointer group">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  {card.title}
+                  <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+                </CardTitle>
+                <CardDescription>{card.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+        ))}
       </div>
-    </Layout>
+
+      <p className="mt-8">
+        For questions about these agreements, please <Link to="/contact">contact us through the contact page</Link>.
+      </p>
+    </LegalPage>
   );
 }
