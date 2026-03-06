@@ -1,107 +1,123 @@
 
 
-# Complete Pricing and Beta Messaging Update
+# Legal Pages Restructure — Implementation Plan
 
 ## Overview
 
-Implement the full closed beta restructure across 3 files, incorporating all previously approved changes plus the latest wording refinement. This is a single implementation pass — no prior changes were applied.
+Replace all placeholder legal pages with real legal documents. Convert `/legal/terms` into a hub page. Add Shop Terms and Passport Terms pages. 11 files total (7 new, 4 modified).
 
 ---
 
-## 1. Pricing Page (`src/pages/Pricing.tsx`)
+## New Files
 
-### A. Core plan object (lines 19-20)
-- Keep `price: "$349/month"`
-- **Remove** `betaNote` field entirely (delete line 20)
+### 1. `src/components/LegalPage.tsx`
+Shared layout component. Props: `title`, `lastUpdated`, `description`, `path`, `children`. Wraps content in `Layout` + `SEO` + max-w-4xl prose container. All legal pages use this for consistency.
 
-### B. Remove betaNote rendering (lines 92-96)
-Delete the `{plan.betaNote && (...)}` block since no plans will have betaNote.
+### 2. `src/legal/privacyContent.tsx`
+Full Privacy Policy (15 sections). Includes:
+- Definitions, changes policy, information collection (personal + non-personal + automatic)
+- Cookies/tracking, how we use/share info, deletion of personal info, correction of errors
+- Children's info, security, AI use, non-US notice
+- California residents table (6-row HTML table)
+- Third-party providers, information security, contact info
+- Links to `/contact` and Google Analytics opt-out preserved
 
-### C. CTA button (line 114)
-Change `"Start Free Trial"` to `"Apply for Closed Beta"`
+### 3. `src/legal/shopTermsContent.tsx`
+Full Repair Shop TOS (20 sections) from the pasted text. Includes:
+- Acceptance preamble (caps block with bullet conditions)
+- Who may use, definitions, license, rules, prohibited uses
+- IP/ownership, geographic restrictions, updates, third-party materials
+- Term/termination, subscription fees, users/banned users
+- Disclaimers + limitation of liability (caps blocks)
+- Indemnification, export, assignment, severability, choice of law
+- Mandatory arbitration (caps), limitation of time (caps), entire agreement, waiver, amendments
 
-### D. Add Closed Beta section (after line 123, before the FAQ block)
-New section using existing card styling:
-- **Header:** "Closed Beta -- Founding Repair Shops"
-- **Bullet list:**
-  - Free access during the Beta Test Period
-  - 60 days completely free after public launch
-  - 50% off the public list price in effect at the time of public launch for 12 months
-  - After the 12-month discount period, standard public pricing then in effect will apply
-- **Note:** "Closed Beta participation is limited and subject to approval."
+**Fix**: "Privacy Policy" definition incorrectly links to `/legal/terms` — render as Link to `/legal/privacy`
 
-### E. FAQ structured data (lines 8-11)
-Replace all three entries:
-- Q1: "What does Core cost?" -- `"Core is $349/month after public launch, billed monthly. Pricing subject to change. Closed Beta participants receive free access during beta, 60 days free after launch, and 50% off the public list price in effect at the time of public launch for 12 months."`
-- Q2: "What do Closed Beta participants receive?" -- `"Free access during the beta period, 60 days free after public launch, then 50% off the public list price in effect at the time of public launch for 12 months. After that, standard pricing applies."`
-- Q3: Keep "Can I change plans later?" as-is
+### 4. `src/legal/passportTermsContent.tsx`
+Full Passport User TOS (23 sections). Same structural approach as shop terms. Passport-specific language throughout.
 
-### F. Hardcoded FAQ HTML (lines 130-147)
-- Update Q1 heading to "What does Core cost?" and answer to match structured data above
-- Replace the "Is there a free trial?" / "14-day free trial" Q&A with the new Q2 about Closed Beta participants
-- Keep Q3 as-is
+**Same fix**: Privacy Policy definition link corrected to `/legal/privacy`
 
----
+### 5. `src/legal/betaAgreementContent.tsx`
+Full Beta Testing Agreement from the signed PDF. Sections:
+- Terms We Use (definitions including Beta Test Period, Confidential Information)
+- What This Agreement Covers
+- Disclaimers
+- Feedback
+- Limited Purpose
+- Confidentiality (with 5 exceptions)
+- Discount (free during beta, 60 days free, 50% off list price for one year)
+- Signature block rendered as styled text (no actual signature data)
 
-## 2. Beta Page (`src/pages/Beta.tsx`)
+### 6. `src/pages/ShopTerms.tsx`
+Uses `LegalPage` with title "Repair Shop Terms of Service", lastUpdated "March 1, 2026", path `/legal/terms/shop`. Renders `ShopTermsContent`.
 
-### A. SEO keywords (line 13)
-Replace `"founding member pricing"` with `"closed beta program"`
-
-### B. Benefit card (lines 40-45)
-- Change title from `"Founding Pricing"` to `"Beta Benefits"`
-- Change description from `"Lock in exclusive discounts as a founding customer"` to `"Free access during beta with exclusive post-launch pricing"`
-
-### C. Benefits list (lines 100-110)
-Replace old benefits with:
-- Free access to OptiBay during the entire Beta Test Period
-- 60 days completely free after public launch
-- 50% off the public list price in effect at the time of public launch for 12 months following the free period
-- Complete done-for-you setup (keep existing text)
-- Hands-on help (keep existing text)
-- Direct access to the founder (keep)
-- Early access to Core improvements (keep)
-- Priority access to Catalyst and Enterprise (keep)
-
-**Remove:** "First 2 months free and the next 10 months at 50% off" and "Your rate is locked in for life and will never increase."
+### 7. `src/pages/PassportTerms.tsx`
+Uses `LegalPage` with title "Passport Terms of Service", lastUpdated "March 1, 2026", path `/legal/terms/passport`. Renders `PassportTermsContent`.
 
 ---
 
-## 3. Beta Agreement (`src/pages/BetaAgreement.tsx`)
+## Modified Files
 
-### Section 8 (lines 78-82)
-Replace vague "special pricing" with:
+### 8. `src/pages/Terms.tsx`
+Convert to hub page using `LegalPage` wrapper (no `lastUpdated` needed). Content:
+- Title: "Terms of Service"
+- Intro paragraph explaining product-specific terms
+- Three cards using existing `Card` components:
+  - **OptiBay for Repair Shops** → `/legal/terms/shop` — "Terms governing repair shops and businesses using the OptiBay platform."
+  - **OptiBay Passport** → `/legal/terms/passport` — "Terms governing individual technicians and users of the OptiBay Passport platform."
+  - **Beta Program** → `/legal/beta-agreement` — "Terms governing participation in the OptiBay Beta Program."
+- Bottom line: "For questions about these agreements, please contact us through the [contact page](/contact)."
 
-"Closed Beta participants receive free access during the Beta Test Period, 60 days free after public launch, and 50% off the public list price in effect at the time of public launch for 12 months. After the 12-month discount period, standard public pricing then in effect will apply."
+### 9. `src/pages/Privacy.tsx`
+Replace placeholder with `LegalPage` wrapper + `PrivacyContent`. Title "Privacy Policy", lastUpdated "March 1, 2026", path `/legal/privacy`.
 
-**No hardcoded dollar amount** in the agreement -- this is the key legal safeguard.
+### 10. `src/pages/BetaAgreement.tsx`
+Replace placeholder with `LegalPage` wrapper + `BetaAgreementContent`. Title "Beta Testing Agreement", lastUpdated "March 1, 2026", path `/legal/beta-agreement`.
+
+### 11. `src/App.tsx`
+Add two routes before the catch-all:
+- `/legal/terms/shop` → `ShopTerms`
+- `/legal/terms/passport` → `PassportTerms`
 
 ---
 
-## Key Legal Safeguards
+## Footer
+Already links to `/legal/privacy`, `/legal/terms`, and `/legal/beta-agreement`. The hub page handles sub-navigation. No footer changes needed.
 
-| Where | Price reference |
-|---|---|
-| Pricing card display | `$349/month` (marketing -- easy to update) |
-| FAQ, Closed Beta section, Beta page, Agreement | "public list price in effect at the time of public launch" (flexible) |
+## SEO
+Each page gets unique `title`, `description`, `path`, and `keywords` via the `SEO` component inside `LegalPage`. Canonical URLs set automatically.
 
-## Outdated Language Being Removed
+## Content Rendering
+Legal content files are React components (not plain text) to support:
+- Internal `Link` components for cross-references
+- HTML `table` for California data categories
+- Uppercase `<p>` blocks for disclaimer/liability sections
+- Semantic `h2`/`h3`/`ul`/`li` structure
 
-- `$249/month (locked 12 months)` -- Pricing betaNote
-- `Start Free Trial` -- CTA
-- `14-day free trial` -- FAQ
-- `First 2 months free and the next 10 months at 50% off` -- Beta benefits
-- `Your rate is locked in for life` -- Beta benefits
-- `Founding Pricing` / `founding member pricing` -- Beta card/SEO
-- `special pricing` (vague) -- BetaAgreement
+## Key Fixes
+- Shop TOS "Privacy Policy" definition: link corrected from `/legal/terms` → `/legal/privacy`
+- Passport TOS "Privacy Policy" definition: same fix
+- Beta Agreement references to TOS and Privacy Policy: linked to `/legal/terms` and `/legal/privacy` respectively
+
+---
 
 ## File Summary
 
-| File | Action |
+| Action | File |
 |---|---|
-| `src/pages/Pricing.tsx` | Remove betaNote, update CTA, add Closed Beta section, rewrite FAQ |
-| `src/pages/Beta.tsx` | Update benefit card, SEO keywords, benefits list |
-| `src/pages/BetaAgreement.tsx` | Update Section 8 with precise legal language |
+| Create | `src/components/LegalPage.tsx` |
+| Create | `src/legal/privacyContent.tsx` |
+| Create | `src/legal/shopTermsContent.tsx` |
+| Create | `src/legal/passportTermsContent.tsx` |
+| Create | `src/legal/betaAgreementContent.tsx` |
+| Create | `src/pages/ShopTerms.tsx` |
+| Create | `src/pages/PassportTerms.tsx` |
+| Modify | `src/pages/Terms.tsx` |
+| Modify | `src/pages/Privacy.tsx` |
+| Modify | `src/pages/BetaAgreement.tsx` |
+| Modify | `src/App.tsx` |
 
-3 files modified. No new files. No routing or layout changes.
+11 files. No database or backend changes. No new dependencies.
 
