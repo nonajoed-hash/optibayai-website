@@ -317,13 +317,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     joe@optibayai.com
                   </a>
                 </li>
-                <li>Phone: (replace with your number)</li>
-                <li className="pt-2 text-xs">
-                  OptiBay AI LLC
-                </li>
-                <li className="text-xs">
-                  Address: (replace with your address)
-                </li>
               </ul>
             </div>
           </div>
