@@ -59,12 +59,8 @@ export function BetaAgreementContent() {
 
       <h2>Discount</h2>
       <p>
-        Use of our App during the Beta Test Period is free. In exchange for participating in our beta test you will have the option to receive the following App subscription discounts after the Beta Test Period:
+        Participants in the OptiBay Beta Program will receive special subscription pricing following the Beta Test Period.
       </p>
-      <ul>
-        <li>Free for the first 60 days</li>
-        <li>After the free period, 50% off list price for one year</li>
-      </ul>
     </>
   );
 }
