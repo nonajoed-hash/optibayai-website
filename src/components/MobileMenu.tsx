@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
+import { BACKEND_CONFIG } from "@/config/backend";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,9 +85,24 @@ export function MobileMenu() {
                 </NavLink>
                 
                 <div className="pt-4 space-y-3 border-t border-primary/20">
-                  <Button 
-                    asChild 
-                    variant="outline" 
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <a
+                      href={BACKEND_CONFIG.APP_LOGIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Beta Login (opens app in new tab)"
+                    >
+                      Beta Login
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
                     className="w-full"
                     onClick={() => setIsOpen(false)}
                   >
@@ -94,8 +110,8 @@ export function MobileMenu() {
                       See Beta Demo
                     </a>
                   </Button>
-                  <Button 
-                    asChild 
+                  <Button
+                    asChild
                     className="w-full"
                     onClick={() => setIsOpen(false)}
                   >

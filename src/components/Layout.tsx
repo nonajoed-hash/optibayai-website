@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
+import { BACKEND_CONFIG } from "@/config/backend";
 import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -170,6 +171,16 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               </div>
               
               <div className="flex items-center gap-3">
+                <Button asChild variant="ghost" size="sm">
+                  <a
+                    href={BACKEND_CONFIG.APP_LOGIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Beta Login (opens app in new tab)"
+                  >
+                    Beta Login
+                  </a>
+                </Button>
                 <Button asChild variant="outline" size="sm">
                   <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
                     See Beta Demo
