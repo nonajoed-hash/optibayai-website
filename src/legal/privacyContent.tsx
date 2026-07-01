@@ -25,7 +25,7 @@ export function PrivacyContent() {
       <p>Other terms we use:</p>
       <ul>
         <li>Our "Agreement" with you consists of this Privacy Policy, the applicable Terms of Service (For Passport Users or Repair Shops), and any other written Agreement we have with you that expressly incorporates the applicable Terms of Service.</li>
-        <li>"App" means the Optibay AI progressive web application.</li>
+        <li>"App" means the Optibay AI progressive web application and any Optibay AI browser extension, including the Training Companion where applicable.</li>
         <li>"Information" includes both Personal and Non-Personal Information that Repair Shops and Users provide to us.</li>
         <li>"Non-personal Information" is any information that you provide to us that is not Personal Information. This includes business contact information that identifies an individual and any information that does not personally identify and is not easily connected to an individual.</li>
         <li>"Passport Data" means the information in a User's profile that the User may retain and share independent of the Repair Shop.</li>
@@ -68,6 +68,29 @@ export function PrivacyContent() {
         We may use session cookies to temporarily retain data that you provide in order to provide you with the Services. We may track User activities as you interact with our App. Our Website uses Google Analytics to collect information about Users and their behaviors. If you would like to opt out of Google Analytics, please visit{" "}
         <a href="https://tools.google.com/dlpage/gaoptout/" target="_blank" rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout/</a>. We do not otherwise use tracking technologies to profile Users or track their activities.
       </p>
+
+      <h3>OptiBay Training Companion Browser Extension</h3>
+      <p>
+        OptiBay may provide a browser extension called the Training Companion to help verify and record limited training-session activity when a User opens approved training from OptiBay. The Training Companion is designed to work only with OptiBay-launched training sessions and approved training tabs.
+      </p>
+      <p>
+        The Training Companion may collect and send limited training-session evidence to OptiBay, including active tab state, page title, visible time, scroll depth, and training-session state. This information is used to help verify training engagement, support training recommendations, and maintain training-session records.
+      </p>
+      <p>
+        The Training Companion does not read form fields, passwords, clipboard data, private messages, or arbitrary browsing history. It does not use broad host access, does not request {"<all_urls>"}, and does not access unrelated websites through its permissions.
+      </p>
+      <p>The Training Companion uses limited browser permissions as follows:</p>
+      <ul>
+        <li>
+          <strong>storage:</strong> Used to store limited extension settings and non-sensitive session state needed for the Training Companion popup and monitoring flow. Session tokens are not stored in localStorage or sessionStorage and are not placed in URLs.
+        </li>
+        <li>
+          <strong>tabs:</strong> Used to identify and monitor the OptiBay-launched training tab so the Training Companion can track limited engagement signals such as active tab, page title, visible time, scroll depth, and training-session state. It is not used to read form fields, passwords, clipboard data, or arbitrary browsing history.
+        </li>
+        <li>
+          <strong>https://*.supabase.co/*:</strong> Used only to send limited training-session evidence to OptiBay's Supabase backend.
+        </li>
+      </ul>
 
       <h2>5. How We Use and Share Your Information</h2>
       <p>We use the information that we collect for business and commercial purposes, including:</p>
