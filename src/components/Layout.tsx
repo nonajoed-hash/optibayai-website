@@ -1,14 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { DesktopNavigation } from "@/components/SiteNavigation";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
 import { BACKEND_CONFIG } from "@/config/backend";
 import optibayLogo from "@/assets/optibay-logo.png";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
-  const location = useLocation();
-  
-  const isActive = (path: string) => location.pathname === path;
+
   
   return (
     <div className="min-h-screen flex flex-col relative z-10" style={{ isolation: 'isolate' }}>
@@ -48,6 +46,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       
       {/* Vertical light sweep */}
       <div className="light-sweep" />
+      {!BACKEND_CONFIG.IS_PRODUCTION_SITE && <div role="status" className="relative z-20 text-center bg-accent/10 border-b border-accent/30 py-2 px-4 text-xs text-accent">Website preview · Test forms do not send messages or applications</div>}
       {/* Beta Banner */}
       <div className="w-full bg-primary/10 border-b border-primary/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
@@ -81,117 +80,18 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   OptiBay AI
                 </span>
                 <span className="hidden sm:block text-xs text-muted-foreground leading-tight">
-                  AI Bay & Technician Scheduling
+                  The intelligent automotive ecosystem
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              <div className="flex items-center gap-6">
-                <Link
-                  to="/"
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    location.pathname === "/" 
-                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/features"
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    location.pathname === "/features" 
-                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                >
-                  Features
-                </Link>
-                <Link
-                  to="/pricing"
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    location.pathname === "/pricing" 
-                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                >
-                  Pricing
-                </Link>
-                <Link
-                  to="/mission"
-                  className={`text-sm font-medium transition-all duration-300 ${
-                    location.pathname === "/mission" 
-                      ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                >
-                  Mission
-                </Link>
-                {/* About Dropdown */}
-                <div className="relative group">
-                  <button
-                    className={`text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
-                      location.pathname.startsWith("/about") 
-                        ? "text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.5)]" 
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    About
-                    <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-card/95 backdrop-blur-lg border border-border/40 rounded-lg shadow-xl py-2 min-w-[140px]">
-                      <Link
-                        to="/about/founder"
-                        className={`block px-4 py-2 text-sm transition-colors ${
-                          location.pathname === "/about/founder"
-                            ? "text-primary bg-primary/10"
-                            : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                        }`}
-                      >
-                        Founder
-                      </Link>
-                      <Link
-                        to="/about/company"
-                        className={`block px-4 py-2 text-sm transition-colors ${
-                          location.pathname === "/about/company"
-                            ? "text-primary bg-primary/10"
-                            : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                        }`}
-                      >
-                        Who We Are
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            <div className="hidden xl:flex items-center gap-6">
+              <DesktopNavigation />
               <div className="flex items-center gap-3">
-                <Button asChild variant="ghost" size="sm">
-                  <a
-                    href={BACKEND_CONFIG.APP_LOGIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Beta Login (opens app in new tab)"
-                  >
-                    Beta Login
-                  </a>
-                </Button>
-                <Button asChild variant="outline" size="sm">
-                  <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
-                    See Beta Demo
-                  </a>
-                </Button>
-                <Button asChild size="sm">
-                  <Link to="/beta">Apply for Beta</Link>
-                </Button>
+                <Button asChild variant="ghost" size="sm"><a href={BACKEND_CONFIG.APP_LOGIN_URL} target="_blank" rel="noopener noreferrer">Sign In</a></Button>
+                <Button asChild size="sm"><Link to="/beta">Apply for Beta</Link></Button>
               </div>
-            </nav>
-
+            </div>
             {/* Mobile Menu */}
             <MobileMenu />
           </div>
@@ -212,18 +112,24 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 />
               </div>
               <p className="text-sm text-muted-foreground">
-                Modern scheduling platform for auto repair shops
+                Intelligence for shop operations and the people behind them.
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4 text-foreground">Product</h3>
+              <h3 className="font-semibold mb-4 text-foreground">Platform & Ecosystem</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link to="/features" className="text-muted-foreground hover:text-primary transition-colors">
-                    Features
+                    Core Features
                   </Link>
                 </li>
+                <li>
+                  <Link to="/#ecosystem" className="text-muted-foreground hover:text-primary transition-colors">Ecosystem</Link>
+                </li>
+                <li><Link to="/#professionals" className="text-muted-foreground hover:text-primary transition-colors">Passport & Connect</Link></li>
+                <li><Link to="/#creators" className="text-muted-foreground hover:text-primary transition-colors">Creators</Link></li>
+                <li><Link to="/#schools" className="text-muted-foreground hover:text-primary transition-colors">Schools</Link></li>
                 <li>
                   <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors">
                     Pricing

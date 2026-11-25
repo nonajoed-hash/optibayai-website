@@ -6,10 +6,10 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="OptiBay AI | Smart Automotive Scheduling & Auto Shop Scheduling Software"
-        description="OptiBay AI is smart automotive scheduling software built for modern repair shops. Manage technicians, bays, waiters, and workflow with real-time, AI-powered clarity."
+        title="OptiBay AI | The Intelligent Automotive Ecosystem"
+        description="OptiBay AI connects automotive shop operations, professional Passports, career opportunities and continuous learning. Explore Core and the OptiBay ecosystem."
         path="/"
-        keywords="smart automotive scheduling, auto shop scheduling software, repair shop management, bay optimization, technician scheduling"
+        keywords="automotive scheduling, shop workflow, technician scheduling, automotive professional passport, automotive training, shop operations"
       />
       <OrganizationSchema />
       <SoftwareApplicationSchema />

@@ -9,7 +9,13 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger(), {
+    name: "preview-noindex",
+    transformIndexHtml() {
+      if (process.env.VERCEL_ENV === "production") return [];
+      return [{ tag: "meta", attrs: { name: "robots", content: "noindex, nofollow" }, injectTo: "head" }];
+    },
+  }].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

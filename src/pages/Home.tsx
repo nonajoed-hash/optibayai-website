@@ -1,249 +1,131 @@
 import { Link } from "react-router-dom";
+import { ArrowRight, CalendarDays, Clock, Grid3x3, Users, Wrench, GraduationCap, Video, IdCard, BookOpen, Network, BarChart3, ClipboardList, Repeat2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Users, Wrench, BarChart3, Clock, Zap, Bot, Grid3x3, RefreshCw, TrendingUp } from "lucide-react";
 import bayGridHero from "@/assets/bay-grid-hero.png";
-import optibayLogo from "@/assets/optibay-logo.png";
-import HowItWorks from "@/components/HowItWorks";
-import LiveTelemetry from "@/components/LiveTelemetry";
-import BetaRoadmap from "@/components/BetaRoadmap";
-import { SeoPillarSection } from "@/components/SeoPillarSection";
+
+const audiences = [
+  { icon: Wrench, title: "Repair shops", text: "Bring scheduling, people, vehicles and decisions together.", href: "/#core", color: "text-primary" },
+  { icon: IdCard, title: "Automotive professionals", text: "Build a professional identity that follows your career.", href: "/#professionals", color: "text-accent" },
+  { icon: Video, title: "Training creators", text: "Connect your expertise with the people who need it.", href: "/#creators", color: "text-[hsl(var(--soft-orange))]" },
+  { icon: GraduationCap, title: "Automotive schools", text: "Help students take their first steps into the industry.", href: "/#schools", color: "text-violet-400" },
+];
+const coreFeatures = [
+  { icon: CalendarDays, title: "Scheduling & dispatch", text: "Plan technician workloads, respect bay constraints and manage waiters, due-outs and unfinished work." },
+  { icon: Grid3x3, title: "Birdseye", text: "See your facility, bays, parking and vehicle locations in one visual workspace." },
+  { icon: ClipboardList, title: "Ticket Command Center", text: "Keep work, notes, status and responsibility connected to the operational ticket." },
+  { icon: Repeat2, title: "Front-to-back workflow", text: "Hand work between advisors and technicians while preserving context and custody." },
+  { icon: Clock, title: "Time & labor intelligence", text: "Track work at the job level and preserve measured time through interruptions." },
+  { icon: BarChart3, title: "Operational analytics", text: "Understand technician performance, shop workload and available capacity." },
+];
+const steps = [
+  { icon: GraduationCap, title: "Learn", text: "Begin a professional record before your first shop job." },
+  { icon: IdCard, title: "Build your Passport", text: "Document credentials, tools, experience and skills." },
+  { icon: Network, title: "Connect", text: "Explore career opportunities with your visibility under your control." },
+  { icon: Wrench, title: "Work", text: "Build experience through daily repair shop operations." },
+  { icon: BookOpen, title: "Keep growing", text: "Return to learning as new challenges arise." },
+];
+const section = "container mx-auto px-4 sm:px-6 lg:px-8";
+const panel = "relative rounded-xl border border-primary/25 bg-card/65 backdrop-blur-sm p-6 hover:border-accent/50 transition-colors";
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
       <section className="relative overflow-hidden py-20 sm:py-28">
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Text & CTAs */}
-            <div className="text-left animate-fade-in">
-              <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                  End the chaos.
-                </span>
-                <span className="block text-foreground">Optimize every bay.</span>
-              </h1>
-              
-              <p className="mb-4 text-lg text-muted-foreground sm:text-xl max-w-xl">
-                AI-powered scheduling and dispatch for high-velocity auto shops.
-              </p>
-              
-              <p className="mb-8 text-sm sm:text-base text-accent max-w-xl">
-                We're inviting a small group of forward-thinking shops to shape OptiBay before public launch.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button asChild size="lg" className="text-lg px-8 group">
-                  <Link to="/beta" className="flex items-center gap-2">
-                    Apply for Beta Access
-                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                  <a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">
-                    Watch Beta Demo
-                  </a>
-                </Button>
-              </div>
-
-              {/* Feature chips */}
-              <div className="flex flex-wrap gap-3">
-                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-primary/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary/30 rounded-full blur-md animate-glow-pulse"></div>
-                    <Bot className="relative h-4 w-4 text-primary" />
-                  </div>
-                  <span className="text-foreground">OptiAssign AI</span>
-                </div>
-                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-accent/30 rounded-full blur-md"></div>
-                    <Grid3x3 className="relative h-4 w-4 text-accent" />
-                  </div>
-                  <span className="text-foreground">Multi-Bay Logic</span>
-                </div>
-                <div className="group inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-xs sm:text-sm hover:border-accent/50 hover:shadow-[var(--glow-soft)] hover:scale-105 transition-all duration-300">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-accent/30 rounded-full blur-md"></div>
-                    <RefreshCw className="relative h-4 w-4 text-accent" />
-                  </div>
-                  <span className="text-foreground">Real-Time Sync</span>
-                </div>
-              </div>
+        <div className={section + " grid lg:grid-cols-2 gap-12 items-center"}>
+          <div className="animate-fade-in">
+            <p className="mb-5 text-xs sm:text-sm uppercase tracking-[0.18em] text-accent font-semibold">The intelligent automotive ecosystem</p>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Transform your shop.</span>
+              <span className="block text-foreground">Empower your people.</span>
+            </h1>
+            <p className="mb-5 text-lg sm:text-xl text-muted-foreground max-w-xl">Connecting repair shops, automotive professionals, training creators and schools through intelligent technology.</p>
+            <p className="mb-8 text-accent max-w-xl">OptiBay Core is in private beta. Help shape the future of automotive repair.</p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button asChild size="lg"><Link to="/#core">Explore OptiBay <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+              <Button asChild variant="outline" size="lg"><a href="https://www.youtube.com/watch?v=ZmPNRSVo-Ck" target="_blank" rel="noopener noreferrer">Watch Beta Demo</a></Button>
             </div>
-
-            {/* Right side - Bay-Grid Visualization */}
-            <div className="relative animate-fade-in">
-              <div className="relative rounded-xl overflow-hidden border-2 border-primary/30 shadow-[var(--glow-primary)] hover:shadow-[var(--glow-secondary)] transition-all duration-500">
-                <img 
-                  src={bayGridHero} 
-                  alt="Bay-Grid Hologram - OptiBay Scheduler Visualization" 
-                  className="w-full h-auto"
-                />
-                {/* Overlay glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/20 pointer-events-none"></div>
-              </div>
-              {/* Decorative glow orbs */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl animate-glow-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '1.5s' }}></div>
+            <div className="flex flex-wrap gap-2 text-sm">
+              {["Shop intelligence", "Professional identity", "Continuous learning"].map(label => <span key={label} className="rounded-full border border-primary/25 bg-card/50 px-4 py-2">{label}</span>)}
             </div>
+          </div>
+          <div className="relative animate-fade-in">
+            <div className="relative z-10 rounded-xl overflow-hidden border-2 border-primary/30 shadow-[var(--glow-primary)]">
+              <img src={bayGridHero} alt="Conceptual holographic visualization of automotive shop bays" className="w-full h-auto" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-background/10 pointer-events-none" />
+            </div>
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-glow-pulse" />
           </div>
         </div>
       </section>
-
-      {/* How It Works */}
-      <HowItWorks />
-
-      {/* Live Telemetry */}
-      <LiveTelemetry />
-
-      {/* Features Grid */}
-      <section className="py-20 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
-              Everything you need to run your shop
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Powerful features designed specifically for auto repair businesses
-            </p>
+      <section id="ecosystem" className="py-16 sm:py-24 border-t border-primary/15 scroll-mt-24">
+        <div className={section}>
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-accent uppercase tracking-widest text-sm mb-3">One connected ecosystem</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Built for the entire automotive industry.</h2>
+            <p className="text-muted-foreground text-lg">Better operations and stronger careers belong together.</p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group hover:border-primary/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 animate-fade-in">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
-                  <Calendar className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Smart Scheduling</h3>
-                <p className="text-muted-foreground">
-                  Intelligent calendar system that optimizes bay utilization and prevents conflicts
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:border-accent/50 hover:scale-[1.02] hover:shadow-[var(--glow-soft)] transition-all duration-300 animate-fade-in" style={{ animationDelay: '100ms' }}>
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                  <TrendingUp className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">OptiBay Load Index (OBLI)</h3>
-                <p className="text-muted-foreground">
-                  0–100 daily load score so you see how heavy the day really is at a glance
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20">
-                  <Wrench className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Technician Tools</h3>
-                <p className="text-muted-foreground">
-                  Streamlined workflows for techs to update job status and track parts
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20">
-                  <BarChart3 className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Analytics Dashboard</h3>
-                <p className="text-muted-foreground">
-                  Real-time insights into shop performance, technician efficiency, and revenue
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 border border-primary/20">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Time Tracking</h3>
-                <p className="text-muted-foreground">
-                  Accurate time logging for labor estimates and job completion tracking
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:border-primary/50 hover:scale-[1.02] transition-all duration-300">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10 border border-accent/20">
-                  <Zap className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Integrations</h3>
-                <p className="text-muted-foreground">
-                  Connect with your existing shop management software and tools
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/features">View All Features</Link>
-            </Button>
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            {audiences.map(({icon: Icon, title, text, href, color}) => <Link key={title} to={href} className={panel + " group flex flex-col gap-4"}>
+              <Icon className={"h-8 w-8 " + color} aria-hidden="true" />
+              <h3 className="text-xl font-semibold">{title}</h3><p className="text-muted-foreground flex-1">{text}</p>
+              <span className="text-accent text-sm font-medium flex items-center gap-2">Explore <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
+            </Link>)}
           </div>
         </div>
       </section>
-
-      {/* Beta Roadmap */}
-      <BetaRoadmap />
-
-      {/* CTA Section */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
-        
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center animate-fade-in">
-            <div className="relative inline-block mb-6">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
-                  Join the Private Beta
-                </span>
-              </h2>
-              <div className="absolute -inset-4 bg-primary/10 blur-2xl -z-10 rounded-full"></div>
+      <section id="core" className="py-16 sm:py-24 scroll-mt-24 border-t border-primary/15">
+        <div className={section}>
+          <div className="max-w-3xl mb-10">
+            <p className="text-accent uppercase tracking-widest text-sm mb-3">OptiBay Core · Private beta</p>
+            <h2 className="text-3xl sm:text-5xl font-bold mb-4"><span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">End the chaos.</span> Optimize every bay.</h2>
+            <p className="text-lg text-muted-foreground">An operational intelligence layer designed to complement your shop's existing business systems. Know who is working, where vehicles are, what needs attention and what comes next.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {coreFeatures.map(({icon: Icon, title, text}) => <article key={title} className={panel}><Icon className="h-7 w-7 text-accent mb-4" aria-hidden="true" /><h3 className="text-xl font-semibold mb-2">{title}</h3><p className="text-muted-foreground">{text}</p></article>)}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4"><Button asChild><Link to="/features">Explore Core features</Link></Button><Button asChild variant="outline"><Link to="/pricing">See pricing</Link></Button></div>
+        </div>
+      </section>
+      <section id="professionals" className="py-16 sm:py-24 scroll-mt-24 border-t border-primary/15">
+        <div className={section + " grid lg:grid-cols-2 gap-10 items-center"}>
+          <div>
+            <p className="text-accent uppercase tracking-widest text-sm mb-3">Passport · Connect · Learning Center</p>
+            <h2 className="text-3xl sm:text-5xl font-bold mb-5">Your career belongs to you.</h2>
+            <p className="text-lg text-muted-foreground mb-6">From your first day of school to your next career opportunity, build a professional record that follows you, not your employer.</p>
+            <div className="space-y-4">
+              {[{icon: IdCard, title:"OptiBay Passport", text:"Your experience, skills, education, certifications and toolbox."},{icon: Network,title:"OptiBay Connect",text:"Discover opportunities and manage how you are visible to hiring shops."},{icon: BookOpen,title:"Learning Center",text:"Explore training resources and keep a record of your learning."}].map(({icon:Icon,title,text})=><div key={title} className="flex gap-4 items-start"><Icon className="h-6 w-6 text-accent shrink-0 mt-1" aria-hidden="true" /><div><h3 className="font-semibold">{title}</h3><p className="text-muted-foreground">{text}</p></div></div>)}
             </div>
-            <p className="mb-4 text-lg text-muted-foreground">
-              Be among the first shops to experience OptiBay. Get early access, founding pricing, and direct input on features.
-            </p>
-            <p className="mb-8 text-sm text-accent">
-              Limited spots available for our private beta program.
-            </p>
-            <Button asChild size="lg" className="text-lg px-12 group">
-              <Link to="/beta" className="flex items-center gap-2">
-                Apply for Beta Access
-                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-            </Button>
+          </div>
+          <div className={panel + " shadow-[var(--glow-soft)]"}>
+            <div className="flex gap-4 items-center border-b border-primary/25 pb-5 mb-5"><div className="p-3 rounded-lg bg-primary/10"><IdCard className="w-10 h-10 text-primary" /></div><div><p className="text-accent text-xs tracking-widest uppercase">OptiBay Passport</p><h3 className="text-xl font-bold">Your professional record</h3><p className="text-sm text-muted-foreground">Illustrative profile</p></div></div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {["Professional experience","Education & credentials","Skills & proficiency","Toolbox","Learning history","Privacy & visibility"].map(item=><div key={item} className="rounded-lg border border-primary/20 bg-background/40 px-4 py-4 text-sm">{item}</div>)}
+            </div>
+            <p className="mt-5 text-xs text-muted-foreground">Conceptual illustration, not a live user profile.</p>
           </div>
         </div>
       </section>
-
-      {/* Internal Links */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <p className="mt-8 text-sm text-slate-300/80">
-          Want to see more? Explore our{" "}
-          <Link to="/features" className="underline underline-offset-2">
-            key features
-          </Link>
-          , review{" "}
-          <Link to="/pricing" className="underline underline-offset-2">
-            pricing for different shop types
-          </Link>
-          , or learn about{" "}
-          <Link to="/mission" className="underline underline-offset-2">
-            why OptiBay AI was built
-          </Link>
-          .
-        </p>
-      </div>
-
-      {/* SEO Pillar Content */}
-      <SeoPillarSection variant="full" />
+      <section className="py-16 sm:py-24 border-t border-primary/15">
+        <div className={section}>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">From education to experience.</h2>
+          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10">A connected career journey, with the professional at its center.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">{steps.map(({icon:Icon,title,text},i)=><div key={title} className={panel}><span className="text-xs text-accent">0{i+1}</span><Icon className="h-7 w-7 text-primary my-3" aria-hidden="true" /><h3 className="font-semibold mb-2">{title}</h3><p className="text-sm text-muted-foreground">{text}</p></div>)}</div>
+        </div>
+      </section>
+      <section className="py-16 sm:py-24 border-t border-primary/15">
+        <div className={section + " grid lg:grid-cols-2 gap-6"}>
+          <article id="creators" className={panel + " scroll-mt-24"}><Video className="h-9 w-9 mb-5 text-[hsl(var(--soft-orange))]" /><p className="text-sm text-accent mb-2">Invitation-only partnerships</p><h2 className="text-3xl font-bold mb-4">Your expertise. Their next breakthrough.</h2><p className="text-muted-foreground mb-6">Help automotive professionals discover relevant training. OptiBay's creator ecosystem is designed to respect attribution and direct learners to original creator platforms.</p><Button asChild variant="outline"><Link to="/contact">Discuss a creator partnership</Link></Button></article>
+          <article id="schools" className={panel + " scroll-mt-24"}><GraduationCap className="h-9 w-9 mb-5 text-violet-400" /><p className="text-sm text-accent mb-2">Early-access school partnerships</p><h2 className="text-3xl font-bold mb-4">Build the next generation.</h2><p className="text-muted-foreground mb-6">Connect education to employment through student Passports, school programs, cohorts and school-issued attestations. We are seeking partners for controlled school pilots.</p><Button asChild variant="outline"><Link to="/contact">Discuss a school partnership</Link></Button></article>
+        </div>
+      </section>
+      <section className="py-20 sm:py-28 border-t border-primary/15">
+        <div className={section + " text-center max-w-4xl"}>
+          <Users className="mx-auto text-accent h-10 w-10 mb-5" />
+          <h2 className="text-3xl sm:text-5xl font-bold mb-4">Built by automotive professionals.<br/>Built for automotive professionals.</h2>
+          <p className="text-muted-foreground text-lg mb-8">Join our private beta and help shape a platform built around the people doing the work.</p>
+          <div className="flex flex-wrap justify-center gap-4"><Button asChild size="lg"><Link to="/beta">Apply for Beta Access <ArrowRight className="ml-2 h-4 w-4" /></Link></Button><Button asChild variant="outline" size="lg"><Link to="/about/founder">Meet the founder</Link></Button></div>
+        </div>
+      </section>
     </div>
   );
 }

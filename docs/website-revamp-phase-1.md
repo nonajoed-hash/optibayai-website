@@ -1,0 +1,7 @@
+# Website redesign — Phase 1
+
+Founder direction: preserve existing design tokens, dark gradients, particles, watermark, existing logo and hero asset. Expand the story beyond scheduling to the four audiences. Do not publish unreleased product claims. Core is private beta; creator and school partnerships are invitation/early access only. DVI and multi-location management are not Core claims.
+
+This branch is preview-only until founder approval. Home section links are intentional interim destinations, not yet dedicated product pages. Existing legal pages, routes and SMS consent rewrites stay unchanged. No backend or production deployment changes. Contact and beta submissions on non-canonical origins validate locally and show a non-sending notice; Vercel analytics is disabled on those origins. Static noindex is injected for non-production Vercel builds; runtime noindex also applies on non-canonical origins. Noindex is not access control. Confirm preview protection in Vercel before sharing outside the founder team.
+
+Acceptance still required: npm build and typecheck; preview desktop/mobile render, navigation, hash anchors, forms (no network), legal pages, SMS consent, accessibility and performance. Real product screenshots and expanded feature, pricing and ecosystem pages are later phases. Verify production Vercel environment and robots posture before release. Never merge without explicit founder approval.

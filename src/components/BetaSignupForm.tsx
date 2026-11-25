@@ -45,6 +45,10 @@ export const BetaSignupForm = () => {
   });
 
   const onSubmit = async (data: FormData) => {
+    if (!BACKEND_CONFIG.IS_PRODUCTION_SITE) {
+      toast.success("Preview validation passed. No beta application was sent.");
+      return;
+    }
     // DEBUG: Log the endpoint to verify env var injection
     console.log('=== BETA SIGNUP DEBUG ===');
     console.log('BETA_SIGNUP_ENDPOINT:', BACKEND_CONFIG.BETA_SIGNUP_ENDPOINT);

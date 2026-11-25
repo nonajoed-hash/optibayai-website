@@ -14,7 +14,12 @@ const BETA_SIGNUP_ENDPOINT = import.meta.env.VITE_BETA_SIGNUP_ENDPOINT || FALLBA
 const CONTACT_SUBMIT_ENDPOINT = import.meta.env.VITE_CONTACT_SUBMIT_ENDPOINT || FALLBACK_CONTACT_SUBMIT_ENDPOINT;
 const APP_LOGIN_URL = import.meta.env.VITE_APP_LOGIN_URL || FALLBACK_APP_LOGIN_URL;
 
+// Fail closed on every preview, local or non-canonical origin.
+const IS_PRODUCTION_SITE = typeof window !== "undefined" &&
+  ["https://optibayai.com", "https://www.optibayai.com"].includes(window.location.origin);
+
 export const BACKEND_CONFIG = {
+  IS_PRODUCTION_SITE,
   // Edge function endpoint - this project's proxy to the main App's beta-signup handler
   BETA_SIGNUP_ENDPOINT,
   // Edge function endpoint for contact form submissions
