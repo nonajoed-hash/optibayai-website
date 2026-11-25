@@ -120,7 +120,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <h3 className="font-semibold mb-4 text-foreground">Platform & Ecosystem</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link to="/features" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/core" className="text-muted-foreground hover:text-primary transition-colors">
                     Core Features
                   </Link>
                 </li>

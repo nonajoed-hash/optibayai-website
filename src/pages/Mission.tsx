@@ -136,7 +136,7 @@ const Mission = () => {
                 core features
               </Link>
               , read the{" "}
-              <Link to="/founder" className="underline underline-offset-2">
+              <Link to="/about/founder" className="underline underline-offset-2">
                 founder story
               </Link>
               , or{" "}

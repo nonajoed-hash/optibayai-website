@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [react(), mode === "development" && componentTagger(), {
     name: "preview-noindex",
+    apply: "build" as const,
     transformIndexHtml() {
       if (process.env.VERCEL_ENV === "production") return [];
       return [{ tag: "meta", attrs: { name: "robots", content: "noindex, nofollow" }, injectTo: "head" }];

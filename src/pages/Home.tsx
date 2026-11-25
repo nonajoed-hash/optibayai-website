@@ -4,18 +4,18 @@ import { Button } from "@/components/ui/button";
 import bayGridHero from "@/assets/bay-grid-hero.png";
 
 const audiences = [
-  { icon: Wrench, title: "Repair shops", text: "Bring scheduling, people, vehicles and decisions together.", href: "/#core", color: "text-primary" },
+  { icon: Wrench, title: "Repair shops", text: "Bring scheduling, people, vehicles and decisions together.", href: "/core", color: "text-primary" },
   { icon: IdCard, title: "Automotive professionals", text: "Build a professional identity that follows your career.", href: "/#professionals", color: "text-accent" },
   { icon: Video, title: "Training creators", text: "Connect your expertise with the people who need it.", href: "/#creators", color: "text-[hsl(var(--soft-orange))]" },
   { icon: GraduationCap, title: "Automotive schools", text: "Help students take their first steps into the industry.", href: "/#schools", color: "text-violet-400" },
 ];
 const coreFeatures = [
-  { icon: CalendarDays, title: "Scheduling & dispatch", text: "Plan technician workloads, respect bay constraints and manage waiters, due-outs and unfinished work." },
-  { icon: Grid3x3, title: "Birdseye", text: "See your facility, bays, parking and vehicle locations in one visual workspace." },
-  { icon: ClipboardList, title: "Ticket Command Center", text: "Keep work, notes, status and responsibility connected to the operational ticket." },
-  { icon: Repeat2, title: "Front-to-back workflow", text: "Hand work between advisors and technicians while preserving context and custody." },
-  { icon: Clock, title: "Time & labor intelligence", text: "Track work at the job level and preserve measured time through interruptions." },
-  { icon: BarChart3, title: "Operational analytics", text: "Understand technician performance, shop workload and available capacity." },
+  { icon: CalendarDays, title: "Scheduling & dispatch", href: "/core/scheduling", text: "Plan technician workloads, respect bay constraints and manage waiters, due-outs and unfinished work." },
+  { icon: Grid3x3, title: "Birdseye", href: "/core/birdseye", text: "See your facility, bays, parking and vehicle locations in one visual workspace." },
+  { icon: ClipboardList, title: "Ticket Command Center", href: "/core/ticket-command-center", text: "Keep work, notes, status and responsibility connected to the operational ticket." },
+  { icon: Repeat2, title: "Front-to-back workflow", href: "/core/workflow", text: "Hand work between advisors and technicians while preserving context and custody." },
+  { icon: Clock, title: "Time & labor intelligence", href: "/core/time-and-labor", text: "Track work at the job level and preserve measured time through interruptions." },
+  { icon: BarChart3, title: "Operational analytics", href: "/core/analytics", text: "Understand technician performance, shop workload and available capacity." },
 ];
 const steps = [
   { icon: GraduationCap, title: "Learn", text: "Begin a professional record before your first shop job." },
@@ -81,9 +81,9 @@ export default function Home() {
             <p className="text-lg text-muted-foreground">An operational intelligence layer designed to complement your shop's existing business systems. Know who is working, where vehicles are, what needs attention and what comes next.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {coreFeatures.map(({icon: Icon, title, text}) => <article key={title} className={panel}><Icon className="h-7 w-7 text-accent mb-4" aria-hidden="true" /><h3 className="text-xl font-semibold mb-2">{title}</h3><p className="text-muted-foreground">{text}</p></article>)}
+            {coreFeatures.map(({icon: Icon, title, text, href}) => <Link to={href} key={title} className={panel+" group"}><Icon className="h-7 w-7 text-accent mb-4" aria-hidden="true" /><h3 className="text-xl font-semibold mb-2">{title}</h3><p className="text-muted-foreground">{text}</p><span className="text-accent text-sm font-medium flex items-center gap-2 mt-4">Explore <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform"/></span></Link>)}
           </div>
-          <div className="mt-8 flex flex-wrap gap-4"><Button asChild><Link to="/features">Explore Core features</Link></Button><Button asChild variant="outline"><Link to="/pricing">See pricing</Link></Button></div>
+          <div className="mt-8 flex flex-wrap gap-4"><Button asChild><Link to="/core">Explore Core features</Link></Button><Button asChild variant="outline"><Link to="/pricing">See pricing</Link></Button></div>
         </div>
       </section>
       <section id="professionals" className="py-16 sm:py-24 scroll-mt-24 border-t border-primary/15">
