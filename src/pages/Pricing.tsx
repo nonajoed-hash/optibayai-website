@@ -4,41 +4,39 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SeoPillarSection } from "@/components/SeoPillarSection";
 const pricingFaqs = [
   { question: "What does Core cost?", answer: "Core is $349/month after public launch, billed monthly. Pricing subject to change. Closed Beta participants receive free access during beta, 60 days free after launch, and 50% off the public list price in effect at the time of public launch for 12 months." },
   { question: "What do Closed Beta participants receive?", answer: "Free access during the beta period, 60 days free after public launch, then 50% off the public list price in effect at the time of public launch for 12 months. After that, standard pricing applies." },
-  { question: "Can I change plans later?", answer: "Absolutely. You can upgrade or downgrade your plan at any time to match your shop's needs." }
+  { question: "Can I change plans later?", answer: "Core is the current beta offering. Additional plan options will be announced as they become available." }
 ];
 
 export default function Pricing() {
   const plans = [
     {
       name: "Core",
-      description: "AI-powered scheduling and workflow intelligence for modern repair shops.",
+      description: "Operational intelligence for modern repair shops.",
       price: "$349/month",
       features: [
-        "AI-Driven Smart Scheduling",
-        "Dynamic Dispatch Optimization",
-        "Waiter & Drop-Off Intelligence",
-        "OptiLearn Engine",
-        "Drag-and-Drop Dayboard",
-        "Birdseye View Dashboard",
-        "Multi-Bay & Rollover Support",
-        "Live ETA & Job Timers",
-        "CSV Import & Integration Ready",
-        "Role-Based Access"
+        "Constraint-based scheduling & OptiPlace",
+        "Dayboard, OptiBoard & workload visibility",
+        "Waiters, due-outs & unfinished-work rollover",
+        "Birdseye facility & vehicle locations",
+        "Ticket Command Center & FOH/BOH workflow",
+        "Job-level timers & operational analytics",
+        "Professional Passport, Connect & Learning Center",
+        "OptiQueue (shop activation required)",
+        "Role-based access"
       ]
     },
     {
       name: "Catalyst",
-      description: "Advanced coordination and optimization across bays, teams, and workloads.",
+      description: "Adaptive intelligence and confidence-gated automation. In development.",
       price: "Coming Soon",
       features: []
     },
     {
       name: "Enterprise",
-      description: "Built for MSOs, large chains, and corporate operations needing full integration.",
+      description: "Organizational intelligence for multi-location operations. In development.",
       price: "Custom",
       features: []
     }
@@ -62,7 +60,7 @@ export default function Pricing() {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Choose the plan that's right for your shop. All plans include core features with no hidden fees.
+              Core is in private beta. Catalyst and Enterprise are future products.
             </p>
           </div>
 
@@ -108,7 +106,7 @@ export default function Pricing() {
                       <Link to="/beta">Apply for Closed Beta</Link>
                     </Button>
                     <Button asChild className="w-full" variant="outline">
-                      <Link to="/features">Learn More</Link>
+                      <Link to="/core">Learn More</Link>
                     </Button>
                   </CardFooter>
                 )}
@@ -153,7 +151,7 @@ export default function Pricing() {
                 <div className="p-4 rounded-lg bg-background/50 border border-border/40">
                   <h3 className="font-semibold mb-2 text-foreground">Can I change plans later?</h3>
                   <p className="text-muted-foreground">
-                    Absolutely. You can upgrade or downgrade your plan at any time to match your shop's needs.
+                    Core is the current beta offering. Additional plan options will be announced as they become available.
                   </p>
                 </div>
               </div>
@@ -162,7 +160,7 @@ export default function Pricing() {
 
           <p className="mt-8 text-sm text-slate-300/80">
             Not sure which plan fits your shop? Explore{" "}
-            <Link to="/features" className="underline underline-offset-2">
+            <Link to="/core" className="underline underline-offset-2">
               the full feature set
             </Link>
             , learn{" "}
@@ -176,7 +174,7 @@ export default function Pricing() {
             .
           </p>
 
-          <SeoPillarSection variant="mini" />
+
         </div>
       </div>
     </Layout>

@@ -63,6 +63,10 @@ const Contact = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    if (!BACKEND_CONFIG.IS_PRODUCTION_SITE) {
+      toast.success("Preview validation passed. No message was sent.");
+      return;
+    }
     // Manual honeypot check (not in zod schema)
     const honeypot = document.getElementById("website") as HTMLInputElement;
     if (honeypot?.value) return; // Silent reject for bots

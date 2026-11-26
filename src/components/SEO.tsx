@@ -101,7 +101,7 @@ export function OrganizationSchema() {
       name: "OptiBay AI",
       url: "https://optibayai.com",
       logo: "https://optibayai.com/og-image.png",
-      description: "OptiBay AI is smart automotive scheduling software for repair shops.",
+      description: "OptiBay AI connects automotive shop operations, professional identity and learning.",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61572058995307",
         "https://www.instagram.com/optibay_ai",
@@ -126,10 +126,10 @@ export function SoftwareApplicationSchema() {
       url: "https://optibayai.com",
       applicationCategory: "Automotive Repair, Scheduling, SaaS",
       operatingSystem: "Web",
-      description: "OptiBay AI is smart automotive scheduling and auto shop scheduling software that helps repair shops manage technicians, bays, waiters, workflows, and real-time load balancing.",
+      description: "OptiBay Core helps repair shops coordinate technicians, bays, schedules, work and operational capacity.",
       offers: {
         "@type": "Offer",
-        price: "149",
+        price: "349",
         priceCurrency: "USD"
       }
     };

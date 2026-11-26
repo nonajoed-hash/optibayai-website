@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Features from "./pages/Features";
+import CoreProduct, { CoreOverview } from "./pages/CoreProduct";
 import Pricing from "./pages/Pricing";
 import Beta from "./pages/Beta";
 import Privacy from "./pages/Privacy";
@@ -32,6 +33,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/core" element={<CoreOverview />} />
+          <Route path="/core/:slug" element={<CoreProduct />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/beta" element={<Beta />} />
           <Route path="/mission" element={<Mission />} />

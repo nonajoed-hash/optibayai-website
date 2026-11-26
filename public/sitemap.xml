@@ -17,7 +17,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.optibayai.com/features</loc>
+    <loc>https://www.optibayai.com/core</loc>
     <priority>0.7</priority>
   </url>
   <url>
@@ -44,4 +44,11 @@
     <loc>https://www.optibayai.com/legal/terms</loc>
     <priority>0.4</priority>
   </url>
+  <url><loc>https://www.optibayai.com/core/scheduling</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/birdseye</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/ticket-command-center</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/workflow</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/time-and-labor</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/analytics</loc><priority>0.7</priority></url>
+  <url><loc>https://www.optibayai.com/core/communications</loc><priority>0.7</priority></url>
 </urlset>
